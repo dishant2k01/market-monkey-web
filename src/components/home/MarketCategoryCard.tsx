@@ -1,12 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { MarketCategory } from "@/config/home";
 
-export type MarketCategory = {
-  title: string;
-  href: string;
-  imageSrc: string;
-  imageAlt: string;
-};
+export type { MarketCategory };
 
 type MarketCategoryCardProps = {
   category: MarketCategory;

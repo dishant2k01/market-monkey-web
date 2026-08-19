@@ -1,7 +1,4 @@
-import {
-  WhatYouCanDoCard,
-  type CapabilityTone,
-} from "@/components/home/WhatYouCanDoCard";
+import { WhatYouCanDoCard } from "@/components/home/WhatYouCanDoCard";
 import {
   BagIcon,
   ChatIcon,
@@ -10,46 +7,16 @@ import {
   TagIcon,
 } from "@/components/home/whatYouCanDoIcons";
 import { Container } from "@/components/layout/Container";
+import { homeCapabilities, type HomeCapability } from "@/config/home";
 import type { ReactNode } from "react";
 
-const capabilities: Array<{
-  title: string;
-  description: string;
-  tone: CapabilityTone;
-  icon: ReactNode;
-}> = [
-  {
-    title: "See It Live",
-    description:
-      "See the market, shops and products in real-time as if you were there.",
-    tone: "violet",
-    icon: <EyeIcon />,
-  },
-  {
-    title: "Ask Anything",
-    description: "Ask about prices, quality, availability, offers and more.",
-    tone: "amber",
-    icon: <ChatIcon />,
-  },
-  {
-    title: "Compare Prices",
-    description: "Check multiple shops and compare prices instantly.",
-    tone: "rose",
-    icon: <TagIcon />,
-  },
-  {
-    title: "Inspect Quality",
-    description: "Get a close look at product quality and originality.",
-    tone: "green",
-    icon: <QualityShieldIcon />,
-  },
-  {
-    title: "Buy with Confidence",
-    description: "Make better decisions before visiting or purchasing.",
-    tone: "blue",
-    icon: <BagIcon />,
-  },
-];
+const capabilityIcons: Record<HomeCapability["icon"], ReactNode> = {
+  eye: <EyeIcon />,
+  chat: <ChatIcon />,
+  tag: <TagIcon />,
+  quality: <QualityShieldIcon />,
+  bag: <BagIcon />,
+};
 
 export function WhatYouCanDo() {
   return (
@@ -72,12 +39,12 @@ export function WhatYouCanDo() {
         </div>
 
         <ul className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-5 lg:gap-5">
-          {capabilities.map((item) => (
+          {homeCapabilities.map((item) => (
             <WhatYouCanDoCard
               key={item.title}
               title={item.title}
               description={item.description}
-              icon={item.icon}
+              icon={capabilityIcons[item.icon]}
               tone={item.tone}
             />
           ))}

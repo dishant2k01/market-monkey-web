@@ -33,7 +33,7 @@ export function ReadyToExplore() {
                   Sign Up Free
                 </Button>
                 <Button
-                  href="/#become-a-monkey"
+                  href="/become-a-monkey"
                   variant="secondary"
                   size="lg"
                 >

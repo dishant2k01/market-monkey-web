@@ -6,29 +6,15 @@ import {
   ShopIcon,
   UsersIcon,
 } from "@/components/ui/icons";
+import { homeFeatures, type HomeFeature } from "@/config/home";
+import type { ReactNode } from "react";
 
-const features = [
-  {
-    title: "Verified Monkeys",
-    description: "Background checked & trusted",
-    icon: <ShopIcon className="size-5" />,
-  },
-  {
-    title: "Real-Time Experience",
-    description: "Live video from real markets",
-    icon: <LiveClockIcon className="size-5" />,
-  },
-  {
-    title: "Safe & Secure",
-    description: "Your data and payments are protected",
-    icon: <ShieldCheckIcon className="size-5" />,
-  },
-  {
-    title: "Thousands of Happy Users",
-    description: "Loved by customers across India",
-    icon: <UsersIcon className="size-5" />,
-  },
-] as const;
+const featureIcons: Record<HomeFeature["icon"], ReactNode> = {
+  shop: <ShopIcon className="size-5" />,
+  liveClock: <LiveClockIcon className="size-5" />,
+  shield: <ShieldCheckIcon className="size-5" />,
+  users: <UsersIcon className="size-5" />,
+};
 
 export function FeatureHighlights() {
   return (
@@ -39,10 +25,10 @@ export function FeatureHighlights() {
       <Container>
         <div className="rounded-xl bg-surface-muted px-5 py-7 sm:px-8 sm:py-8 lg:px-10">
           <ul className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-            {features.map((feature) => (
+            {homeFeatures.map((feature) => (
               <FeatureCard
                 key={feature.title}
-                icon={feature.icon}
+                icon={featureIcons[feature.icon]}
                 title={feature.title}
                 description={feature.description}
               />

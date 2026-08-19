@@ -1,47 +1,8 @@
 import { MarketCategoryCard } from "@/components/home/MarketCategoryCard";
-import type { MarketCategory } from "@/components/home/MarketCategoryCard";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { ArrowRightIcon } from "@/components/ui/icons";
-
-const categories: MarketCategory[] = [
-  {
-    title: "Clothing & Fashion",
-    href: "/#markets",
-    imageSrc: "/images/markets/clothing-fashion.jpg",
-    imageAlt: "Folded stacks of clothing and fabric",
-  },
-  {
-    title: "Electronics",
-    href: "/#markets",
-    imageSrc: "/images/markets/electronics.jpg",
-    imageAlt: "Modern over-ear headphones",
-  },
-  {
-    title: "Jewelry",
-    href: "/#markets",
-    imageSrc: "/images/markets/jewelry.jpg",
-    imageAlt: "Gold necklace on a jewelry display",
-  },
-  {
-    title: "Home & Decor",
-    href: "/#markets",
-    imageSrc: "/images/markets/home-decor.jpg",
-    imageAlt: "Cozy living room with lamps and furniture",
-  },
-  {
-    title: "Footwear",
-    href: "/#markets",
-    imageSrc: "/images/markets/footwear.jpg",
-    imageAlt: "Pair of stylish sneakers",
-  },
-  {
-    title: "Spices & Dry Fruits",
-    href: "/#markets",
-    imageSrc: "/images/markets/spices-dry-fruits.jpg",
-    imageAlt: "Colorful spices arranged in wooden bowls",
-  },
-];
+import { homeMarketCategories } from "@/config/home";
 
 export function PopularCategories() {
   return (
@@ -64,7 +25,7 @@ export function PopularCategories() {
         </div>
 
         <ul className="mt-12 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:mt-14 lg:grid-cols-6 lg:gap-x-5">
-          {categories.map((category) => (
+          {homeMarketCategories.map((category) => (
             <MarketCategoryCard key={category.title} category={category} />
           ))}
         </ul>

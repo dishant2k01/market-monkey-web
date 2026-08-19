@@ -1,51 +1,6 @@
-import type { Testimonial } from "@/components/home/TestimonialCard";
 import { TestimonialsSlider } from "@/components/home/TestimonialsSlider";
 import { Container } from "@/components/layout/Container";
-
-const testimonials: Testimonial[] = [
-  {
-    quote:
-      "I found the exact same I wanted at half the price! The Monkey showed me so many options in real-time.",
-    name: "Priya S.",
-    location: "Mumbai",
-    avatarSrc: "/images/testimonials/priya.jpg",
-  },
-  {
-    quote:
-      "Amazing experience! I could compare prices from different shops without even stepping out.",
-    name: "Rahul Mehta",
-    location: "Bangalore",
-    avatarSrc: "/images/testimonials/rahul.jpg",
-  },
-  {
-    quote:
-      "Super helpful Monkeys and a great way to shop smart. Highly recommended!",
-    name: "Neha Kapoor",
-    location: "Delhi",
-    avatarSrc: "/images/testimonials/neha.jpg",
-  },
-  {
-    quote:
-      "Booked a live walkthrough of the spice market before my trip. Saved time and money on day one.",
-    name: "Arjun Patel",
-    location: "Pune",
-    avatarSrc: "/images/testimonials/arjun.jpg",
-  },
-  {
-    quote:
-      "I checked fabric quality over video and negotiated confidently. Felt like I was shopping in person.",
-    name: "Meera Iyer",
-    location: "Chennai",
-    avatarSrc: "/images/testimonials/meera.jpg",
-  },
-  {
-    quote:
-      "The live call helped me avoid a bad deal on electronics. Clear, fast, and trustworthy.",
-    name: "Vikram Shah",
-    location: "Ahmedabad",
-    avatarSrc: "/images/testimonials/vikram.jpg",
-  },
-];
+import { homeTestimonials } from "@/config/home";
 
 export function WhatOurUsersSay() {
   return (
@@ -68,7 +23,7 @@ export function WhatOurUsersSay() {
         </div>
 
         <div className="mt-12 lg:mt-14">
-          <TestimonialsSlider testimonials={testimonials} />
+          <TestimonialsSlider testimonials={homeTestimonials} />
         </div>
       </Container>
     </section>

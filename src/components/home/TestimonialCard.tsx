@@ -1,12 +1,8 @@
 import Image from "next/image";
 import { QuoteIcon } from "@/components/ui/icons";
+import type { HomeTestimonial } from "@/config/home";
 
-export type Testimonial = {
-  quote: string;
-  name: string;
-  location: string;
-  avatarSrc: string;
-};
+export type Testimonial = HomeTestimonial;
 
 type TestimonialCardProps = {
   testimonial: Testimonial;

@@ -6,42 +6,21 @@ import {
   SearchExploreIcon,
 } from "@/components/home/howItWorksIcons";
 import { Container } from "@/components/layout/Container";
+import { homeHowItWorksSteps, type HomeHowItWorksStep } from "@/config/home";
+import type { ReactNode } from "react";
 
-const steps = [
-  {
-    step: "01",
-    title: "Choose Market",
-    description: "Select the market or location you want to explore.",
-    icon: <MarketStallIcon />,
-  },
-  {
-    step: "02",
-    title: "Connect with Monkey",
-    description:
-      "We connect you with a verified local Monkey via live video call.",
-    icon: <MonkeyFaceIcon />,
-  },
-  {
-    step: "03",
-    title: "Explore & Ask",
-    description:
-      "Look around in real-time, ask questions, check products and prices.",
-    icon: <SearchExploreIcon />,
-  },
-  {
-    step: "04",
-    title: "Compare & Decide",
-    description:
-      "Compare options, inspect quality and decide before you buy or visit.",
-    icon: <CartDecideIcon />,
-  },
-] as const;
+const stepIcons: Record<HomeHowItWorksStep["icon"], ReactNode> = {
+  market: <MarketStallIcon />,
+  monkey: <MonkeyFaceIcon />,
+  search: <SearchExploreIcon />,
+  cart: <CartDecideIcon />,
+};
 
 export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="bg-surface-muted py-[var(--space-section-y-mobile)] lg:py-[var(--space-section-y)]"
+      className="bg-surface py-[var(--space-section-y-mobile)] lg:py-[var(--space-section-y)]"
       aria-labelledby="how-it-works-heading"
     >
       <Container>
@@ -61,15 +40,15 @@ export function HowItWorks() {
           </p>
         </div>
 
-        <ol className="mt-12 grid grid-cols-1 gap-8 pt-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-8">
-          {steps.map((item, index) => (
+        <ol className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-8">
+          {homeHowItWorksSteps.map((item, index) => (
             <HowItWorksStep
               key={item.step}
               step={item.step}
               title={item.title}
               description={item.description}
-              icon={item.icon}
-              showConnector={index < steps.length - 1}
+              icon={stepIcons[item.icon]}
+              showConnector={index < homeHowItWorksSteps.length - 1}
             />
           ))}
         </ol>

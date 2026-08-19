@@ -7,9 +7,9 @@ export const primaryNav: NavItem[] = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Markets", href: "/#markets" },
   { label: "Pricing", href: "/#pricing" },
-  { label: "Become a Monkey", href: "/#become-a-monkey" },
-  { label: "About", href: "/#about" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "Become a Monkey", href: "/become-a-monkey" },
+  { label: "About", href: "/about" },
+  { label: "FAQ", href: "/contact#faq" },
 ];
 
 export const footerLinkGroups = [
@@ -25,8 +25,8 @@ export const footerLinkGroups = [
   {
     title: "For Monkeys",
     links: [
-      { label: "Become a Monkey", href: "/#become-a-monkey" },
-      { label: "How It Works", href: "/#how-it-works" },
+      { label: "Become a Monkey", href: "/become-a-monkey" },
+      { label: "How It Works", href: "/become-a-monkey#how-it-works" },
       { label: "Earnings", href: "/#earnings" },
       { label: "Resources", href: "/#resources" },
     ],
@@ -34,19 +34,19 @@ export const footerLinkGroups = [
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "/#about" },
+      { label: "About Us", href: "/about" },
       { label: "Careers", href: "/#careers" },
-      { label: "Blog", href: "/#blog" },
-      { label: "Contact Us", href: "/#contact" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contact Us", href: "/contact" },
     ],
   },
   {
     title: "Support",
     links: [
       { label: "Help Center", href: "/#help" },
-      { label: "FAQs", href: "/#faq" },
-      { label: "Terms of Service", href: "/#terms" },
-      { label: "Privacy Policy", href: "/#privacy" },
+      { label: "FAQs", href: "/contact#faq" },
+      { label: "Terms of Service", href: "/terms-of-service" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
     ],
   },
 ] as const;

@@ -1,3 +1,5 @@
+import Link from "next/link";
+import type { ReactNode } from "react";
 import { Logo } from "@/components/brand/Logo";
 import {
   AppStoreBadge,
@@ -23,6 +25,31 @@ const socialIconMap = {
   x: XIcon,
 } as const;
 
+function FooterNavLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
+  const className =
+    "text-sm text-surface-inverse-muted transition-colors hover:text-brand-primary";
+
+  if (href.startsWith("http") || href.startsWith("mailto:")) {
+    return (
+      <a href={href} className={className}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
+}
+
 export function Footer() {
   const year = new Date().getFullYear();
 
@@ -31,7 +58,7 @@ export function Footer() {
       <Container className="py-[var(--space-section-y-mobile)] lg:py-[var(--space-section-y)]">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-3">
-            <Logo variant="dark" showTagline={false} />
+            <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-surface-inverse-muted">
               Market Monkey connects you with verified local Monkeys through
               live video calls to explore real markets, ask questions and shop
@@ -69,12 +96,9 @@ export function Footer() {
                 <ul className="mt-4 space-y-3">
                   {group.links.map((link) => (
                     <li key={link.label}>
-                      <a
-                        href={link.href}
-                        className="text-sm text-surface-inverse-muted transition-colors hover:text-brand-primary"
-                      >
+                      <FooterNavLink href={link.href}>
                         {link.label}
-                      </a>
+                      </FooterNavLink>
                     </li>
                   ))}
                 </ul>
@@ -106,10 +130,16 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-surface-inverse-border pt-6">
-          <p className="text-center text-sm text-surface-inverse-muted">
+        <div className="mt-12 flex flex-col items-center gap-3 border-t border-surface-inverse-border pt-6 sm:flex-row sm:justify-between">
+          <p className="text-sm text-surface-inverse-muted">
             © {year} Market Monkey. All rights reserved.
           </p>
+          <div className="flex items-center gap-4">
+            <FooterNavLink href="/privacy-policy">Privacy Policy</FooterNavLink>
+            <FooterNavLink href="/terms-of-service">
+              Terms of Service
+            </FooterNavLink>
+          </div>
         </div>
       </Container>
     </footer>

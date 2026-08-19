@@ -18,7 +18,7 @@ function ConnectorArrow() {
       aria-hidden="true"
     >
       <path
-        d="M4 2.5 8 6 4 9.5"
+        d="M3.5 2.5 8 6 3.5 9.5"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
@@ -37,32 +37,17 @@ export function HowItWorksStep({
 }: HowItWorksStepProps) {
   return (
     <li className="relative">
-      {/* Count sits on the top-left corner; center aligns with card edges */}
-      <span
-        className="absolute top-0 left-0 z-20 inline-flex size-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand-primary text-[0.6875rem] font-bold tracking-wide text-brand-primary-foreground shadow-xs"
-        aria-hidden="true"
-      >
-        {step}
-      </span>
-
-      {/* Connector links badge centers along the card top edge */}
-      {showConnector ? (
-        <div
-          className="pointer-events-none absolute top-0 left-4 -right-4 z-10 hidden h-0 items-center lg:flex"
+      <article className="relative flex h-full flex-col rounded-xl border border-surface-border bg-surface px-5 pb-6 pt-6 shadow-sm sm:px-6 sm:pb-7 sm:pt-7">
+        <span
+          className="absolute top-4 left-4 inline-flex size-8 items-center justify-center rounded-full bg-brand-primary text-[0.6875rem] font-bold tracking-wide text-brand-primary-foreground"
           aria-hidden="true"
         >
-          <div className="flex w-full items-center gap-1.5">
-            <span className="h-0 flex-1 border-t border-dashed border-surface-border-strong" />
-            <ConnectorArrow />
-            <span className="h-0 flex-1 border-t border-dashed border-surface-border-strong" />
-          </div>
-        </div>
-      ) : null}
+          {step}
+        </span>
 
-      <article className="relative h-full rounded-xl border border-surface-border bg-surface px-5 pb-6 pt-8 shadow-sm sm:px-6 sm:pb-7 sm:pt-9">
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-1 flex-col items-center text-center">
           <div
-            className="mb-4 flex h-14 w-14 items-center justify-center"
+            className="mb-4 mt-2 flex h-16 w-16 items-center justify-center"
             aria-hidden="true"
           >
             {icon}
@@ -73,6 +58,16 @@ export function HowItWorksStep({
           </p>
         </div>
       </article>
+
+      {showConnector ? (
+        <div
+          className="pointer-events-none absolute top-[42%] -right-4 z-10 hidden w-8 -translate-y-1/2 items-center lg:flex xl:-right-5 xl:w-10"
+          aria-hidden="true"
+        >
+          <span className="h-0 flex-1 border-t border-dashed border-surface-border-strong" />
+          <ConnectorArrow />
+        </div>
+      ) : null}
     </li>
   );
 }
