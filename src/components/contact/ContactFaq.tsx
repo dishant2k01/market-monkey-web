@@ -12,12 +12,9 @@ export function ContactFaq() {
       <Container>
         <div className="rounded-2xl bg-surface-muted px-5 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-bold tracking-[0.16em] text-brand-primary uppercase">
-              Quick Answers
-            </p>
             <h2
               id="contact-faq-heading"
-              className="mt-3 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
+              className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
             >
               Frequently Asked Questions
             </h2>

@@ -24,12 +24,9 @@ export function ContactHero() {
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
           <div className="max-w-xl">
-            <p className="text-xs font-bold tracking-[0.16em] text-brand-primary uppercase">
-              Contact Us
-            </p>
             <h1
               id="contact-hero-heading"
-              className="mt-3 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
+              className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
             >
               We&apos;re here to help.
               <span className="mt-1 block text-brand-primary">

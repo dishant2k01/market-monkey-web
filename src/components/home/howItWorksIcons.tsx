@@ -1,146 +1,127 @@
-export function MarketStallIcon({ className = "size-14" }: { className?: string }) {
+export function HowItWorksMapPinIcon({
+  className = "size-8",
+}: {
+  className?: string;
+}) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 56 56"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
+    <svg className={className} viewBox="0 0 48 48" fill="none" aria-hidden="true">
       <path
-        d="M12 26h32v20a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V26Z"
-        fill="var(--surface-subtle)"
-        stroke="var(--ink-secondary)"
-        strokeWidth="1.5"
-      />
-      <path d="M20 48V36h8v12" stroke="var(--ink-secondary)" strokeWidth="1.5" />
-      <path
-        d="M10 26c.3-2.2 2-4 4.2-4h27.6c2.2 0 3.9 1.8 4.2 4"
-        stroke="var(--ink-secondary)"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M14 22 18 11h20l4 11"
-        stroke="var(--ink-secondary)"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M18 11h20"
-        stroke="var(--illustration-stall-awning)"
-        strokeWidth="7"
-        strokeLinecap="round"
-      />
-      <path
-        d="M20 11c1.4 2 2.8 2 4.2 0s2.8-2 4.2 0 2.8 2 4.2 0 2.8-2 4.2 0"
-        stroke="var(--illustration-stall-stripe)"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <rect
-        x="30"
-        y="31"
-        width="9"
-        height="7"
-        rx="1.2"
+        d="M24 42s14-10.4 14-22a14 14 0 1 0-28 0c0 11.6 14 22 14 22Z"
         fill="var(--brand-soft)"
         stroke="var(--brand-primary)"
-        strokeWidth="1.2"
-      />
-    </svg>
-  );
-}
-
-export function MonkeyFaceIcon({ className = "size-14" }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 56 56"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <ellipse cx="14" cy="24" rx="5" ry="6.5" fill="var(--surface-subtle)" stroke="var(--ink)" strokeWidth="1.6" />
-      <ellipse cx="42" cy="24" rx="5" ry="6.5" fill="var(--surface-subtle)" stroke="var(--ink)" strokeWidth="1.6" />
-      <circle cx="28" cy="28" r="16" fill="var(--surface)" stroke="var(--ink)" strokeWidth="1.8" />
-      <ellipse cx="28" cy="31" rx="10" ry="9" fill="var(--surface-subtle)" />
-      <circle cx="22" cy="27" r="2.4" fill="var(--ink)" />
-      <circle cx="34" cy="27" r="2.4" fill="var(--ink)" />
-      <circle cx="22.7" cy="26.3" r="0.7" fill="var(--surface)" />
-      <circle cx="34.7" cy="26.3" r="0.7" fill="var(--surface)" />
-      <path
-        d="M25 34.5c.9 1.2 2 1.8 3 1.8s2.1-.6 3-1.8"
-        stroke="var(--ink)"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-      />
-      <path
-        d="M19 18c1.2-3 4-5 9-5s7.8 2 9 5"
-        stroke="var(--ink)"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-export function SearchExploreIcon({ className = "size-14" }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 56 56"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <circle cx="23" cy="23" r="12" fill="var(--accent-blue-soft)" stroke="var(--accent-blue)" strokeWidth="2" />
-      <circle cx="23" cy="23" r="6" stroke="var(--ink-secondary)" strokeWidth="1.6" />
-      <path
-        d="m33 33 11 11"
-        stroke="var(--illustration-package)"
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
-      <path
-        d="m33 33 11 11"
-        stroke="var(--ink-secondary)"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-export function CartDecideIcon({ className = "size-14" }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 56 56"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M10 14h5l4 18.5a2.5 2.5 0 0 0 2.5 2h18a2.5 2.5 0 0 0 2.4-1.9L46 18H17"
-        stroke="var(--illustration-package)"
-        strokeWidth="2.2"
-        strokeLinecap="round"
+        strokeWidth="2.5"
         strokeLinejoin="round"
       />
-      <circle cx="23" cy="42" r="3" fill="var(--illustration-package)" />
-      <circle cx="39" cy="42" r="3" fill="var(--illustration-package)" />
-      <rect
-        x="24"
-        y="8"
-        width="11"
-        height="9"
-        rx="1.5"
-        fill="var(--accent-amber)"
-        stroke="var(--ink-secondary)"
-        strokeWidth="1.1"
+      <circle cx="24" cy="20" r="5.5" fill="var(--brand-primary)" />
+      <circle cx="24" cy="20" r="2.25" fill="var(--brand-primary-foreground)" />
+    </svg>
+  );
+}
+
+export function HowItWorksMonkeyIcon({
+  className = "size-8",
+}: {
+  className?: string;
+}) {
+  return (
+    <svg className={className} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <circle cx="24" cy="24" r="16" fill="var(--brand-primary)" />
+      <ellipse cx="24" cy="27" rx="9" ry="8" fill="var(--brand-soft)" />
+      <circle cx="14" cy="20" r="4.5" fill="var(--brand-primary)" />
+      <circle cx="34" cy="20" r="4.5" fill="var(--brand-primary)" />
+      <circle cx="14" cy="20" r="2.5" fill="var(--brand-soft)" />
+      <circle cx="34" cy="20" r="2.5" fill="var(--brand-soft)" />
+      <circle cx="20" cy="25" r="1.6" fill="var(--ink)" />
+      <circle cx="28" cy="25" r="1.6" fill="var(--ink)" />
+      <path
+        d="M20.5 31c1.2 1.4 2.6 2.1 3.5 2.1s2.3-.7 3.5-2.1"
+        stroke="var(--ink)"
+        strokeWidth="1.8"
+        strokeLinecap="round"
       />
-      <path d="M24 12.5h11" stroke="var(--ink-secondary)" strokeWidth="1.1" />
+      <rect
+        x="16"
+        y="22.5"
+        width="7"
+        height="5.5"
+        rx="1.5"
+        stroke="var(--brand-primary-active)"
+        strokeWidth="1.6"
+        fill="none"
+      />
+      <rect
+        x="25"
+        y="22.5"
+        width="7"
+        height="5.5"
+        rx="1.5"
+        stroke="var(--brand-primary-active)"
+        strokeWidth="1.6"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+export function HowItWorksCameraIcon({
+  className = "size-8",
+}: {
+  className?: string;
+}) {
+  return (
+    <svg className={className} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <rect
+        x="6"
+        y="14"
+        width="26"
+        height="20"
+        rx="4"
+        fill="var(--brand-soft)"
+        stroke="var(--brand-primary)"
+        strokeWidth="2.5"
+      />
+      <circle cx="19" cy="24" r="5.5" stroke="var(--brand-primary)" strokeWidth="2.5" />
+      <circle cx="19" cy="24" r="2.5" fill="var(--brand-primary)" />
+      <path
+        d="M32 20.5 40 15v18l-8-5.5"
+        fill="var(--brand-soft)"
+        stroke="var(--brand-primary)"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="18.5" r="1.5" fill="var(--brand-primary)" />
+    </svg>
+  );
+}
+
+export function HowItWorksExploreIcon({
+  className = "size-8",
+}: {
+  className?: string;
+}) {
+  return (
+    <svg className={className} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path
+        d="M10 14a6 6 0 0 1 6-6h12a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H20l-7 6v-6a6 6 0 0 1-3-5.2V14Z"
+        fill="var(--brand-soft)"
+        stroke="var(--brand-primary)"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+      />
+      <circle
+        cx="32"
+        cy="30"
+        r="7"
+        fill="var(--surface)"
+        stroke="var(--brand-primary)"
+        strokeWidth="2.5"
+      />
+      <path
+        d="m37 35 5.5 5.5"
+        stroke="var(--brand-primary)"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }

@@ -23,12 +23,9 @@ export function AboutValues() {
     >
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-bold tracking-[0.16em] text-brand-primary uppercase">
-            Our Values
-          </p>
           <h2
             id="about-values-heading"
-            className="mt-3 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
+            className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
           >
             What Drives Us Every Day
           </h2>

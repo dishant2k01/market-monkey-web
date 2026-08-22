@@ -23,18 +23,15 @@ const highlightIcons: Record<AboutHighlight["icon"], ReactNode> = {
 export function AboutHero() {
   return (
     <section
-      className="bg-surface pt-[var(--space-section-y-mobile)] pb-16 lg:pt-[var(--space-section-y)] lg:pb-20"
+      className="bg-surface pt-[var(--space-section-y-mobile)] pb-10 lg:pt-[var(--space-section-y)] lg:pb-12"
       aria-labelledby="about-hero-heading"
     >
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="max-w-xl">
-            <p className="inline-flex rounded-full bg-brand-soft px-3 py-1 text-xs font-bold tracking-[0.08em] text-brand-primary uppercase">
-              About Market Monkey
-            </p>
             <h1
               id="about-hero-heading"
-              className="mt-4 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
+              className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
             >
               Our Mission is to Empower{" "}
               <span className="text-brand-primary">Smarter Business Decisions.</span>

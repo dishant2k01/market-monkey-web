@@ -5,8 +5,12 @@ import { useEffect, useId, useState } from "react";
 import { Logo } from "@/components/brand/Logo";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
-import { ArrowRightIcon, CloseIcon, MenuIcon } from "@/components/ui/icons";
-import { primaryNav } from "@/config/navigation";
+import {
+  CloseIcon,
+  MapPinIcon,
+  MenuIcon,
+} from "@/components/ui/icons";
+import { headerLocation, primaryNav } from "@/config/navigation";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -50,7 +54,7 @@ export function Header() {
         <Logo />
 
         <nav
-          className="hidden items-center gap-[var(--space-nav-gap)] lg:flex"
+          className="hidden items-center gap-[var(--space-nav-gap)] xl:flex"
           aria-label="Primary"
         >
           {primaryNav.map((item) => (
@@ -64,24 +68,23 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <Button
-            href="/#get-app"
-            size="md"
-            rightIcon={<ArrowRightIcon className="size-3.5" />}
+        <div className="hidden items-center gap-4 lg:flex">
+          <button
+            type="button"
+            className="inline-flex items-center gap-2 text-sm font-medium text-ink-secondary transition-colors hover:text-brand-primary"
+            aria-label={`Current location ${headerLocation.label}`}
           >
-            Get the App
+            <MapPinIcon className="size-4 text-brand-primary" />
+            {headerLocation.label}
+          </button>
+          <Button href="/#get-app" size="md">
+            Download App
           </Button>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <Button
-            href="/#get-app"
-            size="sm"
-            className="hidden sm:inline-flex"
-            rightIcon={<ArrowRightIcon className="size-3.5" />}
-          >
-            Get the App
+          <Button href="/#get-app" size="sm" className="hidden sm:inline-flex">
+            Download App
           </Button>
           <button
             type="button"
@@ -103,6 +106,10 @@ export function Header() {
         }`}
       >
         <Container className="flex flex-col gap-1 py-4">
+          <p className="mb-2 inline-flex items-center gap-2 px-3 text-sm font-medium text-ink-secondary">
+            <MapPinIcon className="size-4 text-brand-primary" />
+            {headerLocation.label}
+          </p>
           <nav aria-label="Mobile primary">
             <ul className="flex flex-col">
               {primaryNav.map((item) => (
@@ -119,13 +126,8 @@ export function Header() {
             </ul>
           </nav>
           <div className="mt-2 border-t border-surface-border pt-4 sm:hidden">
-            <Button
-              href="/#get-app"
-              className="w-full"
-              rightIcon={<ArrowRightIcon className="size-3.5" />}
-              onClick={closeMobile}
-            >
-              Get the App
+            <Button href="/#get-app" className="w-full" onClick={closeMobile}>
+              Download App
             </Button>
           </div>
         </Container>

@@ -2,9 +2,11 @@
 
 import { useId, useState } from "react";
 import { ChevronDownIcon } from "@/components/contact/contactIcons";
-import type { ContactFaqItem } from "@/config/contact";
 
-export type FaqItem = ContactFaqItem;
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
 
 type ContactFaqProps = {
   items: FaqItem[];

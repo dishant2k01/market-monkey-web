@@ -2,15 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 const LOGO_SRC = "/images/brand/logo.png";
-const LOGO_WIDTH = 2172;
-const LOGO_HEIGHT = 724;
+const LOGO_WIDTH = 1983;
+const LOGO_HEIGHT = 793;
 
 type LogoProps = {
   className?: string;
   href?: string;
-  /** Kept for call-site compatibility; the asset is already without a tagline. */
   showTagline?: boolean;
-  /** Kept for call-site compatibility; the PNG works on light and dark surfaces. */
   variant?: "light" | "dark";
 };
 
@@ -22,7 +20,7 @@ export function MonkeyMark({ className = "" }: { className?: string }) {
         alt=""
         width={LOGO_HEIGHT}
         height={LOGO_HEIGHT}
-        className="size-full max-w-none scale-[1.45] object-cover object-[14%_center]"
+        className="size-full max-w-none scale-[1.55] object-cover object-[12%_center]"
         sizes="96px"
         aria-hidden="true"
       />
@@ -30,10 +28,7 @@ export function MonkeyMark({ className = "" }: { className?: string }) {
   );
 }
 
-export function Logo({
-  className = "",
-  href = "/",
-}: LogoProps) {
+export function Logo({ className = "", href = "/" }: LogoProps) {
   const image = (
     <Image
       src={LOGO_SRC}
@@ -41,8 +36,8 @@ export function Logo({
       width={LOGO_WIDTH}
       height={LOGO_HEIGHT}
       priority
-      className={`h-9 w-auto sm:h-10 ${className}`}
-      sizes="(max-width: 640px) 144px, 160px"
+      className={`h-12 w-auto max-h-[3.5rem] object-contain object-left sm:h-14 sm:max-h-14 ${className}`}
+      sizes="(max-width: 640px) 220px, 260px"
     />
   );
 
@@ -53,7 +48,7 @@ export function Logo({
   return (
     <Link
       href={href}
-      className="inline-flex shrink-0 rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+      className="inline-flex shrink-0 items-center rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
       aria-label="Market Monkey home"
     >
       {image}

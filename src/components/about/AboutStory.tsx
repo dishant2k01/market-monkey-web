@@ -25,12 +25,9 @@ export function AboutStory() {
       <Container>
         <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="max-w-xl">
-            <p className="text-xs font-bold tracking-[0.16em] text-brand-primary uppercase">
-              Our Story
-            </p>
             <h2
               id="about-story-heading"
-              className="mt-3 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
+              className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
             >
               Built with a Vision to Simplify{" "}
               <span className="text-brand-primary">Market Intelligence.</span>

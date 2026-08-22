@@ -35,18 +35,15 @@ const statIcons: Record<BecomeHeroStat["icon"], ReactNode> = {
 export function BecomeHero() {
   return (
     <section
-      className="bg-surface-muted pt-[var(--space-section-y-mobile)] pb-16 lg:pt-[var(--space-section-y)] lg:pb-20"
+      className="bg-surface-muted pt-[var(--space-section-y-mobile)] pb-10 lg:pt-[var(--space-section-y)] lg:pb-12"
       aria-labelledby="become-hero-heading"
     >
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="max-w-xl">
-            <p className="inline-flex rounded-full bg-brand-soft px-3 py-1 text-xs font-bold tracking-[0.08em] text-brand-primary uppercase">
-              Join Our Community
-            </p>
             <h1
               id="become-hero-heading"
-              className="mt-4 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
+              className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
             >
               Become a Monkey. Share your skills.{" "}
               <span className="text-brand-primary">Earn on your time.</span>

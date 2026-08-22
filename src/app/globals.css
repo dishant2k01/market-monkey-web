@@ -50,6 +50,12 @@
   --color-accent-blue: var(--accent-blue);
   --color-accent-blue-soft: var(--accent-blue-soft);
 
+  --color-feedback-success: var(--feedback-success);
+  --color-feedback-success-soft: var(--feedback-success-soft);
+  --color-feedback-warning: var(--feedback-warning);
+  --color-feedback-error: var(--feedback-error);
+  --color-feedback-info: var(--feedback-info);
+
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);

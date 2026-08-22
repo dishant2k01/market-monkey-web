@@ -11,12 +11,9 @@ export function AboutTeam() {
     >
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-bold tracking-[0.16em] text-brand-primary uppercase">
-            Meet Our Team
-          </p>
           <h2
             id="about-team-heading"
-            className="mt-3 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
+            className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
           >
             The People Behind Market Monkey
           </h2>

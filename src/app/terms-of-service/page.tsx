@@ -13,7 +13,6 @@ export default function TermsOfServicePage() {
   return (
     <>
       <LegalPageHero
-        eyebrow={termsAndConditions.eyebrow}
         title={termsAndConditions.title}
         description={termsAndConditions.description}
         lastUpdated={termsAndConditions.lastUpdated}

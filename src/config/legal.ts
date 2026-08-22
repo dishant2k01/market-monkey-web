@@ -6,7 +6,6 @@ export type LegalSection = {
 };
 
 export type LegalDocument = {
-  eyebrow: string;
   title: string;
   description: string;
   lastUpdated: string;
@@ -14,7 +13,6 @@ export type LegalDocument = {
 };
 
 export const privacyPolicy: LegalDocument = {
-  eyebrow: "Legal",
   title: "Privacy Policy",
   description:
     "This Privacy Policy explains how Market Monkey collects, uses, and protects your information when you use our website, app, and related services.",
@@ -104,7 +102,6 @@ export const privacyPolicy: LegalDocument = {
 };
 
 export const termsAndConditions: LegalDocument = {
-  eyebrow: "Legal",
   title: "Terms of Service",
   description:
     "These Terms of Service govern your access to and use of Market Monkey’s website, application, and services. Please read them carefully before using the platform.",

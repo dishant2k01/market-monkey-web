@@ -6,20 +6,33 @@ export type NavItem = {
 export const primaryNav: NavItem[] = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Markets", href: "/#markets" },
+  { label: "For Customers", href: "/#for-customers" },
+  { label: "For Monkeys", href: "/#for-monkeys" },
   { label: "Pricing", href: "/#pricing" },
-  { label: "Become a Monkey", href: "/become-a-monkey" },
-  { label: "About", href: "/about" },
-  { label: "FAQ", href: "/contact#faq" },
+  { label: "About Us", href: "/about" },
 ];
 
+export const headerLocation = {
+  label: "Pune, India",
+} as const;
+
 export const footerLinkGroups = [
+  {
+    title: "Explore",
+    links: [
+      { label: "All Markets", href: "/#markets" },
+      { label: "Popular Markets", href: "/#markets" },
+      { label: "Top Categories", href: "/#markets" },
+      { label: "Offers", href: "/#pricing" },
+    ],
+  },
   {
     title: "For Customers",
     links: [
       { label: "How It Works", href: "/#how-it-works" },
-      { label: "Explore Markets", href: "/#markets" },
       { label: "Safety & Trust", href: "/#safety" },
-      { label: "Pricing", href: "/#pricing" },
+      { label: "FAQ", href: "/#faq" },
+      { label: "Customer Support", href: "/contact" },
     ],
   },
   {
@@ -27,8 +40,8 @@ export const footerLinkGroups = [
     links: [
       { label: "Become a Monkey", href: "/become-a-monkey" },
       { label: "How It Works", href: "/become-a-monkey#how-it-works" },
-      { label: "Earnings", href: "/#earnings" },
-      { label: "Resources", href: "/#resources" },
+      { label: "Earnings", href: "/#pricing" },
+      { label: "Monkey Support", href: "/contact" },
     ],
   },
   {
@@ -41,12 +54,11 @@ export const footerLinkGroups = [
     ],
   },
   {
-    title: "Support",
+    title: "Legal",
     links: [
-      { label: "Help Center", href: "/#help" },
-      { label: "FAQs", href: "/contact#faq" },
       { label: "Terms of Service", href: "/terms-of-service" },
       { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Refund Policy", href: "/terms-of-service" },
     ],
   },
 ] as const;
@@ -54,8 +66,8 @@ export const footerLinkGroups = [
 export const socialLinks = [
   { label: "Facebook", href: "https://www.facebook.com", icon: "facebook" },
   { label: "Instagram", href: "https://www.instagram.com", icon: "instagram" },
-  { label: "YouTube", href: "https://www.youtube.com", icon: "youtube" },
   { label: "X", href: "https://x.com", icon: "x" },
+  { label: "LinkedIn", href: "https://www.linkedin.com", icon: "linkedin" },
 ] as const;
 
 export const appStoreLinks = [

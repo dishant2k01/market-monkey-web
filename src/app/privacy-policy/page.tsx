@@ -13,7 +13,6 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <LegalPageHero
-        eyebrow={privacyPolicy.eyebrow}
         title={privacyPolicy.title}
         description={privacyPolicy.description}
         lastUpdated={privacyPolicy.lastUpdated}

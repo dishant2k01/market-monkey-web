@@ -1,28 +1,20 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Logo } from "@/components/brand/Logo";
-import {
-  AppStoreBadge,
-  GooglePlayBadge,
-} from "@/components/layout/AppStoreBadges";
 import { Container } from "@/components/layout/Container";
 import {
   FacebookIcon,
   InstagramIcon,
+  LinkedInIcon,
   XIcon,
-  YouTubeIcon,
 } from "@/components/ui/icons";
-import {
-  appStoreLinks,
-  footerLinkGroups,
-  socialLinks,
-} from "@/config/navigation";
+import { footerLinkGroups, socialLinks } from "@/config/navigation";
 
 const socialIconMap = {
   facebook: FacebookIcon,
   instagram: InstagramIcon,
-  youtube: YouTubeIcon,
   x: XIcon,
+  linkedin: LinkedInIcon,
 } as const;
 
 function FooterNavLink({
@@ -60,9 +52,9 @@ export function Footer() {
           <div className="lg:col-span-3">
             <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-surface-inverse-muted">
-              Market Monkey connects you with verified local Monkeys through
-              live video calls to explore real markets, ask questions and shop
-              with confidence.
+              Live market exploration with verified local Monkeys—explore local
+              markets online, compare prices before buying, and shop with
+              confidence.
             </p>
             <ul
               className="mt-6 flex items-center gap-3"
@@ -87,7 +79,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-6">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-9 lg:grid-cols-5">
             {footerLinkGroups.map((group) => (
               <div key={group.title}>
                 <h2 className="text-sm font-bold text-ink-inverse">
@@ -105,40 +97,16 @@ export function Footer() {
               </div>
             ))}
           </div>
-
-          <div className="lg:col-span-3">
-            <h2 className="text-sm font-bold text-ink-inverse">
-              Download the App
-            </h2>
-            <div className="mt-4 flex flex-col gap-3">
-              {appStoreLinks.map((item) =>
-                item.store === "google" ? (
-                  <GooglePlayBadge
-                    key={item.store}
-                    href={item.href}
-                    label={item.label}
-                  />
-                ) : (
-                  <AppStoreBadge
-                    key={item.store}
-                    href={item.href}
-                    label={item.label}
-                  />
-                ),
-              )}
-            </div>
-          </div>
         </div>
 
         <div className="mt-12 flex flex-col items-center gap-3 border-t border-surface-inverse-border pt-6 sm:flex-row sm:justify-between">
           <p className="text-sm text-surface-inverse-muted">
             © {year} Market Monkey. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <FooterNavLink href="/terms-of-service">Terms of Service</FooterNavLink>
             <FooterNavLink href="/privacy-policy">Privacy Policy</FooterNavLink>
-            <FooterNavLink href="/terms-of-service">
-              Terms of Service
-            </FooterNavLink>
+            <FooterNavLink href="/terms-of-service">Refund Policy</FooterNavLink>
           </div>
         </div>
       </Container>

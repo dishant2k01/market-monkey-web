@@ -8,12 +8,9 @@ export function BlogHero() {
     >
       <Container>
         <div className="max-w-3xl">
-          <p className="text-xs font-bold tracking-[0.16em] text-brand-primary uppercase">
-            Our Blog
-          </p>
           <h1
             id="blog-hero-heading"
-            className="mt-3 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
+            className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
           >
             Insights that help you{" "}
             <span className="text-brand-primary">grow.</span>
