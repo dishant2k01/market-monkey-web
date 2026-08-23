@@ -1,14 +1,21 @@
+import Link from "next/link";
 import type { LegalSection } from "@/config/legal";
 import { LegalTableOfContents } from "@/components/legal/LegalTableOfContents";
 import { Container } from "@/components/layout/Container";
 
 type LegalDocumentContentProps = {
   sections: LegalSection[];
+  relatedHref: string;
+  relatedLabel: string;
 };
 
-export function LegalDocumentContent({ sections }: LegalDocumentContentProps) {
+export function LegalDocumentContent({
+  sections,
+  relatedHref,
+  relatedLabel,
+}: LegalDocumentContentProps) {
   return (
-    <section className="bg-surface py-[var(--space-section-y-mobile)] lg:py-[var(--space-section-y)]">
+    <section className="bg-surface-muted pt-[var(--space-section-y-mobile)] pb-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y)] lg:pb-[var(--space-section-y)]">
       <Container>
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-14">
           <LegalTableOfContents sections={sections} />
@@ -27,7 +34,7 @@ export function LegalDocumentContent({ sections }: LegalDocumentContentProps) {
                   <div className="mt-4 space-y-4">
                     {section.paragraphs.map((paragraph) => (
                       <p
-                        key={paragraph.slice(0, 48)}
+                        key={paragraph.slice(0, 64)}
                         className="text-sm leading-relaxed text-ink-muted sm:text-base"
                       >
                         {paragraph}
@@ -45,12 +52,16 @@ export function LegalDocumentContent({ sections }: LegalDocumentContentProps) {
               ))}
             </div>
 
-            <div className="mt-12 rounded-xl border border-brand-soft-border bg-brand-soft px-5 py-4">
+            <div className="mt-12 flex flex-col gap-3 rounded-xl border border-brand-soft-border bg-brand-soft px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm leading-relaxed text-ink-secondary">
-                This page contains placeholder legal content for design and
-                development purposes. Replace it with counsel-approved copy
-                before production launch.
+                Looking for related legal information?
               </p>
+              <Link
+                href={relatedHref}
+                className="inline-flex text-sm font-semibold text-brand-primary hover:text-brand-primary-hover"
+              >
+                {relatedLabel} →
+              </Link>
             </div>
           </div>
         </div>

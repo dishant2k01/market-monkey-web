@@ -1,10 +1,5 @@
 import { Container } from "@/components/layout/Container";
-import { ShieldCheckIcon } from "@/components/ui/icons";
-import {
-  verificationSteps,
-  verificationTrust,
-  type VerificationStep,
-} from "@/config/home";
+import { verificationSteps, type VerificationStep } from "@/config/home";
 import type { ReactNode } from "react";
 
 function RegisterIcon({ className = "size-6" }: { className?: string }) {
@@ -137,47 +132,31 @@ export function VerificationSection() {
           </p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 lg:mt-12 lg:flex-row lg:items-stretch lg:gap-5 xl:gap-7">
-          <ol className="grid flex-1 grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-5 lg:gap-4 xl:gap-6">
-            {verificationSteps.map((item, index) => (
-              <li key={item.step} className="relative">
-                {index < verificationSteps.length - 1 ? <StepArrow /> : null}
+        <ol className="mx-auto mt-10 grid max-w-6xl grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:mt-12 lg:grid-cols-5 lg:gap-4 xl:gap-6">
+          {verificationSteps.map((item, index) => (
+            <li key={item.step} className="relative">
+              {index < verificationSteps.length - 1 ? <StepArrow /> : null}
 
-                <article className="flex h-full flex-col items-center rounded-2xl border border-surface-border bg-surface px-3.5 py-6 text-center shadow-sm sm:px-4 sm:py-7">
-                  <span
-                    className={`inline-flex size-10 items-center justify-center ${
-                      item.icon === "approved"
-                        ? "text-feedback-success"
-                        : "text-ink-secondary"
-                    }`}
-                  >
-                    {stepIcons[item.icon]}
-                  </span>
-                  <h3 className="mt-3.5 text-sm font-bold text-ink">
-                    {item.step}. {item.title}
-                  </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-ink-muted">
-                    {item.description}
-                  </p>
-                </article>
-              </li>
-            ))}
-          </ol>
-
-          <aside className="flex items-center gap-4 rounded-2xl border border-surface-border bg-surface px-5 py-5 shadow-sm sm:gap-5 sm:px-6 sm:py-6 lg:w-[16.5rem] lg:shrink-0 xl:w-[18rem]">
-            <span className="inline-flex size-14 shrink-0 items-center justify-center rounded-2xl bg-brand-soft text-brand-primary">
-              <ShieldCheckIcon className="size-8" />
-            </span>
-            <div className="min-w-0 text-left">
-              <h3 className="text-base font-extrabold text-ink xl:text-lg">
-                {verificationTrust.title}
-              </h3>
-              <p className="mt-1 text-sm leading-snug text-ink-muted">
-                {verificationTrust.description}
-              </p>
-            </div>
-          </aside>
-        </div>
+              <article className="flex h-full flex-col items-center rounded-2xl border border-surface-border bg-surface px-3.5 py-6 text-center shadow-sm sm:px-4 sm:py-7">
+                <span
+                  className={`inline-flex size-10 items-center justify-center ${
+                    item.icon === "approved"
+                      ? "text-feedback-success"
+                      : "text-ink-secondary"
+                  }`}
+                >
+                  {stepIcons[item.icon]}
+                </span>
+                <h3 className="mt-3.5 text-sm font-bold text-ink">
+                  {item.step}. {item.title}
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-ink-muted">
+                  {item.description}
+                </p>
+              </article>
+            </li>
+          ))}
+        </ol>
       </Container>
     </section>
   );

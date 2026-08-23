@@ -1,3 +1,126 @@
+export function TargetIcon({ className = "size-7" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <circle cx="11" cy="13" r="7.25" stroke="currentColor" strokeWidth="1.75" />
+      <circle cx="11" cy="13" r="4" stroke="currentColor" strokeWidth="1.75" />
+      <circle cx="11" cy="13" r="1.35" fill="currentColor" />
+      <path
+        d="M14.5 9.5 20.5 3.5M17.25 3.5h3.25V6.75"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="m14.5 9.5 1.75-4.25L20.5 3.5l-1.75 4.25L14.5 9.5Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function EyeIcon({ className = "size-7" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M2.5 12s3.5-6.5 9.5-6.5S21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="12" r="2.75" stroke="currentColor" strokeWidth="1.75" />
+    </svg>
+  );
+}
+
+export function ShopOutlineIcon({ className = "size-6" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M4 10.5 5.5 5h13L20 10.5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4 10.5h16v8.25a1.75 1.75 0 0 1-1.75 1.75H5.75A1.75 1.75 0 0 1 4 18.75V10.5Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.5 20.5v-5h5v5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function MapPinOutlineIcon({
+  className = "size-6",
+}: {
+  className?: string;
+}) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 21s6.5-5.2 6.5-11A6.5 6.5 0 0 0 5.5 10c0 5.8 6.5 11 6.5 11Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="10" r="2.4" stroke="currentColor" strokeWidth="1.75" />
+    </svg>
+  );
+}
+
+export function StarOutlineIcon({ className = "size-6" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="m12 3.5 2.4 4.85 5.35.78-3.87 3.77.91 5.33L12 15.7l-4.79 2.53.91-5.33-3.87-3.77 5.35-.78L12 3.5Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function ShieldCheckOutlineIcon({
   className = "size-5",
 }: {

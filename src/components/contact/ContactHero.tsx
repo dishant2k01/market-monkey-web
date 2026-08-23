@@ -1,69 +1,73 @@
+import Image from "next/image";
 import {
-  ClockIcon,
-  ContactHeroGraphic,
+  HeartIcon,
   HeadsetIcon,
 } from "@/components/contact/contactIcons";
 import { Container } from "@/components/layout/Container";
 import {
+  contactHero,
   contactHeroHighlights,
   type ContactHeroHighlight,
 } from "@/config/contact";
 import type { ReactNode } from "react";
 
 const highlightIcons: Record<ContactHeroHighlight["icon"], ReactNode> = {
-  clock: <ClockIcon className="size-4" />,
-  headset: <HeadsetIcon className="size-4" />,
+  headset: <HeadsetIcon className="size-5" />,
+  heart: <HeartIcon className="size-5" />,
 };
 
 export function ContactHero() {
   return (
     <section
-      className="bg-surface py-[var(--space-section-y-mobile)] lg:py-[var(--space-section-y)]"
+      className="bg-surface pt-8 pb-8 lg:pt-10 lg:pb-10"
       aria-labelledby="contact-hero-heading"
     >
       <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
           <div className="max-w-xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">
+              {contactHero.eyebrow}
+            </p>
             <h1
               id="contact-hero-heading"
-              className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
+              className="mt-3 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
             >
-              We&apos;re here to help.
-              <span className="mt-1 block text-brand-primary">
-                Let&apos;s grow together.
-              </span>
+              {contactHero.title}
             </h1>
             <p className="mt-5 text-base leading-relaxed text-ink-muted sm:text-lg">
-              Have questions about Market Monkey? Our team is ready to help you
-              explore markets and unlock new opportunities.
+              {contactHero.description}
             </p>
 
-            <ul className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-5">
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2">
               {contactHeroHighlights.map((item) => (
                 <li
-                  key={item.text}
-                  className="inline-flex items-center gap-2.5 text-sm font-medium text-ink-secondary"
+                  key={item.title}
+                  className="flex items-start gap-3 rounded-xl"
                 >
-                  <span className="inline-flex size-8 items-center justify-center rounded-full bg-brand-soft text-brand-primary">
+                  <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand-primary">
                     {highlightIcons[item.icon]}
                   </span>
-                  {item.text}
+                  <div>
+                    <p className="text-sm font-bold text-ink">{item.title}</p>
+                    <p className="mt-0.5 text-sm leading-relaxed text-ink-muted">
+                      {item.description}
+                    </p>
+                  </div>
                 </li>
               ))}
             </ul>
           </div>
 
-          <aside className="rounded-2xl border border-surface-border bg-surface p-5 shadow-sm sm:p-6">
-            <div className="flex items-center gap-4 sm:gap-5">
-              <ContactHeroGraphic />
-              <p className="text-sm leading-relaxed text-ink-secondary sm:text-base">
-                <span className="font-bold text-ink">
-                  Have a question or need guidance?
-                </span>{" "}
-                Fill out the form and our team will get back to you shortly.
-              </p>
-            </div>
-          </aside>
+          <div className="mx-auto w-full max-w-md lg:max-w-none">
+            <Image
+              src="/images/contact/right-image.png"
+              alt="Market Monkey app shown on two phones"
+              width={640}
+              height={640}
+              className="h-auto w-full bg-transparent object-contain"
+              priority
+            />
+          </div>
         </div>
       </Container>
     </section>

@@ -19,6 +19,122 @@ export function ClockIcon({ className = "size-5" }: { className?: string }) {
   );
 }
 
+export function HeartIcon({ className = "size-5" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 20.5s-6.5-4.2-8.5-8.2C2.1 9.1 3.6 5.8 6.8 5.2c1.8-.3 3.6.4 4.7 1.8 1.1-1.4 2.9-2.1 4.7-1.8 3.2.6 4.7 3.9 3.3 7.1-2 4-8.5 8.2-8.5 8.2Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function WhatsAppIcon({ className = "size-5" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.2 9.8c.2-.5.4-.5.7-.5h.6c.2 0 .4 0 .5.3.2.4.7 1.6.8 1.7.1.1.1.3 0 .4-.1.2-.4.5-.5.7-.1.1-.2.3 0 .5.2.3 1 1.5 2.3 2.1 1.2.6 1.2.4 1.4.4.2 0 .7-.3.8-.6.1-.3.1-.6.1-.6s0-.1-.1-.2c-.1-.1-.3-.2-.5-.3-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.9-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1 0-.2 0-.3 0-.1-.5-1.3-.7-1.8Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+export function GridIcon({ className = "size-5" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect
+        x="4"
+        y="4"
+        width="6.5"
+        height="6.5"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+      />
+      <rect
+        x="13.5"
+        y="4"
+        width="6.5"
+        height="6.5"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+      />
+      <rect
+        x="4"
+        y="13.5"
+        width="6.5"
+        height="6.5"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+      />
+      <rect
+        x="13.5"
+        y="13.5"
+        width="6.5"
+        height="6.5"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+      />
+    </svg>
+  );
+}
+
+export function SendIcon({ className = "size-4" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="m3.5 10 12-5.5-5.5 12-1.5-4.5L3.5 10Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.5 10.5 14 6"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function HeadsetIcon({ className = "size-5" }: { className?: string }) {
   return (
     <svg

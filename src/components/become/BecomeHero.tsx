@@ -35,7 +35,7 @@ const statIcons: Record<BecomeHeroStat["icon"], ReactNode> = {
 export function BecomeHero() {
   return (
     <section
-      className="bg-surface-muted pt-[var(--space-section-y-mobile)] pb-10 lg:pt-[var(--space-section-y)] lg:pb-12"
+      className="bg-surface-muted pt-8 pb-10 lg:pt-10 lg:pb-12"
       aria-labelledby="become-hero-heading"
     >
       <Container>

@@ -3,7 +3,7 @@ import { Container } from "@/components/layout/Container";
 export function BlogHero() {
   return (
     <section
-      className="bg-surface pt-[var(--space-section-y-mobile)] pb-8 lg:pt-[var(--space-section-y)] lg:pb-10"
+      className="bg-surface pt-8 pb-8 lg:pt-10 lg:pb-10"
       aria-labelledby="blog-hero-heading"
     >
       <Container>

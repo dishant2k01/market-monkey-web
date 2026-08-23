@@ -2,18 +2,20 @@ import { Container } from "@/components/layout/Container";
 
 type LegalPageHeroProps = {
   title: string;
+  titleAccent?: string;
   description: string;
   lastUpdated: string;
 };
 
 export function LegalPageHero({
   title,
+  titleAccent,
   description,
   lastUpdated,
 }: LegalPageHeroProps) {
   return (
     <section
-      className="border-b border-surface-border bg-surface-muted py-[var(--space-section-y-mobile)] lg:py-12"
+      className="border-b border-surface-border bg-surface pt-8 pb-10 lg:pt-10 lg:pb-12"
       aria-labelledby="legal-page-heading"
     >
       <Container>
@@ -23,11 +25,17 @@ export function LegalPageHero({
             className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
           >
             {title}
+            {titleAccent ? (
+              <>
+                {" "}
+                <span className="text-brand-primary">{titleAccent}</span>
+              </>
+            ) : null}
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-ink-muted sm:text-lg">
+          <p className="mt-5 text-base leading-relaxed text-ink-muted sm:text-lg">
             {description}
           </p>
-          <p className="mt-5 text-sm font-medium text-ink-subtle">
+          <p className="mt-5 inline-flex rounded-full bg-brand-soft px-4 py-1.5 text-sm font-medium text-brand-primary">
             Last updated: {lastUpdated}
           </p>
         </div>

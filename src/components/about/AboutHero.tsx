@@ -1,104 +1,46 @@
 import Image from "next/image";
-import {
-  ChartIcon,
-  GrowthIcon,
-  ShieldCheckOutlineIcon,
-  StarIcon,
-} from "@/components/about/aboutIcons";
 import { Container } from "@/components/layout/Container";
-import {
-  aboutHeroAvatars,
-  aboutHeroHighlights,
-  aboutHeroSocialProof,
-  type AboutHighlight,
-} from "@/config/about";
-import type { ReactNode } from "react";
-
-const highlightIcons: Record<AboutHighlight["icon"], ReactNode> = {
-  shield: <ShieldCheckOutlineIcon className="size-4" />,
-  chart: <ChartIcon className="size-4" />,
-  growth: <GrowthIcon className="size-4" />,
-};
+import { aboutHero } from "@/config/about";
 
 export function AboutHero() {
   return (
     <section
-      className="bg-surface pt-[var(--space-section-y-mobile)] pb-10 lg:pt-[var(--space-section-y)] lg:pb-12"
+      className="relative overflow-hidden bg-surface pt-8 pb-[var(--space-section-y-mobile)] lg:pt-10 lg:pb-[var(--space-section-y)]"
       aria-labelledby="about-hero-heading"
     >
       <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
           <div className="max-w-xl">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">
+              {aboutHero.eyebrow}
+            </p>
             <h1
               id="about-hero-heading"
-              className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
+              className="mt-3 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
             >
-              Our Mission is to Empower{" "}
-              <span className="text-brand-primary">Smarter Business Decisions.</span>
+              {aboutHero.titleBefore} {aboutHero.titleAccent}
             </h1>
-            <p className="mt-5 text-base leading-relaxed text-ink-muted sm:text-lg">
-              We help businesses explore real markets, uncover opportunities, and
-              make confident decisions with live insights from people on the
-              ground.
+            <p className="mt-6 text-base leading-relaxed text-ink-muted sm:text-lg">
+              {aboutHero.description}
             </p>
-
-            <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-              {aboutHeroHighlights.map((item) => (
-                <li key={item.title} className="flex items-start gap-2.5">
-                  <span className="mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand-primary">
-                    {highlightIcons[item.icon]}
-                  </span>
-                  <div>
-                    <p className="text-sm font-bold text-ink">{item.title}</p>
-                    <p className="mt-0.5 text-xs text-ink-muted">
-                      {item.description}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
           </div>
 
-          <div className="relative">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-surface-subtle shadow-md">
-              <Image
-                src={aboutHeroSocialProof.imageSrc}
-                alt={aboutHeroSocialProof.imageAlt}
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 560px"
-              />
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+            <div
+              className="pointer-events-none absolute inset-0 -z-0"
+              aria-hidden="true"
+            >
+              <span className="absolute top-6 right-4 size-40 rounded-full bg-brand-soft sm:size-52 lg:size-56" />
+              <span className="absolute bottom-8 left-2 size-28 rounded-full bg-brand-soft/70 sm:size-36" />
             </div>
-
-            <aside className="absolute -bottom-5 left-4 right-4 rounded-xl border border-surface-border bg-surface p-4 shadow-md sm:left-6 sm:right-auto sm:max-w-xs">
-              <p className="text-sm font-semibold text-ink">
-                {aboutHeroSocialProof.caption}
-              </p>
-              <div className="mt-3 flex items-center gap-3">
-                <div className="flex -space-x-2">
-                  {aboutHeroAvatars.map((src) => (
-                    <Image
-                      key={src}
-                      src={src}
-                      alt=""
-                      width={32}
-                      height={32}
-                      className="size-8 rounded-full border-2 border-surface object-cover"
-                    />
-                  ))}
-                </div>
-                <div>
-                  <p className="inline-flex items-center gap-1 text-sm font-bold text-brand-primary">
-                    <StarIcon className="size-3.5" />
-                    {aboutHeroSocialProof.rating}
-                  </p>
-                  <p className="text-xs text-ink-muted">
-                    {aboutHeroSocialProof.reviewLabel}
-                  </p>
-                </div>
-              </div>
-            </aside>
+            <Image
+              src={aboutHero.imageSrc}
+              alt={aboutHero.imageAlt}
+              width={640}
+              height={640}
+              className="relative z-10 h-auto w-full bg-transparent object-contain"
+              priority
+            />
           </div>
         </div>
       </Container>

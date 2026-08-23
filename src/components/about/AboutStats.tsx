@@ -1,7 +1,7 @@
 import {
-  ChartIcon,
-  GlobeIcon,
-  ShieldCheckOutlineIcon,
+  MapPinOutlineIcon,
+  ShopOutlineIcon,
+  StarOutlineIcon,
   UsersOutlineIcon,
 } from "@/components/about/aboutIcons";
 import { Container } from "@/components/layout/Container";
@@ -9,32 +9,38 @@ import { aboutStats, type AboutStat } from "@/config/about";
 import type { ReactNode } from "react";
 
 const statIcons: Record<AboutStat["icon"], ReactNode> = {
-  users: <UsersOutlineIcon className="size-5" />,
-  chart: <ChartIcon className="size-5" />,
-  globe: <GlobeIcon className="size-5" />,
-  shield: <ShieldCheckOutlineIcon className="size-5" />,
+  shop: <ShopOutlineIcon className="size-7" />,
+  users: <UsersOutlineIcon className="size-7" />,
+  mapPin: <MapPinOutlineIcon className="size-7" />,
+  star: <StarOutlineIcon className="size-7" />,
 };
 
 export function AboutStats() {
   return (
     <section
-      className="bg-surface py-[var(--space-section-y-mobile)] lg:py-[var(--space-section-y)]"
+      className="bg-surface pb-[var(--space-section-y-mobile)] lg:pb-[var(--space-section-y)]"
       aria-label="Market Monkey statistics"
     >
       <Container>
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-          {aboutStats.map((stat) => (
+        <ul className="flex flex-col rounded-2xl border border-surface-border bg-surface shadow-sm lg:flex-row">
+          {aboutStats.map((stat, index) => (
             <li
               key={stat.label}
-              className="rounded-xl border border-surface-border bg-surface px-5 py-7 text-center shadow-sm"
+              className={`flex flex-1 items-center gap-4 px-5 py-7 sm:px-6 sm:py-8 ${
+                index < aboutStats.length - 1
+                  ? "border-b border-surface-border lg:border-r lg:border-b-0"
+                  : ""
+              }`}
             >
-              <span className="inline-flex size-10 items-center justify-center rounded-full bg-brand-soft text-brand-primary">
+              <span className="inline-flex size-14 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand-primary sm:size-[4.25rem]">
                 {statIcons[stat.icon]}
               </span>
-              <p className="mt-4 text-3xl font-extrabold tracking-tight text-ink">
-                {stat.value}
-              </p>
-              <p className="mt-1 text-sm text-ink-muted">{stat.label}</p>
+              <div className="min-w-0 text-left">
+                <p className="text-2xl font-extrabold tracking-tight text-brand-primary sm:text-3xl">
+                  {stat.value}
+                </p>
+                <p className="mt-0.5 text-sm text-ink-muted">{stat.label}</p>
+              </div>
             </li>
           ))}
         </ul>
