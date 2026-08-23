@@ -1,157 +1,105 @@
-export type AboutHighlight = {
+export type AboutPillar = {
   title: string;
   description: string;
-  icon: "shield" | "chart" | "growth";
-};
-
-export type AboutMilestone = {
-  title: string;
-  description: string;
-  icon: "flag" | "build" | "growth";
-};
-
-export type AboutStat = {
-  value: string;
-  label: string;
-  icon: "users" | "chart" | "globe" | "shield";
-};
-
-export type AboutTeamMember = {
-  name: string;
-  role: string;
-  imageSrc: string;
-  linkedin: string;
+  icon: "mission" | "vision";
 };
 
 export type AboutValue = {
   title: string;
   description: string;
-  icon: "heart" | "shield" | "lightbulb" | "rocket";
+  icon: "users" | "shield" | "heart" | "rocket";
 };
 
-export const aboutHeroHighlights: AboutHighlight[] = [
-  {
-    title: "Trusted Data",
-    description: "Reliable & Verified",
-    icon: "shield",
-  },
-  {
-    title: "Actionable Insights",
-    description: "Easy to Understand",
-    icon: "chart",
-  },
-  {
-    title: "Business Growth",
-    description: "Built for Everyone",
-    icon: "growth",
-  },
-];
+export type AboutStat = {
+  value: string;
+  label: string;
+  icon: "shop" | "users" | "mapPin" | "star";
+};
 
-export const aboutHeroAvatars = [
-  "/images/testimonials/priya.jpg",
-  "/images/testimonials/rahul.jpg",
-  "/images/testimonials/neha.jpg",
-  "/images/testimonials/arjun.jpg",
-] as const;
-
-export const aboutHeroSocialProof = {
-  rating: "4.8",
-  reviewLabel: "from 1,200+ reviews",
-  caption: "Join thousands of businesses growing with Market Monkey",
-  imageSrc: "/images/about/hero-workspace.jpg",
-  imageAlt: "Laptop showing market analytics dashboard on a workspace desk",
+export const aboutHero = {
+  eyebrow: "About Us",
+  titleBefore: "Making Markets Accessible for",
+  titleAccent: "Everyone.",
+  description:
+    "Market Monkey is your all-in-one market discovery platform. From local bazaars to popular shopping hubs — we help you explore, compare and make the best choices, anytime, anywhere.",
+  imageSrc: "/images/about/right-image.jpeg",
+  imageAlt: "Market Monkey app shown on two phones",
 } as const;
 
-export const aboutMilestones: AboutMilestone[] = [
+export const aboutPillars: AboutPillar[] = [
   {
-    title: "The Beginning",
+    title: "Our Mission",
+    icon: "mission",
     description:
-      "Market Monkey started with a small team of data enthusiasts and a big dream.",
-    icon: "flag",
+      "To simplify the way people discover and explore markets by bringing transparency, convenience, and trust to every shopping experience.",
   },
   {
-    title: "Building the Platform",
+    title: "Our Vision",
+    icon: "vision",
     description:
-      "We built a powerful platform that collects, organizes and visualizes market data effortlessly.",
-    icon: "build",
-  },
-  {
-    title: "Empowering Businesses",
-    description:
-      "Today, businesses of all sizes trust us to make smarter decisions and grow faster.",
-    icon: "growth",
-  },
-];
-
-export const aboutStats: AboutStat[] = [
-  {
-    value: "10K+",
-    label: "Businesses Empowered",
-    icon: "users",
-  },
-  {
-    value: "50K+",
-    label: "Markets Analyzed",
-    icon: "chart",
-  },
-  {
-    value: "120+",
-    label: "Countries Covered",
-    icon: "globe",
-  },
-  {
-    value: "99.9%",
-    label: "Data Accuracy",
-    icon: "shield",
-  },
-];
-
-export const aboutTeam: AboutTeamMember[] = [
-  {
-    name: "Rohit Verma",
-    role: "CEO & Co-Founder",
-    imageSrc: "/images/about/rohit.jpg",
-    linkedin: "https://www.linkedin.com",
-  },
-  {
-    name: "Anjali Sharma",
-    role: "CTO & Co-Founder",
-    imageSrc: "/images/about/anjali.jpg",
-    linkedin: "https://www.linkedin.com",
-  },
-  {
-    name: "Vikram Singh",
-    role: "Head of Data",
-    imageSrc: "/images/about/vikram.jpg",
-    linkedin: "https://www.linkedin.com",
-  },
-  {
-    name: "Neha Kapoor",
-    role: "Head of Growth",
-    imageSrc: "/images/about/neha.jpg",
-    linkedin: "https://www.linkedin.com",
+      "To become the most trusted market discovery platform, empowering people and supporting local businesses everywhere.",
   },
 ];
 
 export const aboutValues: AboutValue[] = [
   {
     title: "Customer First",
-    description: "We build everything with our customers in mind.",
-    icon: "heart",
+    icon: "users",
+    description:
+      "We put our users first and work every day to deliver the best experience.",
   },
   {
     title: "Trust & Transparency",
-    description: "We believe in honest data and open communication.",
     icon: "shield",
+    description:
+      "We believe in honest information and transparent market insights.",
+  },
+  {
+    title: "Support Local",
+    icon: "heart",
+    description:
+      "We empower local businesses and promote local communities.",
   },
   {
     title: "Innovation",
-    description: "We constantly innovate to deliver better insights.",
-    icon: "lightbulb",
+    icon: "rocket",
+    description:
+      "We continuously innovate to make market discovery smarter and easier.",
+  },
+];
+
+export const aboutStory = {
+  title: "Our Story",
+  paragraphs: [
+    "Market Monkey started with a simple belief — finding the right market shouldn't be hard. What began as a small idea has grown into a platform that helps thousands of people discover markets with confidence.",
+    "We saw shoppers struggling with outdated information, unclear prices, and no real way to explore local markets remotely. So we built Market Monkey to connect people with verified locals through live video — bringing transparency and trust to every shopping experience.",
+    "Today, we’re building a community of explorers and Monkeys who make markets accessible for everyone, anytime, anywhere.",
+  ],
+  ctaLabel: "Join Our Journey",
+  ctaHref: "/#get-app",
+  imageSrc: "/images/about/story-market.jpg",
+  imageAlt: "Crowded outdoor market street at golden hour",
+} as const;
+
+export const aboutStats: AboutStat[] = [
+  {
+    value: "10K+",
+    label: "Markets Listed",
+    icon: "shop",
   },
   {
-    title: "Growth Mindset",
-    description: "We grow together with our customers and partners.",
-    icon: "rocket",
+    value: "500K+",
+    label: "Happy Users",
+    icon: "users",
+  },
+  {
+    value: "100+",
+    label: "Cities Covered",
+    icon: "mapPin",
+  },
+  {
+    value: "4.8/5",
+    label: "User Rating",
+    icon: "star",
   },
 ];

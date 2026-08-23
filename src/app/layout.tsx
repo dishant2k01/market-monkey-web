@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -56,10 +56,6 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
-    { media: "(prefers-color-scheme: dark)", color: "#1F2933" },
-  ],
   openGraph: {
     title: "Market Monkey — Explore. Connect. Grow Local.",
     description:
@@ -82,6 +78,13 @@ export const metadata: Metadata = {
       "Discover high-potential markets, track trends in real time, and make clearer growth decisions.",
     images: ["/images/brand/logo.png"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#1F2933" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
