@@ -6,7 +6,7 @@ export function VerificationSection() {
   return (
     <section
       id="safety"
-      className="bg-surface py-12 lg:py-16"
+      className="bg-surface pt-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y)]"
       aria-labelledby="verification-heading"
     >
       <Container>
@@ -22,7 +22,7 @@ export function VerificationSection() {
           </p>
         </div>
 
-        <div className="mt-10 grid items-start gap-8 lg:grid-cols-[1.4fr_0.8fr] lg:gap-10">
+        <div className="mt-6 grid items-start gap-8 lg:mt-8 lg:grid-cols-[1.4fr_0.8fr] lg:gap-10">
           <ol className="relative grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-3">
             <span
               className="pointer-events-none absolute top-7 right-[6%] left-[6%] hidden border-t border-dashed border-brand-soft-border lg:block"

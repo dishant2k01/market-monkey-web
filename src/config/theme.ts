@@ -202,8 +202,8 @@ export const theme = {
    * ============================================================
    */
   spacing: {
-    sectionY: "3rem",
-    sectionYMobile: "2.25rem",
+    sectionY: "2.75rem",
+    sectionYMobile: "2rem",
 
     gutter: "1.5rem",
     gutterLg: "2rem",
@@ -251,7 +251,7 @@ export const theme = {
    * ============================================================
    */
   layout: {
-    maxWidth: "1200px",
+    maxWidth: "1280px",
     headerHeight: "5.25rem",
     zHeader: "50",
   },

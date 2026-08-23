@@ -7,6 +7,7 @@ export type HomeTrustStat = {
 export type HomeHeroFeature = {
   title: string;
   subtitle: string;
+  icon: "markets" | "live" | "compare" | "time";
 };
 
 export type HomeHowItWorksStep = {
@@ -19,13 +20,12 @@ export type HomeHowItWorksStep = {
 export type HomeAudiencePanel = {
   id: "customers" | "monkeys";
   eyebrow: string;
-  title: string;
+  subtitle: string;
   points: string[];
-  ctaLabel: string;
-  ctaHref: string;
   imageSrc: string;
   imageAlt: string;
-  earningsBadge?: string;
+  earningsLabel?: string;
+  earningsAmount?: string;
 };
 
 export type PopularMarket = {
@@ -70,16 +70,17 @@ export const homeHero = {
   primaryCta: { label: "Explore Markets", href: "/#markets" },
   secondaryCta: { label: "Watch How It Works", href: "/#how-it-works" },
   backgroundSrc: "/images/home/hero-bg.jpeg",
+  phoneAlt: "Live Market Monkey video call showing products in a real market",
   backgroundAlt:
     "Busy night market with live Market Monkey video shopping on a phone",
   trustNote: "Trusted by thousands across India",
 } as const;
 
 export const homeHeroFeatures: HomeHeroFeature[] = [
-  { title: "Real Markets", subtitle: "Real Products" },
-  { title: "Live Video Calls", subtitle: "In Real Time" },
-  { title: "Compare Prices", subtitle: "Before You Buy" },
-  { title: "Save Time", subtitle: "Save Money" },
+  { title: "Real Markets", subtitle: "Real Products", icon: "markets" },
+  { title: "Live Video Calls", subtitle: "In Real Time", icon: "live" },
+  { title: "Compare Prices", subtitle: "Before You Buy", icon: "compare" },
+  { title: "Save Time", subtitle: "Save Money", icon: "time" },
 ];
 
 export const homeTrustStats: HomeTrustStat[] = [
@@ -124,20 +125,23 @@ export const homeHowItWorksSteps: HomeHowItWorksStep[] = [
 
 export const homeLiveExperience = {
   eyebrow: "Live Experience",
-  title: "Explore. Ask. Compare. All in",
+  title: "Explore. Ask. Compare.",
+  titleHighlightPrefix: "All in",
   titleHighlight: "Real Time.",
   description:
-    "See products up close, ask questions instantly, and compare prices while a verified Monkey walks the market for you.",
-  imageSrc: "/images/home/hero-bg.jpeg",
-  imageAlt: "Live market exploration call showing products in a real market",
-  productImageSrc: "/images/markets/footwear.jpg",
-  productImageAlt: "Product being inspected during a live Market Monkey call",
+    "Talk to your Monkey, ask for close-ups, check quality, compare prices and make smarter buying decisions.",
+  imageSrc: "/images/home/live-experience-phones.png",
+  imageAlt:
+    "Two phones showing a live market call and product exploration on Market Monkey",
   benefits: [
-    "See real products in real markets",
+    "See real products in real market",
     "Ask anything, anytime",
-    "Compare prices instantly",
-    "Make confident decisions",
+    "Compare and decide with confidence",
     "No need to step out",
+  ],
+  chatBubbles: [
+    { label: "What is the price?", meta: "You", tone: "user" as const },
+    { label: "₹850 final price", meta: "Amit", tone: "monkey" as const },
   ],
   floatingFeatures: [
     { label: "HD Video", subtitle: "High Quality", icon: "video" as const },
@@ -150,35 +154,32 @@ export const homeAudiencePanels: HomeAudiencePanel[] = [
   {
     id: "customers",
     eyebrow: "For Customers",
-    title: "Shop Smart. Save Time. From Anywhere.",
+    subtitle: "Shop Smart, Save Time & Money",
     points: [
       "Explore local markets from anywhere",
       "Compare prices before you buy",
-      "Check quality in real time",
+      "Check quality in real-time",
       "Save travel time and effort",
       "Buy with confidence",
     ],
-    ctaLabel: "Explore Markets",
-    ctaHref: "/#markets",
-    imageSrc: "/images/cta/shopper-woman.jpg",
+    imageSrc: "/images/home/audience-customers.jpg",
     imageAlt: "Customer exploring local markets online on a phone",
   },
   {
     id: "monkeys",
     eyebrow: "For Monkeys",
-    title: "Be Local. Earn Global. Grow Your Income.",
+    subtitle: "Be Local. Earn Global.",
     points: [
       "Work from your favorite markets",
       "Get booked by real customers",
-      "Earn per completed session",
-      "Flexible working opportunities",
-      "Build your local reputation",
+      "Earn per session you complete",
+      "Flexible time, more earnings",
+      "Grow your local reputation",
     ],
-    ctaLabel: "Become a Monkey",
-    ctaHref: "/become-a-monkey",
-    imageSrc: "/images/become/hero-monkey.jpg",
+    imageSrc: "/images/home/audience-monkeys.jpg",
     imageAlt: "Local Monkey hosting a live market video session",
-    earningsBadge: "Today's Earnings: ₹2,450",
+    earningsLabel: "Today's Earnings",
+    earningsAmount: "₹2,450",
   },
 ];
 
@@ -186,47 +187,47 @@ export const popularMarkets: PopularMarket[] = [
   {
     name: "Sarojini Nagar",
     city: "New Delhi",
-    monkeys: 126,
+    monkeys: 128,
     href: "/#markets",
     imageSrc: "/images/markets/clothing-fashion.jpg",
     imageAlt: "Fashion stalls at Sarojini Nagar market in New Delhi",
   },
   {
-    name: "Crawford Market",
+    name: "Chor Bazaar",
     city: "Mumbai",
-    monkeys: 98,
+    monkeys: 95,
     href: "/#markets",
-    imageSrc: "/images/markets/spices-dry-fruits.jpg",
-    imageAlt: "Busy aisles at Crawford Market in Mumbai",
+    imageSrc: "/images/markets/electronics.jpg",
+    imageAlt: "Vintage finds at Chor Bazaar, Mumbai",
   },
   {
     name: "Commercial Street",
     city: "Bengaluru",
-    monkeys: 112,
+    monkeys: 102,
     href: "/#markets",
-    imageSrc: "/images/markets/electronics.jpg",
+    imageSrc: "/images/markets/jewelry.jpg",
     imageAlt: "Shopping street near Commercial Street, Bengaluru",
+  },
+  {
+    name: "Lajpat Nagar",
+    city: "New Delhi",
+    monkeys: 110,
+    href: "/#markets",
+    imageSrc: "/images/markets/home-decor.jpg",
+    imageAlt: "Colorful fabric stalls at Lajpat Nagar in New Delhi",
   },
   {
     name: "Johari Bazaar",
     city: "Jaipur",
-    monkeys: 84,
+    monkeys: 87,
     href: "/#markets",
-    imageSrc: "/images/markets/jewelry.jpg",
-    imageAlt: "Jewelry displays at Johari Bazaar in Jaipur",
-  },
-  {
-    name: "Chor Bazaar",
-    city: "Mumbai",
-    monkeys: 76,
-    href: "/#markets",
-    imageSrc: "/images/markets/home-decor.jpg",
-    imageAlt: "Vintage finds at Chor Bazaar, Mumbai",
+    imageSrc: "/images/markets/spices-dry-fruits.jpg",
+    imageAlt: "Jewelry and craft displays at Johari Bazaar in Jaipur",
   },
   {
     name: "MG Road Market",
     city: "Pune",
-    monkeys: 91,
+    monkeys: 76,
     href: "/#markets",
     imageSrc: "/images/markets/footwear.jpg",
     imageAlt: "Street retail on MG Road Market in Pune",
@@ -236,8 +237,8 @@ export const popularMarkets: PopularMarket[] = [
 export const pricingPlans: PricingPlan[] = [
   {
     id: "customers",
-    label: "Pay Per Session",
-    title: "For Customers",
+    label: "For Customers",
+    title: "Pay Per Session",
     description: "Pay only for the time you spend. No hidden charges.",
     price: "₹99",
     priceNote: "/ 15 mins",
@@ -252,8 +253,8 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     id: "monkeys",
-    label: "Monthly Subscription",
-    title: "For Monkeys",
+    label: "For Monkeys",
+    title: "Monthly Subscription",
     description: "Unlock more bookings and grow your earnings.",
     price: "₹299",
     priceNote: "/ month",

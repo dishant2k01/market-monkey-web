@@ -1,13 +1,13 @@
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
-import { ArrowRightIcon, CheckIcon } from "@/components/ui/icons";
+import { CheckIcon } from "@/components/ui/icons";
 import { pricingPlans } from "@/config/home";
 
 export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="bg-surface-muted py-12 lg:py-16"
+      className="bg-surface-muted pt-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y)]"
       aria-labelledby="pricing-heading"
     >
       <Container>
@@ -24,43 +24,48 @@ export function PricingSection() {
           </p>
         </div>
 
-        <ul className="mx-auto mt-10 grid max-w-4xl gap-5 lg:grid-cols-2">
+        <ul className="mx-auto mt-6 grid max-w-5xl gap-5 lg:mt-8 lg:grid-cols-2">
           {pricingPlans.map((plan) => (
             <li key={plan.id}>
-              <article className="flex h-full flex-col rounded-3xl border border-surface-border bg-surface p-6 shadow-sm sm:p-8">
-                <span className="inline-flex w-fit rounded-md bg-brand-soft px-2.5 py-1 text-xs font-bold tracking-wide text-brand-primary uppercase">
-                  {plan.label}
-                </span>
-                <h3 className="mt-4 text-xl font-extrabold text-ink">
-                  {plan.title}
-                </h3>
-                <p className="mt-2 text-sm text-ink-muted">{plan.description}</p>
-                <p className="mt-6 flex items-baseline gap-1">
-                  <span className="text-4xl font-extrabold text-ink">
-                    {plan.price}
+              <article className="flex h-full flex-col gap-6 rounded-3xl border border-brand-soft-border bg-surface p-5 sm:flex-row sm:items-stretch sm:gap-8 sm:p-6 lg:p-7">
+                <div className="flex min-w-0 flex-1 flex-col">
+                  <span className="inline-flex w-fit rounded-md bg-brand-primary px-2.5 py-1 text-[0.6875rem] font-bold tracking-wide text-brand-primary-foreground uppercase">
+                    {plan.label}
                   </span>
-                  <span className="text-sm font-medium text-ink-muted">
-                    {plan.priceNote}
-                  </span>
-                </p>
-                <ul className="mt-6 flex-1 space-y-3">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2.5">
-                      <span className="inline-flex size-5 items-center justify-center rounded-full bg-brand-soft text-brand-primary">
-                        <CheckIcon className="size-3" />
-                      </span>
-                      <span className="text-sm text-ink-secondary">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8">
-                  <Button
-                    href={plan.ctaHref}
-                    className="w-full"
-                    rightIcon={<ArrowRightIcon className="size-3.5" />}
-                  >
-                    {plan.ctaLabel}
-                  </Button>
+                  <h3 className="mt-3 text-xl font-extrabold text-ink sm:text-2xl">
+                    {plan.title}
+                  </h3>
+                  <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink-muted">
+                    {plan.description}
+                  </p>
+                  <p className="mt-auto pt-6 flex items-baseline gap-1.5">
+                    <span className="text-3xl font-extrabold text-brand-primary sm:text-4xl">
+                      {plan.price}
+                    </span>
+                    <span className="text-sm font-medium text-ink">
+                      {plan.priceNote}
+                    </span>
+                  </p>
+                </div>
+
+                <div className="flex min-w-0 flex-1 flex-col sm:max-w-[15rem] sm:shrink-0">
+                  <ul className="space-y-2.5">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-2.5">
+                        <span className="inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-primary text-brand-primary-foreground">
+                          <CheckIcon className="size-3" />
+                        </span>
+                        <span className="text-sm font-medium text-ink">
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-auto pt-5">
+                    <Button href={plan.ctaHref} className="w-full">
+                      {plan.ctaLabel}
+                    </Button>
+                  </div>
                 </div>
               </article>
             </li>

@@ -12,16 +12,16 @@ import {
 import type { ReactNode } from "react";
 
 const stepIcons: Record<HomeHowItWorksStep["icon"], ReactNode> = {
-  market: <HowItWorksMapPinIcon className="size-9" />,
-  monkey: <HowItWorksMonkeyIcon className="size-9" />,
-  live: <HowItWorksCameraIcon className="size-9" />,
-  explore: <HowItWorksExploreIcon className="size-9" />,
+  market: <HowItWorksMapPinIcon className="size-10" />,
+  monkey: <HowItWorksMonkeyIcon className="size-10" />,
+  live: <HowItWorksCameraIcon className="size-10" />,
+  explore: <HowItWorksExploreIcon className="size-10" />,
 };
 
 function StepConnector() {
   return (
     <span
-      className="pointer-events-none absolute top-[2.75rem] left-[calc(50%+3.25rem)] hidden w-[calc(100%-6.5rem)] items-center lg:flex"
+      className="pointer-events-none absolute top-14 left-[calc(50%+3.5rem)] hidden w-[calc(100%-7rem)] items-center lg:flex"
       aria-hidden="true"
     >
       <span className="h-0 w-full border-t-2 border-dashed border-brand-primary" />
@@ -34,7 +34,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="bg-surface-muted py-12 lg:py-16"
+      className="bg-surface pt-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y)]"
       aria-labelledby="how-it-works-heading"
     >
       <Container>
@@ -50,27 +50,29 @@ export function HowItWorks() {
           </h2>
         </div>
 
-        <ol className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-5">
+        <ol className="mt-6 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:mt-8 lg:grid-cols-4 lg:gap-6">
           {homeHowItWorksSteps.map((item, index) => (
             <li key={item.step} className="relative">
               {index < homeHowItWorksSteps.length - 1 ? <StepConnector /> : null}
 
-              <article className="relative mx-auto flex h-full max-w-xs flex-col items-center text-center lg:max-w-none">
-                <span className="relative z-20 mb-[-0.875rem] inline-flex size-8 items-center justify-center rounded-full bg-brand-primary text-xs font-bold text-brand-primary-foreground shadow-xs">
-                  {item.step}
-                </span>
-
-                <div className="relative z-10 flex w-full flex-1 flex-col items-center rounded-2xl border border-surface-border bg-surface px-5 pb-6 pt-7 shadow-sm">
-                  <span className="inline-flex size-16 items-center justify-center rounded-2xl bg-brand-soft">
-                    {stepIcons[item.icon]}
+              <article className="relative mx-auto flex max-w-xs flex-col items-center text-center lg:max-w-none">
+                <div className="relative">
+                  <span className="inline-flex size-[7.25rem] items-center justify-center rounded-full border-2 border-brand-soft-border bg-surface shadow-sm">
+                    <span className="inline-flex size-[5.5rem] items-center justify-center rounded-full bg-brand-soft text-brand-primary">
+                      {stepIcons[item.icon]}
+                    </span>
                   </span>
-                  <h3 className="mt-4 text-base font-bold text-ink sm:text-lg">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                    {item.description}
-                  </p>
+                  <span className="absolute -top-1 -right-1 inline-flex size-8 items-center justify-center rounded-full bg-brand-primary text-xs font-bold text-brand-primary-foreground shadow-xs">
+                    {item.step}
+                  </span>
                 </div>
+
+                <h3 className="mt-5 text-base font-bold text-ink sm:text-lg">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                  {item.description}
+                </p>
               </article>
             </li>
           ))}

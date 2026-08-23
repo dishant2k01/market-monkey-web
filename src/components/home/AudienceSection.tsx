@@ -1,69 +1,96 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
-import { Button } from "@/components/ui/Button";
-import { ArrowRightIcon, CheckIcon, UsersIcon } from "@/components/ui/icons";
+import { CheckIcon } from "@/components/ui/icons";
 import { homeAudiencePanels } from "@/config/home";
+
+function TrendUpIcon({ className = "size-3.5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path
+        d="M2.5 11.5 6.5 7.5l2.5 2.5 4.5-5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10 5h3.5V8.5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 export function AudienceSection() {
   return (
     <section
-      className="bg-surface-muted py-12 lg:py-16"
+      className="bg-surface pt-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y)]"
       aria-label="For customers and Monkeys"
     >
       <Container>
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className="grid gap-4 lg:grid-cols-2">
           {homeAudiencePanels.map((panel) => (
             <article
               key={panel.id}
               id={panel.id === "customers" ? "for-customers" : "for-monkeys"}
-              className="overflow-hidden rounded-3xl border border-surface-border bg-surface shadow-sm"
+              className="overflow-hidden rounded-[1.75rem] bg-surface-muted shadow-sm"
             >
-              <div className="flex items-center gap-2 border-b border-surface-border px-5 py-3.5">
-                <span className="inline-flex size-8 items-center justify-center rounded-full bg-brand-soft text-brand-primary">
-                  <UsersIcon className="size-4" />
-                </span>
-                <h2 className="text-base font-extrabold text-ink">
-                  {panel.eyebrow}
-                </h2>
-              </div>
+              <div className="grid min-h-[240px] sm:min-h-[220px] sm:grid-cols-[1.05fr_0.95fr]">
+                <div className="flex flex-col justify-center px-5 py-5 sm:px-6 sm:py-5 lg:px-6">
+                  <div>
+                    <h2 className="text-lg font-extrabold text-ink sm:text-xl">
+                      {panel.eyebrow}
+                    </h2>
+                    <p className="mt-0.5 text-sm font-medium text-ink-secondary">
+                      {panel.subtitle}
+                    </p>
+                  </div>
 
-              <div className="relative aspect-[16/10] bg-surface-subtle">
-                <Image
-                  src={panel.imageSrc}
-                  alt={panel.imageAlt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 560px"
-                />
-                {panel.earningsBadge ? (
-                  <span className="absolute bottom-3 left-3 rounded-xl bg-feedback-success px-3 py-1.5 text-xs font-bold text-ink-inverse shadow-sm">
-                    {panel.earningsBadge}
-                  </span>
-                ) : null}
-              </div>
+                  <ul className="mt-4 space-y-2">
+                    {panel.points.map((point) => (
+                      <li key={point} className="flex items-start gap-2.5">
+                        <span className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-primary text-brand-primary-foreground">
+                          <CheckIcon className="size-3" />
+                        </span>
+                        <span className="text-sm leading-snug text-ink-secondary">
+                          {point}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              <div className="p-5 sm:p-6">
-                <h3 className="text-xl font-extrabold tracking-tight text-ink sm:text-2xl">
-                  {panel.title}
-                </h3>
-                <ul className="mt-4 space-y-2.5">
-                  {panel.points.map((point) => (
-                    <li key={point} className="flex items-start gap-2.5">
-                      <span className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand-primary">
-                        <CheckIcon className="size-3" />
-                      </span>
-                      <span className="text-sm text-ink-secondary">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-5">
-                  <Button
-                    href={panel.ctaHref}
-                    size="md"
-                    rightIcon={<ArrowRightIcon className="size-3.5" />}
+                <div className="relative min-h-[200px] sm:min-h-full">
+                  <div
+                    className="absolute inset-0 overflow-hidden sm:[clip-path:polygon(16%_0,100%_0,100%_100%,0_100%)]"
+                    aria-hidden={false}
                   >
-                    {panel.ctaLabel}
-                  </Button>
+                    <Image
+                      src={panel.imageSrc}
+                      alt={panel.imageAlt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 320px"
+                      unoptimized
+                    />
+                  </div>
+
+                  {panel.earningsLabel && panel.earningsAmount ? (
+                    <div className="absolute right-4 bottom-4 z-10 rounded-xl bg-surface px-3.5 py-2.5 shadow-md">
+                      <p className="text-[0.6875rem] font-medium text-ink-muted">
+                        {panel.earningsLabel}
+                      </p>
+                      <p className="mt-0.5 flex items-center gap-1.5 text-lg font-extrabold text-ink">
+                        {panel.earningsAmount}
+                        <span className="inline-flex text-feedback-success">
+                          <TrendUpIcon />
+                        </span>
+                      </p>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </article>

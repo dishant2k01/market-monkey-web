@@ -3,6 +3,8 @@ import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import {
   ArrowRightIcon,
+  LiveClockIcon,
+  MapPinIcon,
   PlayIcon,
   ShopIcon,
   StarIcon,
@@ -13,6 +15,7 @@ import {
   homeHeroFeatures,
   homeTrustAvatars,
   homeTrustStats,
+  type HomeHeroFeature,
   type HomeTrustStat,
 } from "@/config/home";
 import type { ReactNode } from "react";
@@ -24,9 +27,54 @@ const trustIcons: Record<HomeTrustStat["icon"], ReactNode> = {
   rating: <StarIcon className="size-4" />,
 };
 
+function CompareIcon({ className = "size-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M7 7h10M7 12h6M7 17h8"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+      />
+      <path
+        d="M17 10.5v7M14.5 15.5 17 18l2.5-2.5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function TimeIcon({ className = "size-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="8.25" stroke="currentColor" strokeWidth="1.75" />
+      <path
+        d="M12 8v4.25L14.75 14"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+const featureIcons: Record<HomeHeroFeature["icon"], ReactNode> = {
+  markets: <MapPinIcon className="size-4" />,
+  live: <LiveClockIcon className="size-4" />,
+  compare: <CompareIcon className="size-4" />,
+  time: <TimeIcon className="size-4" />,
+};
+
 export function Hero() {
   return (
-    <section className="relative overflow-hidden" aria-labelledby="hero-heading">
+    <section
+      className="relative overflow-hidden"
+      aria-labelledby="hero-heading"
+    >
       <div className="absolute inset-0">
         <Image
           src={homeHero.backgroundSrc}
@@ -37,13 +85,13 @@ export function Hero() {
           sizes="100vw"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-surface-inverse/92 via-surface-inverse/78 to-surface-inverse/35"
+          className="absolute inset-0 bg-gradient-to-r from-surface-inverse/80 via-surface-inverse/55 to-surface-inverse/25"
           aria-hidden="true"
         />
       </div>
 
-      <Container className="relative pt-10 pb-8 lg:pt-14 lg:pb-10">
-        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-8">
+      <Container className="relative flex min-h-[600px] flex-col justify-between gap-8 py-10 lg:min-h-[640px] lg:py-12">
+        <div className="grid flex-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-6 xl:gap-10">
           <div className="max-w-xl">
             <h1
               id="hero-heading"
@@ -74,9 +122,33 @@ export function Hero() {
               </Button>
             </div>
           </div>
+
+          {/* <div className="relative mx-auto flex w-full max-w-md items-center justify-center lg:max-w-none lg:justify-end">
+
+            <ul className="absolute top-1/2 right-0 z-20 flex w-[46%] max-w-[11.5rem] -translate-y-1/2 flex-col gap-2.5 sm:right-1 sm:max-w-[12.5rem] lg:right-0">
+              {homeHeroFeatures.map((feature) => (
+                <li
+                  key={feature.title}
+                  className="flex items-center gap-2.5 rounded-2xl border border-surface-border bg-surface px-3 py-2.5 shadow-sm"
+                >
+                  <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand-primary">
+                    {featureIcons[feature.icon]}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="truncate text-xs font-bold text-ink sm:text-sm">
+                      {feature.title}
+                    </p>
+                    <p className="truncate text-[0.6875rem] text-ink-muted">
+                      {feature.subtitle}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div> */}
         </div>
 
-        <div className="mt-8 flex flex-col gap-5 rounded-2xl border border-surface-inverse-border/50 bg-surface-inverse/55 p-4 backdrop-blur-md sm:mt-10 sm:flex-row sm:items-center sm:justify-between sm:p-5">
+        <div className="flex flex-col gap-5 rounded-2xl border border-surface-inverse-border/50 bg-surface-inverse/55 p-4 backdrop-blur-md sm:flex-row sm:items-center sm:justify-between sm:p-5">
           <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
             {homeTrustStats.map((stat) => (
               <li key={stat.label} className="flex items-center gap-2.5">

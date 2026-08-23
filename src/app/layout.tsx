@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { AboutMarketMonkey } from "@/components/seo/AboutMarketMonkey";
 import { themeCssVariablesToString } from "@/config/theme";
 import "./globals.css";
 
@@ -99,7 +98,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <AboutMarketMonkey />
       </body>
     </html>
   );

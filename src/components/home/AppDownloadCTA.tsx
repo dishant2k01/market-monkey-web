@@ -10,51 +10,39 @@ export function AppDownloadCTA() {
   return (
     <section
       id="get-app"
-      className="bg-surface py-12 lg:py-16"
+      className="overflow-visible bg-surface pt-10 pb-[var(--space-section-y-mobile)] sm:pt-12 lg:pb-[var(--space-section-y)] lg:pt-14"
       aria-labelledby="app-download-heading"
     >
-      <Container>
-        <div className="overflow-hidden rounded-3xl bg-surface-inverse px-6 py-10 sm:px-10 lg:px-12 lg:py-12">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr_0.9fr] lg:gap-8">
-            <div className="relative mx-auto flex w-full max-w-xs justify-center gap-3">
-              <div className="relative aspect-[9/16] w-[45%] overflow-hidden rounded-2xl border border-surface-inverse-border bg-surface-inverse-elevated shadow-md">
-                <Image
-                  src="/images/cta/shopper-woman.jpg"
-                  alt="Market Monkey app showing live market shopping"
-                  fill
-                  className="object-cover"
-                  sizes="140px"
-                />
-              </div>
-              <div className="relative mt-8 aspect-[9/16] w-[45%] overflow-hidden rounded-2xl border border-surface-inverse-border bg-surface-inverse-elevated shadow-md">
-                <Image
-                  src="/images/home/hero-bg.jpeg"
-                  alt="Market Monkey app with live call interface"
-                  fill
-                  className="object-cover object-right"
-                  sizes="140px"
-                />
-              </div>
+      <Container className="overflow-visible">
+        <div className="relative overflow-visible">
+          {/* Dark bar — phones anchor to bottom and extend above the top edge */}
+          <div className="relative z-10 flex flex-col items-center gap-8 overflow-visible rounded-3xl bg-surface-inverse px-5 py-8 sm:px-8 lg:min-h-[9.75rem] lg:flex-row lg:items-center lg:gap-8 lg:px-10 lg:py-6 lg:pl-[16.5rem] xl:gap-12 xl:pl-[18.5rem]">
+            <div className="pointer-events-none relative z-20 mx-auto mb-2 aspect-[4/5] w-[200px] sm:mb-3 sm:w-[220px] lg:absolute lg:bottom-0 lg:left-3 lg:mx-0 lg:mb-0 lg:aspect-auto lg:h-[21.5rem] lg:w-[290px] xl:left-4 xl:h-[23.5rem] xl:w-[320px]">
+              <Image
+                src="/images/home/app-phones.png"
+                alt="Market Monkey mobile app on two phones"
+                fill
+                className="object-contain object-bottom drop-shadow-xl"
+                sizes="320px"
+                unoptimized
+              />
             </div>
 
-            <div className="text-center">
+            <div className="relative z-10 min-w-0 flex-1 text-center lg:text-left">
               <h2
                 id="app-download-heading"
-                className="text-3xl font-extrabold tracking-tight text-ink-inverse sm:text-4xl"
+                className="text-2xl font-extrabold tracking-tight text-ink-inverse sm:text-3xl lg:text-[1.85rem] lg:leading-[1.25] xl:text-[2rem]"
               >
-                Take Market Monkey
-                <span className="mt-1 block text-brand-primary">
-                  With You, Everywhere.
-                </span>
+                Take Market Monkey With You, Everywhere.
               </h2>
-              <p className="mx-auto mt-4 max-w-md text-base text-surface-inverse-muted">
-                Download the app and explore real markets anytime, anywhere.
+              <p className="mx-auto mt-2.5 max-w-md text-sm leading-relaxed text-surface-inverse-muted sm:text-base lg:mx-0">
+                Download the app and explore markets, anytime, anywhere.
               </p>
             </div>
 
-            <div className="mx-auto flex w-full max-w-xs flex-col items-center gap-4">
+            <div className="flex shrink-0 flex-col items-center gap-4 sm:flex-row sm:items-center sm:gap-5">
               <div
-                className="flex size-36 items-center justify-center rounded-xl bg-surface p-3"
+                className="flex size-[7rem] items-center justify-center rounded-xl bg-surface p-2.5 shadow-sm sm:size-[7.5rem]"
                 aria-label="QR code to download Market Monkey"
               >
                 <div className="grid size-full grid-cols-5 grid-rows-5 gap-0.5">
@@ -73,7 +61,8 @@ export function AppDownloadCTA() {
                   ))}
                 </div>
               </div>
-              <div className="flex w-full flex-col gap-3">
+
+              <div className="flex w-full max-w-[180px] flex-col gap-2.5">
                 {appStoreLinks.map((item) =>
                   item.store === "google" ? (
                     <GooglePlayBadge

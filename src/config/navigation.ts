@@ -4,12 +4,10 @@ export type NavItem = {
 };
 
 export const primaryNav: NavItem[] = [
+  { label: "About", href: "/about" },
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Markets", href: "/#markets" },
-  { label: "For Customers", href: "/#for-customers" },
-  { label: "For Monkeys", href: "/#for-monkeys" },
-  { label: "Pricing", href: "/#pricing" },
-  { label: "About Us", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const headerLocation = {
