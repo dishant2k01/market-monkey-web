@@ -56,7 +56,7 @@ export function HomeFaq() {
   return (
     <section
       id="faq"
-      className="bg-surface-muted pt-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y)]"
+      className="bg-surface pt-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y)]"
       aria-labelledby="home-faq-heading"
     >
       <Container>
@@ -68,7 +68,7 @@ export function HomeFaq() {
           <span className="text-brand-primary">Questions</span>
         </h2>
 
-        <div className="mx-auto mt-6 max-w-4xl space-y-3 lg:mt-8">
+        <div className="mx-auto mt-8 max-w-4xl space-y-3 lg:mt-10">
           {items.map((item, index) => {
             const isOpen = openIndex === index;
             const panelId = `${baseId}-panel-${index}`;

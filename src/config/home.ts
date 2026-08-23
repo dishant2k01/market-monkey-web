@@ -52,6 +52,8 @@ export type PricingPlan = {
 export type VerificationStep = {
   step: string;
   title: string;
+  description: string;
+  icon: "register" | "id" | "review" | "approved" | "connect";
 };
 
 export type HomeFaqTab = "customers" | "monkeys";
@@ -60,6 +62,15 @@ export type HomeFaqItem = {
   question: string;
   answer: string;
   audience: HomeFaqTab;
+};
+
+export type HomeTestimonial = {
+  quote: string;
+  name: string;
+  city: string;
+  rating: number;
+  avatarSrc: string;
+  avatarAlt: string;
 };
 
 export const homeHero = {
@@ -189,23 +200,23 @@ export const popularMarkets: PopularMarket[] = [
     city: "New Delhi",
     monkeys: 128,
     href: "/#markets",
-    imageSrc: "/images/markets/clothing-fashion.jpg",
+    imageSrc: "/images/markets/sarojini.jpg",
     imageAlt: "Fashion stalls at Sarojini Nagar market in New Delhi",
   },
   {
     name: "Chor Bazaar",
-    city: "Mumbai",
+    city: "New Delhi",
     monkeys: 95,
     href: "/#markets",
-    imageSrc: "/images/markets/electronics.jpg",
-    imageAlt: "Vintage finds at Chor Bazaar, Mumbai",
+    imageSrc: "/images/markets/chor-bajar.jpg",
+    imageAlt: "Vintage finds at Chor Bazaar, New Delhi",
   },
   {
     name: "Commercial Street",
     city: "Bengaluru",
     monkeys: 102,
     href: "/#markets",
-    imageSrc: "/images/markets/jewelry.jpg",
+    imageSrc: "/images/markets/commercial-street.png",
     imageAlt: "Shopping street near Commercial Street, Bengaluru",
   },
   {
@@ -213,7 +224,7 @@ export const popularMarkets: PopularMarket[] = [
     city: "New Delhi",
     monkeys: 110,
     href: "/#markets",
-    imageSrc: "/images/markets/home-decor.jpg",
+    imageSrc: "/images/markets/lajpat.jpg",
     imageAlt: "Colorful fabric stalls at Lajpat Nagar in New Delhi",
   },
   {
@@ -221,7 +232,7 @@ export const popularMarkets: PopularMarket[] = [
     city: "Jaipur",
     monkeys: 87,
     href: "/#markets",
-    imageSrc: "/images/markets/spices-dry-fruits.jpg",
+    imageSrc: "/images/markets/johari-bazaar.jpg",
     imageAlt: "Jewelry and craft displays at Johari Bazaar in Jaipur",
   },
   {
@@ -229,7 +240,7 @@ export const popularMarkets: PopularMarket[] = [
     city: "Pune",
     monkeys: 76,
     href: "/#markets",
-    imageSrc: "/images/markets/footwear.jpg",
+    imageSrc: "/images/markets/mg-road.jpg",
     imageAlt: "Street retail on MG Road Market in Pune",
   },
 ];
@@ -270,23 +281,99 @@ export const pricingPlans: PricingPlan[] = [
 ];
 
 export const verificationSteps: VerificationStep[] = [
-  { step: "01", title: "Register" },
-  { step: "02", title: "ID Verification" },
-  { step: "03", title: "Admin Review" },
-  { step: "04", title: "Approved" },
-  { step: "05", title: "You Connect" },
+  {
+    step: "1",
+    title: "Register",
+    description: "Monkey submits basic details",
+    icon: "register",
+  },
+  {
+    step: "2",
+    title: "ID Verification",
+    description: "Government ID proof submission",
+    icon: "id",
+  },
+  {
+    step: "3",
+    title: "Admin Review",
+    description: "Our team verifies and reviews",
+    icon: "review",
+  },
+  {
+    step: "4",
+    title: "Approved",
+    description: "Monkey gets verified badge",
+    icon: "approved",
+  },
+  {
+    step: "5",
+    title: "You Connect",
+    description: "Start exploring with complete confidence",
+    icon: "connect",
+  },
 ];
 
 export const verificationTrust = {
   title: "100% Safe & Secure",
   description: "Your safety is our top priority.",
-  points: [
-    "Verified identity",
-    "Admin approval",
-    "Secure payments",
-    "Trusted local Monkeys",
-  ],
 } as const;
+
+export const homeTestimonials: HomeTestimonial[] = [
+  {
+    quote:
+      "Amazing experience! I compared prices in three markets and saved a lot. The Monkey was super helpful.",
+    name: "Riya Sharma",
+    city: "New Delhi",
+    rating: 5,
+    avatarSrc: "/images/testimonials/priya.jpg",
+    avatarAlt: "Riya Sharma",
+  },
+  {
+    quote:
+      "Very convenient and trustworthy. I can check products before buying. Highly recommended!",
+    name: "Amit Verma",
+    city: "Bengaluru",
+    rating: 5,
+    avatarSrc: "/images/testimonials/rahul.jpg",
+    avatarAlt: "Amit Verma",
+  },
+  {
+    quote:
+      "As a Monkey, I earn well and my customers are happy. Great platform!",
+    name: "Vikram Singh",
+    city: "Jaipur",
+    rating: 5,
+    avatarSrc: "/images/testimonials/vikram.jpg",
+    avatarAlt: "Vikram Singh",
+  },
+  {
+    quote:
+      "I explored Commercial Street live and found exactly what I needed. Felt like I was there in person.",
+    name: "Neha Kapoor",
+    city: "Mumbai",
+    rating: 5,
+    avatarSrc: "/images/testimonials/neha.jpg",
+    avatarAlt: "Neha Kapoor",
+  },
+  {
+    quote:
+      "Booking a session was easy, and the Monkey answered every question. Worth every rupee.",
+    name: "Arjun Patel",
+    city: "Pune",
+    rating: 5,
+    avatarSrc: "/images/testimonials/arjun.jpg",
+    avatarAlt: "Arjun Patel",
+  },
+  {
+    quote:
+      "Perfect for checking quality before I travel. Market Monkey changed how I shop local markets.",
+    name: "Meera Iyer",
+    city: "Chennai",
+    rating: 5,
+    avatarSrc: "/images/testimonials/meera.jpg",
+    avatarAlt: "Meera Iyer",
+  },
+];
 
 export const homeFaqItems: HomeFaqItem[] = [
   {
@@ -320,12 +407,6 @@ export const homeFaqItems: HomeFaqItem[] = [
       "Yes. You can compare prices before buying by asking your Monkey to check multiple shops in the same market.",
   },
   {
-    audience: "customers",
-    question: "Is my payment information secure?",
-    answer:
-      "Yes. Payments are protected with industry-standard security practices so you can explore local markets online with confidence.",
-  },
-  {
     audience: "monkeys",
     question: "What is a Market Monkey?",
     answer:
@@ -354,12 +435,6 @@ export const homeFaqItems: HomeFaqItem[] = [
     question: "Which markets and cities are available?",
     answer:
       "Market Monkey covers popular markets across cities like New Delhi, Mumbai, Bengaluru, Jaipur, and Pune, with more locations added over time.",
-  },
-  {
-    audience: "monkeys",
-    question: "Can I buy products directly through a Monkey?",
-    answer:
-      "Market Monkey helps customers explore and decide with confidence. Purchase decisions follow guidance shared during the session and local seller practices.",
   },
 ];
 

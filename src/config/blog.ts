@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-05-12",
     dateLabel: "May 12, 2024",
     readTime: "6 min read",
-    imageSrc: "/images/markets/electronics.jpg",
+    imageSrc: "/images/markets/chor-bajar.jpg",
     imageAlt: "Analytics dashboard on a laptop",
   },
   {
@@ -55,7 +55,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-04-29",
     dateLabel: "Apr 29, 2024",
     readTime: "7 min read",
-    imageSrc: "/images/markets/clothing-fashion.jpg",
+    imageSrc: "/images/markets/sarojini.jpg",
     imageAlt: "Business professionals in a meeting",
   },
   {
@@ -67,7 +67,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-04-21",
     dateLabel: "Apr 21, 2024",
     readTime: "4 min read",
-    imageSrc: "/images/markets/home-decor.jpg",
+    imageSrc: "/images/markets/lajpat.jpg",
     imageAlt: "Retail store aisle with products",
   },
   {
@@ -91,7 +91,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-04-05",
     dateLabel: "Apr 5, 2024",
     readTime: "3 min read",
-    imageSrc: "/images/markets/jewelry.jpg",
+    imageSrc: "/images/markets/commercial-street.png",
     imageAlt: "Person writing notes next to a laptop",
   },
   {
@@ -103,7 +103,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-03-28",
     dateLabel: "Mar 28, 2024",
     readTime: "6 min read",
-    imageSrc: "/images/markets/footwear.jpg",
+    imageSrc: "/images/markets/mg-road.jpg",
     imageAlt: "Financial charts and calculator",
   },
   {
@@ -127,7 +127,7 @@ export const blogPosts: BlogPost[] = [
     date: "2024-03-09",
     dateLabel: "Mar 9, 2024",
     readTime: "4 min read",
-    imageSrc: "/images/markets/spices-dry-fruits.jpg",
+    imageSrc: "/images/markets/johari-bazaar.jpg",
     imageAlt: "Team discussion in a modern office",
   },
 ];

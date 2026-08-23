@@ -7,7 +7,7 @@ export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="bg-surface-muted pt-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y)]"
+      className="bg-surface-muted pt-[var(--space-section-y-featured-mobile)] pb-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y-featured)] lg:pb-[var(--space-section-y)]"
       aria-labelledby="pricing-heading"
     >
       <Container>
@@ -24,7 +24,7 @@ export function PricingSection() {
           </p>
         </div>
 
-        <ul className="mx-auto mt-6 grid max-w-5xl gap-5 lg:mt-8 lg:grid-cols-2">
+        <ul className="mx-auto mt-8 grid max-w-5xl gap-5 lg:mt-10 lg:grid-cols-2">
           {pricingPlans.map((plan) => (
             <li key={plan.id}>
               <article className="flex h-full flex-col gap-6 rounded-3xl border border-brand-soft-border bg-surface p-5 sm:flex-row sm:items-stretch sm:gap-8 sm:p-6 lg:p-7">

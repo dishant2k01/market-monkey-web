@@ -47,32 +47,32 @@ export function Header() {
       }`}
     >
       <Container className="flex h-[var(--layout-header-height)] items-center justify-between gap-4">
-        <Logo />
+        <Logo variant="light" />
 
-        <nav
-          className="hidden items-center gap-[var(--space-nav-gap)] xl:flex"
-          aria-label="Primary"
-        >
-          {primaryNav.map((item) => (
-            <Link
-              key={item.href + item.label}
-              href={item.href}
-              className="text-sm font-medium text-ink-secondary transition-colors hover:text-brand-primary focus-visible:text-brand-primary"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="hidden items-center gap-8 xl:flex xl:gap-10">
+          <nav
+            className="flex items-center gap-[var(--space-nav-gap)]"
+            aria-label="Primary"
+          >
+            {primaryNav.map((item) => (
+              <Link
+                key={item.href + item.label}
+                href={item.href}
+                className="text-sm font-medium text-ink-secondary transition-colors hover:text-brand-primary focus-visible:text-brand-primary"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
-          <Button href="/#get-app" size="md">
-            Download App
+          <Button href="/#get-the-app" size="md">
+            Get the App
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
-          <Button href="/#get-app" size="sm" className="hidden sm:inline-flex">
-            Download App
+        <div className="flex items-center gap-2 xl:hidden">
+          <Button href="/#get-the-app" size="sm" className="hidden sm:inline-flex">
+            Get the App
           </Button>
           <button
             type="button"
@@ -89,7 +89,7 @@ export function Header() {
 
       <div
         id={menuId}
-        className={`border-t border-surface-border bg-surface lg:hidden ${
+        className={`border-t border-surface-border bg-surface xl:hidden ${
           mobileOpen ? "block" : "hidden"
         }`}
       >
@@ -110,8 +110,8 @@ export function Header() {
             </ul>
           </nav>
           <div className="mt-2 border-t border-surface-border pt-4 sm:hidden">
-            <Button href="/#get-app" className="w-full" onClick={closeMobile}>
-              Download App
+            <Button href="/#get-the-app" className="w-full" onClick={closeMobile}>
+              Get the App
             </Button>
           </div>
         </Container>

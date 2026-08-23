@@ -202,8 +202,10 @@ export const theme = {
    * ============================================================
    */
   spacing: {
-    sectionY: "2.75rem",
-    sectionYMobile: "2rem",
+    sectionY: "5rem",
+    sectionYMobile: "3.5rem",
+    sectionYFeatured: "5.5rem",
+    sectionYFeaturedMobile: "4rem",
 
     gutter: "1.5rem",
     gutterLg: "2rem",
@@ -428,6 +430,8 @@ export function getThemeCssVariables(): Record<string, string> {
 
     "--space-section-y": spacing.sectionY,
     "--space-section-y-mobile": spacing.sectionYMobile,
+    "--space-section-y-featured": spacing.sectionYFeatured,
+    "--space-section-y-featured-mobile": spacing.sectionYFeaturedMobile,
 
     "--space-gutter": spacing.gutter,
     "--space-gutter-lg": spacing.gutterLg,

@@ -3,6 +3,7 @@ import { AudienceSection } from "@/components/home/AudienceSection";
 import { AppDownloadCTA } from "@/components/home/AppDownloadCTA";
 import { Hero } from "@/components/home/Hero";
 import { HomeFaq } from "@/components/home/HomeFaq";
+import { HomeTestimonials } from "@/components/home/HomeTestimonials";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { LiveMarketExperience } from "@/components/home/LiveMarketExperience";
 import { PopularMarkets } from "@/components/home/PopularMarkets";
@@ -60,6 +61,7 @@ export default function Home() {
       <PopularMarkets />
       <PricingSection />
       <VerificationSection />
+      <HomeTestimonials />
       <HomeFaq />
       <AppDownloadCTA />
     </>

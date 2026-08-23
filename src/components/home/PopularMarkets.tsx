@@ -8,7 +8,7 @@ export function PopularMarkets() {
   return (
     <section
       id="markets"
-      className="bg-surface pt-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y)]"
+      className="bg-surface pt-[var(--space-section-y-featured-mobile)] pb-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y-featured)] lg:pb-[var(--space-section-y)]"
       aria-labelledby="popular-markets-heading"
     >
       <Container>
@@ -29,7 +29,7 @@ export function PopularMarkets() {
           </Link>
         </div>
 
-        <ul className="mt-6 grid grid-cols-2 gap-4 sm:gap-5 lg:mt-8 lg:grid-cols-4">
+        <ul className="mt-8 grid grid-cols-2 gap-4 sm:gap-5 lg:mt-10 lg:grid-cols-4">
           {popularMarkets.slice(0, 4).map((market) => (
             <li key={market.name}>
               <Link
@@ -41,6 +41,7 @@ export function PopularMarkets() {
                     src={market.imageSrc}
                     alt={market.imageAlt}
                     fill
+                    unoptimized
                     className="object-cover transition-transform duration-500 ease-[var(--motion-ease)] group-hover:scale-110"
                     sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 260px"
                   />

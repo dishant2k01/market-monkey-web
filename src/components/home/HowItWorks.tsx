@@ -50,7 +50,7 @@ export function HowItWorks() {
           </h2>
         </div>
 
-        <ol className="mt-6 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:mt-8 lg:grid-cols-4 lg:gap-6">
+        <ol className="mt-8 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:mt-10 lg:grid-cols-4 lg:gap-6">
           {homeHowItWorksSteps.map((item, index) => (
             <li key={item.step} className="relative">
               {index < homeHowItWorksSteps.length - 1 ? <StepConnector /> : null}

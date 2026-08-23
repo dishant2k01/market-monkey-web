@@ -9,8 +9,8 @@ import { appStoreLinks } from "@/config/navigation";
 export function AppDownloadCTA() {
   return (
     <section
-      id="get-app"
-      className="overflow-visible bg-surface pt-10 pb-[var(--space-section-y-mobile)] sm:pt-12 lg:pb-[var(--space-section-y)] lg:pt-14"
+      id="get-the-app"
+      className="overflow-visible bg-surface pt-16 pb-[var(--space-section-y-mobile)] sm:pt-20 lg:pb-[var(--space-section-y)] lg:pt-24"
       aria-labelledby="app-download-heading"
     >
       <Container className="overflow-visible">

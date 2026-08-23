@@ -1,6 +1,10 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Logo } from "@/components/brand/Logo";
+import {
+  AppStoreBadge,
+  GooglePlayBadge,
+} from "@/components/layout/AppStoreBadges";
 import { Container } from "@/components/layout/Container";
 import {
   FacebookIcon,
@@ -8,7 +12,11 @@ import {
   LinkedInIcon,
   XIcon,
 } from "@/components/ui/icons";
-import { footerLinkGroups, socialLinks } from "@/config/navigation";
+import {
+  appStoreLinks,
+  footerLinkGroups,
+  socialLinks,
+} from "@/config/navigation";
 
 const socialIconMap = {
   facebook: FacebookIcon,
@@ -50,7 +58,7 @@ export function Footer() {
       <Container className="py-[var(--space-section-y-mobile)] lg:py-[var(--space-section-y)]">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-3">
-            <Logo />
+            <Logo variant="dark" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-surface-inverse-muted">
               Live market exploration with verified local Monkeys—explore local
               markets online, compare prices before buying, and shop with
@@ -79,7 +87,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-9 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 lg:col-span-9 lg:grid-cols-4">
             {footerLinkGroups.map((group) => (
               <div key={group.title}>
                 <h2 className="text-sm font-bold text-ink-inverse">
@@ -96,6 +104,29 @@ export function Footer() {
                 </ul>
               </div>
             ))}
+
+            <div>
+              <h2 className="text-sm font-bold text-ink-inverse">
+                Get the App
+              </h2>
+              <div className="mt-4 flex flex-col gap-2.5">
+                {appStoreLinks.map((item) =>
+                  item.store === "google" ? (
+                    <GooglePlayBadge
+                      key={item.store}
+                      href={item.href}
+                      label={item.label}
+                    />
+                  ) : (
+                    <AppStoreBadge
+                      key={item.store}
+                      href={item.href}
+                      label={item.label}
+                    />
+                  ),
+                )}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -106,7 +137,6 @@ export function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <FooterNavLink href="/terms-of-service">Terms of Service</FooterNavLink>
             <FooterNavLink href="/privacy-policy">Privacy Policy</FooterNavLink>
-            <FooterNavLink href="/terms-of-service">Refund Policy</FooterNavLink>
           </div>
         </div>
       </Container>

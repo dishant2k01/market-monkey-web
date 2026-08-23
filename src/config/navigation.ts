@@ -18,45 +18,23 @@ export const footerLinkGroups = [
   {
     title: "Explore",
     links: [
-      { label: "All Markets", href: "/#markets" },
-      { label: "Popular Markets", href: "/#markets" },
-      { label: "Top Categories", href: "/#markets" },
-      { label: "Offers", href: "/#pricing" },
-    ],
-  },
-  {
-    title: "For Customers",
-    links: [
+      { label: "Markets", href: "/#markets" },
       { label: "How It Works", href: "/#how-it-works" },
-      { label: "Safety & Trust", href: "/#safety" },
-      { label: "FAQ", href: "/#faq" },
-      { label: "Customer Support", href: "/contact" },
+      { label: "Pricing", href: "/#pricing" },
     ],
   },
   {
     title: "For Monkeys",
     links: [
       { label: "Become a Monkey", href: "/become-a-monkey" },
-      { label: "How It Works", href: "/become-a-monkey#how-it-works" },
-      { label: "Earnings", href: "/#pricing" },
-      { label: "Monkey Support", href: "/contact" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About Us", href: "/about" },
-      { label: "Careers", href: "/#careers" },
       { label: "Blog", href: "/blog" },
       { label: "Contact Us", href: "/contact" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Terms of Service", href: "/terms-of-service" },
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Refund Policy", href: "/terms-of-service" },
     ],
   },
 ] as const;

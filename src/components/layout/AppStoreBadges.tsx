@@ -5,22 +5,27 @@ type StoreBadgeProps = {
 
 function GooglePlayGlyph({ className = "size-6" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+    <svg
+      className={className}
+      viewBox="0 0 512 512"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
       <path
-        fill="var(--accent-blue)"
-        d="M3.6 2.3c-.4.2-.6.6-.6 1.1v17.2c0 .5.2.9.6 1.1l9.5-9.7L3.6 2.3Z"
+        fill="#2196F3"
+        d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1z"
       />
       <path
-        fill="var(--accent-amber)"
-        d="m14.2 12.9 2.5-1.4-9.8-5.7 7.3 7.1Z"
+        fill="#4CAF50"
+        d="M47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0z"
       />
       <path
-        fill="var(--accent-green)"
-        d="m14.2 11.1 7.3 7.1c.4-.2.7-.6.7-1.1v-.3l-8-5.7Z"
+        fill="#FFC107"
+        d="m425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8z"
       />
       <path
-        fill="var(--accent-rose)"
-        d="M22.2 6.2 14.2 11l-7.3-7.1 14.1 1.1c.5.1.9.5 1.2 1.2Z"
+        fill="#F44336"
+        d="m104.6 499 280.8-161.2-60.1-60.1L104.6 499z"
       />
     </svg>
   );
