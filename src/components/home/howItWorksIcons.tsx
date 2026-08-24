@@ -24,39 +24,40 @@ export function HowItWorksMonkeyIcon({
   className?: string;
 }) {
   return (
-    <svg className={className} viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <circle cx="24" cy="24" r="16" fill="var(--brand-primary)" />
-      <ellipse cx="24" cy="27" rx="9" ry="8" fill="var(--brand-soft)" />
-      <circle cx="14" cy="20" r="4.5" fill="var(--brand-primary)" />
-      <circle cx="34" cy="20" r="4.5" fill="var(--brand-primary)" />
-      <circle cx="14" cy="20" r="2.5" fill="var(--brand-soft)" />
-      <circle cx="34" cy="20" r="2.5" fill="var(--brand-soft)" />
-      <circle cx="20" cy="25" r="1.6" fill="var(--ink)" />
-      <circle cx="28" cy="25" r="1.6" fill="var(--ink)" />
+    <svg className={className} viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      {/* Top Hair Tuft */}
+      <path d="M50 14 C47 9, 53 5, 50 0 C47 5, 53 9, 50 14 Z" fill="var(--brand-primary)" />
+      {/* Outer Ears & Head Base */}
+      <circle cx="18" cy="54" r="10" fill="var(--brand-primary)" />
+      <circle cx="18" cy="54" r="6" fill="var(--brand-soft)" />
+      <circle cx="82" cy="54" r="10" fill="var(--brand-primary)" />
+      <circle cx="82" cy="54" r="6" fill="var(--brand-soft)" />
+      <circle cx="50" cy="54" r="32" fill="var(--brand-primary)" />
+      
+      {/* White Forehead & Muzzle Mask */}
       <path
-        d="M20.5 31c1.2 1.4 2.6 2.1 3.5 2.1s2.3-.7 3.5-2.1"
-        stroke="var(--ink)"
-        strokeWidth="1.8"
+        d="M26 50 C26 38, 38 34, 50 42 C62 34, 74 38, 74 50 C74 68, 62 76, 50 76 C38 76, 26 68, 26 50 Z"
+        fill="#FFFFFF"
+      />
+      
+      {/* Orange Goggles / Eyes */}
+      <circle cx="38" cy="50" r="7" fill="var(--brand-primary)" />
+      <circle cx="38" cy="50" r="4.5" fill="#FFFFFF" />
+      <circle cx="37" cy="49" r="2" fill="var(--brand-primary)" />
+      
+      <circle cx="62" cy="50" r="7" fill="var(--brand-primary)" />
+      <circle cx="62" cy="50" r="4.5" fill="#FFFFFF" />
+      <circle cx="61" cy="49" r="2" fill="var(--brand-primary)" />
+
+      {/* Goggles Bridge */}
+      <rect x="44" y="48" width="12" height="3.5" rx="1.5" fill="var(--brand-primary)" />
+
+      {/* Smile */}
+      <path
+        d="M41 65 Q50 72 59 65"
+        stroke="var(--brand-primary)"
+        strokeWidth="3.5"
         strokeLinecap="round"
-      />
-      <rect
-        x="16"
-        y="22.5"
-        width="7"
-        height="5.5"
-        rx="1.5"
-        stroke="var(--brand-primary-active)"
-        strokeWidth="1.6"
-        fill="none"
-      />
-      <rect
-        x="25"
-        y="22.5"
-        width="7"
-        height="5.5"
-        rx="1.5"
-        stroke="var(--brand-primary-active)"
-        strokeWidth="1.6"
         fill="none"
       />
     </svg>

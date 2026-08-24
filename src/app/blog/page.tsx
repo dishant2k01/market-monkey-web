@@ -1,20 +1,27 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import { BlogHero } from "@/components/blog/BlogHero";
 import { BlogListing } from "@/components/blog/BlogListing";
-import { BlogNewsletter } from "@/components/blog/BlogNewsletter";
-
-export const metadata: Metadata = {
-  title: "Blog",
-  description:
-    "Tips, stories, and strategies to help you explore markets, analyze trends, and make smarter business decisions.",
-};
+import { AppDownloadCTASection } from "@/components/common/AppDownloadCTASection";
 
 export default function BlogPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
     <>
-      <BlogHero />
-      <BlogListing />
-      <BlogNewsletter />
+      {/* Top Hero Section */}
+      <BlogHero searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+
+      {/* Main Category Filter & Listing with Sidebar Widgets */}
+      <BlogListing searchQuery={searchQuery} />
+
+      {/* Common CTA Download Banner */}
+      <AppDownloadCTASection
+        variant="light"
+        title="Explore Markets Live with Verified Monkeys"
+        description="Compare, ask and shop with confidence."
+      />
     </>
   );
 }

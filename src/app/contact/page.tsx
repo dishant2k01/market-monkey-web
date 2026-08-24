@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AppDownloadCTA } from "@/components/home/AppDownloadCTA";
+import { AppDownloadCTASection } from "@/components/common/AppDownloadCTASection";
 import { ContactFaq } from "@/components/contact/ContactFaq";
 import { ContactGetInTouch } from "@/components/contact/ContactGetInTouch";
 import { ContactHero } from "@/components/contact/ContactHero";
@@ -32,7 +32,15 @@ export default function ContactPage() {
       <ContactHero />
       <ContactGetInTouch />
       <ContactFaq />
-      <AppDownloadCTA />
+      <AppDownloadCTASection
+        id="get-the-app"
+        variant="dark"
+        title="Take Market Monkey With You, Everywhere."
+        description="Download the app and explore markets, anytime, anywhere."
+        imageSrc="/images/home/app-phones.png"
+        imageAlt="Market Monkey mobile app on two phones"
+        className="overflow-visible bg-surface pt-16 pb-[var(--space-section-y-mobile)] sm:pt-20 lg:pb-[var(--space-section-y)] lg:pt-24"
+      />
     </>
   );
 }
