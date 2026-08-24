@@ -60,7 +60,7 @@ export function MonkeyTestimonialsSlider({
       >
         {visible.map((testimonial) => (
           <MonkeyTestimonialCard
-            key={`${testimonial.name}-${testimonial.role}`}
+            key={`${testimonial.name}-${testimonial.location}`}
             testimonial={testimonial}
           />
         ))}

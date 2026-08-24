@@ -1,7 +1,6 @@
 export type BecomeHeroHighlight = {
   title: string;
-  description: string;
-  icon: "flexible" | "rupee" | "shield";
+  icon: "terms" | "earn" | "customers" | "trusted";
 };
 
 export type BecomeHeroStat = {
@@ -12,14 +11,26 @@ export type BecomeHeroStat = {
 export type BecomeReason = {
   title: string;
   description: string;
-  icon: "clock" | "users" | "rupee" | "chart";
+  icon: "clock" | "rupee" | "chart" | "users" | "boss" | "badge";
 };
 
 export type BecomeHowItWorksStep = {
   step: string;
   title: string;
   description: string;
-  icon: "signUp" | "profile" | "calendar" | "rupee";
+  icon: "apply" | "verification" | "live" | "earn";
+};
+
+export type BecomeRequirement = {
+  text: string;
+};
+
+export type BecomeEarningPlan = {
+  icon: "session" | "subscription";
+  title: string;
+  price: string;
+  unit: string;
+  description: string;
 };
 
 export type BecomeAudience = {
@@ -30,86 +41,102 @@ export type BecomeAudience = {
 export type BecomeTestimonial = {
   quote: string;
   name: string;
-  role: string;
+  location: string;
   avatarSrc: string;
+  rating: number;
 };
 
 export const becomeHeroHighlights: BecomeHeroHighlight[] = [
   {
-    title: "Flexible Hours",
-    description: "Work when you want from anywhere",
-    icon: "flexible",
+    title: "Work on Your Terms",
+    icon: "terms",
   },
   {
-    title: "Earn More",
-    description: "Set your own prices and grow income",
-    icon: "rupee",
+    title: "Earn More as You Grow",
+    icon: "earn",
   },
   {
-    title: "Safe & Secure",
-    description: "Verified platform with secure payments",
-    icon: "shield",
+    title: "Help Thousands of Customers",
+    icon: "customers",
+  },
+  {
+    title: "100% Trusted & Verified",
+    icon: "trusted",
   },
 ];
 
-export const becomeHeroStats: BecomeHeroStat[] = [
-  { label: "10,000+ Active Monkeys", icon: "users" },
-  { label: "4.8 Average Rating", icon: "star" },
-  { label: "₹50L+ Earnings Paid", icon: "rupee" },
-];
-
-export const becomeHeroMedia = {
+export const becomeHeroLiveDetails = {
+  earnings: "₹2,450",
+  earningsLabel: "Today's Earnings",
+  liveLabel: "Live Session",
+  liveLocation: "Lajpat Nagar, Delhi",
+  viewerCount: "+24",
+  avatars: [
+    "/images/testimonials/arjun.jpg",
+    "/images/testimonials/neha.jpg",
+    "/images/testimonials/priya.jpg",
+  ],
   imageSrc: "/images/become/hero-monkey.jpg",
-  imageAlt: "Smiling professional on a video call with headphones",
+  imageAlt: "Market Monkey local guide streaming live from an authentic Indian market",
 } as const;
-
-export const becomeReasons: BecomeReason[] = [
-  {
-    title: "Work on your time",
-    description: "Choose your availability and work when you’re free.",
-    icon: "clock",
-  },
-  {
-    title: "Help & impact",
-    description: "Guide, mentor, and help others grow in their journey.",
-    icon: "users",
-  },
-  {
-    title: "Great earnings",
-    description: "Set your own prices and earn more with every session.",
-    icon: "rupee",
-  },
-  {
-    title: "Grow your brand",
-    description: "Build your profile, get reviews, and grow your reputation.",
-    icon: "chart",
-  },
-];
 
 export const becomeHowItWorksSteps: BecomeHowItWorksStep[] = [
   {
     step: "01",
-    title: "Sign Up",
-    description: "Create your account in minutes.",
-    icon: "signUp",
+    title: "Apply & Sign Up",
+    description: "Fill out the application form and tell us about yourself.",
+    icon: "apply",
   },
   {
     step: "02",
-    title: "Create Profile",
-    description: "Add your skills, experience, languages & price.",
-    icon: "profile",
+    title: "Verification",
+    description: "We'll verify your identity and review your local market knowledge.",
+    icon: "verification",
   },
   {
     step: "03",
-    title: "Get Booked",
-    description: "Users book sessions based on your availability.",
-    icon: "calendar",
+    title: "Start Going Live",
+    description: "Once approved, go live from your market and help shoppers.",
+    icon: "live",
   },
   {
     step: "04",
     title: "Earn & Grow",
-    description: "Connect, help and earn. Grow your reputation.",
+    description: "Earn per session and unlock more earnings as you grow.",
+    icon: "earn",
+  },
+];
+
+export const becomeReasons: BecomeReason[] = [
+  {
+    title: "Work on Your Time",
+    description: "Choose your hours and go live when it suits you.",
+    icon: "clock",
+  },
+  {
+    title: "Great Earnings",
+    description: "Earn per session + monthly subscription model.",
     icon: "rupee",
+  },
+  {
+    title: "Grow Your Reputation",
+    description: "Build your profile, get more bookings and grow.",
+    icon: "chart",
+  },
+  {
+    title: "Help Real People",
+    description: "Help thousands of shoppers make better decisions.",
+    icon: "users",
+  },
+  {
+    title: "Be Your Own Boss",
+    description: "You're in charge. You work your way.",
+    icon: "boss",
+  },
+  {
+    title: "Trusted & Verified",
+    description: "We verify every Monkey for safety and trust.",
+    icon: "badge",
   },
 ];
 
@@ -122,47 +149,80 @@ export const becomeAudiences: BecomeAudience[] = [
   { label: "Industry Experts", icon: "chart" },
 ];
 
+export const whoCanBecomeRequirements: BecomeRequirement[] = [
+  { text: "You know your local markets really well" },
+  { text: "You have a smartphone and good internet" },
+  { text: "You are friendly, honest and helpful" },
+  { text: "You can communicate in Hindi or English" },
+  { text: "You are 18 years or older" },
+];
+
+export const whatYouEarnPlans: BecomeEarningPlan[] = [
+  {
+    icon: "session",
+    title: "Per Live Session",
+    price: "₹99",
+    unit: "/ 15 mins",
+    description: "Earn for every successful live market session.",
+  },
+  {
+    icon: "subscription",
+    title: "Monthly Subscription",
+    price: "₹299",
+    unit: "/ month",
+    description: "Unlock more bookings, more visibility and more earnings.",
+  },
+];
+
+export const topEarnerHighlight = "Top Monkeys earn ₹20,000+ per month!";
+
 export const becomeTestimonials: BecomeTestimonial[] = [
   {
     quote:
-      "I started with a few evening sessions and now mentor students every week. Flexible and rewarding.",
-    name: "Priya Sharma",
-    role: "Maths Mentor",
-    avatarSrc: "/images/testimonials/priya.jpg",
-  },
-  {
-    quote:
-      "Setting my own rates and schedule changed everything. I help founders while growing my consulting brand.",
-    name: "Rahul Mehta",
-    role: "Business Consultant",
+      "Market Monkey changed my life. I work from my favorite market and earn well. Super flexible!",
+    name: "Raj Kumar",
+    location: "Chandni Chowk, Delhi",
     avatarSrc: "/images/testimonials/rahul.jpg",
+    rating: 5,
   },
   {
     quote:
-      "The platform made it easy to get booked. Payments are smooth and the community is supportive.",
-    name: "Neha Kapoor",
-    role: "Career Coach",
+      "I love showing my market to people from all over India. The earnings are great and the team supports us a lot.",
+    name: "Neha Sharma",
+    location: "Colaba Causeway, Mumbai",
     avatarSrc: "/images/testimonials/neha.jpg",
+    rating: 5,
   },
   {
     quote:
-      "I love sharing market walkthroughs live. Users ask great questions and I earn on my free hours.",
-    name: "Arjun Patel",
-    role: "Local Market Expert",
+      "Best part is the freedom. I go live, help customers and earn at my own time. Highly recommended!",
+    name: "Arjun Singh",
+    location: "Lajpat Nagar, Delhi",
     avatarSrc: "/images/testimonials/arjun.jpg",
+    rating: 5,
   },
   {
     quote:
-      "As a teacher, this is a perfect side income. Verified users, clear bookings, and fair payouts.",
-    name: "Meera Iyer",
-    role: "Language Teacher",
-    avatarSrc: "/images/testimonials/meera.jpg",
+      "Being a Monkey lets me share my favorite shopping spots while earning great income on my own schedule.",
+    name: "Priya Verma",
+    location: "Commercial Street, Bengaluru",
+    avatarSrc: "/images/testimonials/priya.jpg",
+    rating: 5,
   },
   {
     quote:
-      "Building my profile with reviews helped me stand out. Highly recommend joining as a Monkey.",
-    name: "Vikram Shah",
-    role: "Industry Expert",
+      "I guide customers through authentic handicraft stalls every day. The payouts are fast and reliable.",
+    name: "Vikram Joshi",
+    location: "Johari Bazaar, Jaipur",
     avatarSrc: "/images/testimonials/vikram.jpg",
+    rating: 5,
+  },
+  {
+    quote:
+      "I love interacting with shoppers and helping them find genuine bargains. Market Monkey is a game changer!",
+    name: "Meera Nair",
+    location: "Sarojini Nagar, Delhi",
+    avatarSrc: "/images/testimonials/meera.jpg",
+    rating: 5,
   },
 ];

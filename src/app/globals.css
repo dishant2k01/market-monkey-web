@@ -6,6 +6,7 @@
 */
 @theme inline {
   --font-sans: var(--font-plus-jakarta);
+  --font-handwriting: "Caveat", cursive, sans-serif;
 
   --color-brand-primary: var(--brand-primary);
   --color-brand-primary-hover: var(--brand-primary-hover);
