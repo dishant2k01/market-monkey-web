@@ -1,0 +1,169 @@
+{
+  "heroFeatured": {
+    "slug": "sarojini-nagar-market-complete-guide-2024",
+    "title": "Sarojini Nagar Market Complete Guide 2024",
+    "excerpt": "Explore one of Delhi's most famous markets like never before. Learn about secret lanes, bargaining tips, best visit hours, and live video shopping options.",
+    "category": "Market Guides",
+    "categoryBadge": "GUIDE",
+    "date": "2024-05-20",
+    "dateLabel": "May 20, 2024",
+    "readTime": "8 min read",
+    "imageSrc": "/images/markets/sarojini.jpg",
+    "imageAlt": "Sarojini Nagar Market crowded street with vibrant clothes and shopper stalls"
+  },
+  "categories": [
+    {
+      "id": "All Posts",
+      "name": "All Posts",
+      "count": 24,
+      "icon": "all"
+    },
+    {
+      "id": "Market Guides",
+      "name": "Market Guides",
+      "count": 10,
+      "icon": "guides"
+    },
+    {
+      "id": "Shopping Tips",
+      "name": "Shopping Tips",
+      "count": 6,
+      "icon": "tips"
+    },
+    {
+      "id": "Monkey Stories",
+      "name": "Monkey Stories",
+      "count": 4,
+      "icon": "stories"
+    },
+    {
+      "id": "News & Updates",
+      "name": "News & Updates",
+      "count": 4,
+      "icon": "news"
+    }
+  ],
+  "posts": [
+    {
+      "slug": "chor-bazaar-delhi-ultimate-guide",
+      "title": "Chor Bazaar Delhi – The Ultimate Guide for Smart Shoppers",
+      "excerpt": "Everything you need to know before visiting Chor Bazaar. Discover vintage finds, antiques, and negotiation hacks.",
+      "category": "Market Guides",
+      "categoryBadge": "GUIDE",
+      "date": "2024-05-15",
+      "dateLabel": "May 15, 2024",
+      "readTime": "6 min read",
+      "imageSrc": "/images/markets/chor-bajar.jpg",
+      "imageAlt": "Chor Bazaar street stalls with vintage lamps and goods"
+    },
+    {
+      "slug": "lajpat-nagar-market-guide-shopping-prices-tips",
+      "title": "Lajpat Nagar Market Guide – Shopping, Prices & Tips",
+      "excerpt": "A complete guide to Lajpat Nagar Central Market in Delhi. From ethnic wear and fabrics to food stalls.",
+      "category": "Market Guides",
+      "categoryBadge": "GUIDE",
+      "date": "2024-05-10",
+      "dateLabel": "May 10, 2024",
+      "readTime": "5 min read",
+      "imageSrc": "/images/markets/lajpat.jpg",
+      "imageAlt": "Lajpat Nagar market street filled with vibrant fabrics"
+    },
+    {
+      "slug": "best-wholesale-markets-mumbai-budget-shopping",
+      "title": "Best Wholesale Markets in Mumbai for Budget Shopping",
+      "excerpt": "Explore the top wholesale markets in Mumbai and save big on fashion, accessories, and home decor items.",
+      "category": "Market Guides",
+      "categoryBadge": "GUIDE",
+      "date": "2024-05-05",
+      "dateLabel": "May 5, 2024",
+      "readTime": "7 min read",
+      "imageSrc": "/images/markets/commercial-street.png",
+      "imageAlt": "Crowded night market street with lights in Mumbai"
+    },
+    {
+      "slug": "from-student-to-top-monkey-amit-journey",
+      "title": "From Student to Top Monkey – Amit's Journey",
+      "excerpt": "How Amit turned his knowledge of local markets into a full-time income helping remote shoppers explore Delhi markets.",
+      "category": "Monkey Stories",
+      "categoryBadge": "MONKEY STORIES",
+      "date": "2024-05-28",
+      "dateLabel": "May 28, 2024",
+      "readTime": "6 min read",
+      "imageSrc": "/images/cta/shopper-man.jpg",
+      "imageAlt": "Young man smiling while showing a market view on phone"
+    },
+    {
+      "slug": "how-to-compare-prices-before-buying-smart-tips",
+      "title": "How to Compare Prices Before Buying – Smart Shopping Tips",
+      "excerpt": "Use Market Monkey to compare prices across sellers in real-time and make smarter, confident buying decisions.",
+      "category": "Shopping Tips",
+      "categoryBadge": "TIPS",
+      "date": "2024-04-22",
+      "dateLabel": "Apr 22, 2024",
+      "readTime": "5 min read",
+      "imageSrc": "/images/cta/shopper-woman.jpg",
+      "imageAlt": "Woman holding mobile phone displaying market products"
+    },
+    {
+      "slug": "karol-bagh-market-guide-what-to-buy",
+      "title": "Karol Bagh Market Guide – What to Buy & When to Visit",
+      "excerpt": "Explore Karol Bagh like a pro with our complete guide to footwear, electronics, bridal wear, and street food.",
+      "category": "Market Guides",
+      "categoryBadge": "GUIDE",
+      "date": "2024-04-18",
+      "dateLabel": "Apr 18, 2024",
+      "readTime": "6 min read",
+      "imageSrc": "/images/markets/mg-road.jpg",
+      "imageAlt": "Karol Bagh footwear shop display with shoes stacked high"
+    },
+    {
+      "slug": "johari-bazaar-jaipur-jewelry-guide",
+      "title": "Johari Bazaar Jaipur – Jewelry & Traditional Craft Guide",
+      "excerpt": "Discover authentic Jaipuri jewelry, precious gemstones, and handicrafts with expert local guidance.",
+      "category": "Market Guides",
+      "categoryBadge": "GUIDE",
+      "date": "2024-04-10",
+      "dateLabel": "Apr 10, 2024",
+      "readTime": "7 min read",
+      "imageSrc": "/images/markets/johari-bazaar.jpg",
+      "imageAlt": "Johari Bazaar Jaipur colorful traditional jewelry display"
+    }
+  ],
+  "popularPosts": [
+    {
+      "rank": 1,
+      "slug": "sarojini-nagar-market-complete-guide-2024",
+      "title": "Sarojini Nagar Market Complete Guide 2024",
+      "dateLabel": "May 15, 2024",
+      "imageSrc": "/images/markets/sarojini.jpg"
+    },
+    {
+      "rank": 2,
+      "slug": "chor-bazaar-delhi-ultimate-guide",
+      "title": "Chor Bazaar Delhi – The Ultimate Guide",
+      "dateLabel": "May 10, 2024",
+      "imageSrc": "/images/markets/chor-bajar.jpg"
+    },
+    {
+      "rank": 3,
+      "slug": "best-wholesale-markets-mumbai-budget-shopping",
+      "title": "Best Wholesale Markets in Mumbai",
+      "dateLabel": "May 5, 2024",
+      "imageSrc": "/images/markets/commercial-street.png"
+    },
+    {
+      "rank": 4,
+      "slug": "lajpat-nagar-market-guide-shopping-prices-tips",
+      "title": "Lajpat Nagar Market Guide",
+      "dateLabel": "Apr 28, 2024",
+      "imageSrc": "/images/markets/lajpat.jpg"
+    },
+    {
+      "rank": 5,
+      "slug": "how-to-compare-prices-before-buying-smart-tips",
+      "title": "How to Compare Prices Before Buying",
+      "dateLabel": "Apr 22, 2024",
+      "imageSrc": "/images/cta/shopper-woman.jpg"
+    }
+  ]
+}

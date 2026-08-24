@@ -5,8 +5,8 @@ export type NavItem = {
 
 export const primaryNav: NavItem[] = [
   { label: "About", href: "/about" },
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Markets", href: "/#markets" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Markets", href: "/markets" },
   { label: "Become a Monkey", href: "/become-a-monkey" },
   { label: "Contact", href: "/contact" },
 ];
@@ -19,8 +19,8 @@ export const footerLinkGroups = [
   {
     title: "Explore",
     links: [
-      { label: "Markets", href: "/#markets" },
-      { label: "How It Works", href: "/#how-it-works" },
+      { label: "Markets", href: "/markets" },
+      { label: "How It Works", href: "/how-it-works" },
       { label: "Pricing", href: "/#pricing" },
     ],
   },

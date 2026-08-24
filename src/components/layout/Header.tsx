@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { Logo } from "@/components/brand/Logo";
 import { Container } from "@/components/layout/Container";
@@ -12,6 +13,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuId = useId();
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -54,15 +56,22 @@ export function Header() {
             className="flex items-center gap-[var(--space-nav-gap)]"
             aria-label="Primary"
           >
-            {primaryNav.map((item) => (
-              <Link
-                key={item.href + item.label}
-                href={item.href}
-                className="text-sm font-medium text-ink-secondary transition-colors hover:text-brand-primary focus-visible:text-brand-primary"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {primaryNav.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href + item.label}
+                  href={item.href}
+                  className={`relative text-sm transition-colors hover:text-brand-primary focus-visible:text-brand-primary ${
+                    isActive
+                      ? "font-semibold text-brand-primary after:absolute after:bottom-[-20px] after:left-0 after:right-0 after:h-[2px] after:rounded-full after:bg-brand-primary"
+                      : "font-medium text-ink-secondary"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <Button href="/#get-the-app" size="md">
@@ -96,17 +105,24 @@ export function Header() {
         <Container className="flex flex-col gap-1 py-4">
           <nav aria-label="Mobile primary">
             <ul className="flex flex-col">
-              {primaryNav.map((item) => (
-                <li key={item.href + item.label}>
-                  <Link
-                    href={item.href}
-                    className="block rounded-md px-3 py-3 text-base font-medium text-ink-secondary transition-colors hover:bg-surface-subtle hover:text-brand-primary"
-                    onClick={closeMobile}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              {primaryNav.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <li key={item.href + item.label}>
+                    <Link
+                      href={item.href}
+                      className={`block rounded-md px-3 py-3 text-base transition-colors ${
+                        isActive
+                          ? "bg-brand-soft font-semibold text-brand-primary"
+                          : "font-medium text-ink-secondary hover:bg-surface-subtle hover:text-brand-primary"
+                      }`}
+                      onClick={closeMobile}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
           <div className="mt-2 border-t border-surface-border pt-4 sm:hidden">
