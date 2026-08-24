@@ -11,10 +11,10 @@ export default function BlogPage() {
   return (
     <>
       {/* Top Hero Section */}
-      <BlogHero searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+      <BlogHero />
 
       {/* Main Category Filter & Listing with Sidebar Widgets */}
-      <BlogListing searchQuery={searchQuery} />
+      <BlogListing searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
       {/* Common CTA Download Banner */}
       <AppDownloadCTASection

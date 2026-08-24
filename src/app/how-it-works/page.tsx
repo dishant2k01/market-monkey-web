@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { AudienceSection } from "@/components/common/AudienceSection";
+import { CommonFaqSection } from "@/components/common/CommonFaqSection";
 import { HowItWorksSection } from "@/components/common/HowItWorksSection";
 import { HowItWorksCtaSection } from "@/components/how-it-works/HowItWorksCtaSection";
 import { HowItWorksHero } from "@/components/how-it-works/HowItWorksHero";
 import { HowItWorksLiveSection } from "@/components/how-it-works/HowItWorksLiveSection";
+import { howItWorksFaqs } from "@/config/faqs";
 
 export const metadata: Metadata = {
   title: "How It Works — Explore Any Market Live in 4 Simple Steps",
@@ -52,6 +54,14 @@ export default function HowItWorksPage() {
       />
       <HowItWorksLiveSection />
       <AudienceSection />
+      <CommonFaqSection
+        id="how-it-works-faq"
+        title="How It Works Questions"
+        highlightText="Questions"
+        subtitle="Frequently asked questions about the customer journey on Market Monkey."
+        items={howItWorksFaqs}
+        idPrefix="hiw-faq"
+      />
       <HowItWorksCtaSection />
     </>
   );

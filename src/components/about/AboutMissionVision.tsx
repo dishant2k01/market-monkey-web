@@ -14,11 +14,11 @@ const pillarIcons: Record<AboutPillar["icon"], ReactNode> = {
 export function AboutMissionVision() {
   return (
     <section
-      className="bg-surface pb-[var(--space-section-y-mobile)] lg:pb-[var(--space-section-y)]"
+      className="bg-surface pt-12 pb-12 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-20"
       aria-label="Our mission and vision"
     >
       <Container>
-        <div className="relative overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm">
+        <div className="relative overflow-hidden rounded-3xl border border-surface-border bg-surface shadow-sm">
           <span
             className="pointer-events-none absolute top-1/2 left-1/2 hidden h-16 w-px -translate-x-1/2 -translate-y-1/2 bg-surface-border lg:block"
             aria-hidden="true"

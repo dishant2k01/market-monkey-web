@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { Container } from "@/components/layout/Container";
+import { SearchIcon } from "@/components/ui/icons";
 import {
   blogCategories,
   blogPosts,
@@ -66,9 +67,13 @@ function ChevronDownIcon({ className = "size-4" }: { className?: string }) {
 
 type BlogListingProps = {
   searchQuery?: string;
+  onSearchChange?: (query: string) => void;
 };
 
-export function BlogListing({ searchQuery = "" }: BlogListingProps) {
+export function BlogListing({
+  searchQuery = "",
+  onSearchChange,
+}: BlogListingProps) {
   const [activeCategory, setActiveCategory] = useState<BlogCategoryName>("All Posts");
   const [displayCount, setDisplayCount] = useState(6);
 
@@ -88,7 +93,7 @@ export function BlogListing({ searchQuery = "" }: BlogListingProps) {
   const hasMore = displayCount < filteredPosts.length;
 
   return (
-    <section className="bg-surface pb-[var(--space-section-y-mobile)] lg:pb-[var(--space-section-y)]">
+    <section className="bg-surface pt-10 pb-[var(--space-section-y-mobile)] lg:pt-14 lg:pb-[var(--space-section-y)]">
       <Container>
         {/* Category Tabs Filter Bar */}
         <div
@@ -179,6 +184,29 @@ export function BlogListing({ searchQuery = "" }: BlogListingProps) {
 
           {/* Right Sidebar Column */}
           <aside className="space-y-6 lg:col-span-4">
+            {/* Widget 0: Search Input Bar */}
+            <div className="rounded-2xl border border-[#FFE8D6] bg-[#FFF9F4]/70 p-4 shadow-xs">
+              <div className="flex items-center rounded-xl bg-white p-1.5 border border-[#FFE3D1] focus-within:ring-2 focus-within:ring-brand-primary">
+                <div className="flex flex-1 items-center gap-2 px-2.5">
+                  <SearchIcon className="size-4 shrink-0 text-ink-subtle" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => onSearchChange?.(e.target.value)}
+                    placeholder="Search blogs..."
+                    className="w-full bg-transparent text-xs text-ink outline-none placeholder:text-ink-subtle"
+                  />
+                </div>
+                <button
+                  type="button"
+                  aria-label="Search"
+                  className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand-primary text-brand-primary-foreground shadow-xs transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+                >
+                  <SearchIcon className="size-3.5" />
+                </button>
+              </div>
+            </div>
+
             {/* Widget 1: Popular Posts */}
             <div className="rounded-2xl border border-[#FFE8D6] bg-[#FFF9F4]/70 p-5 shadow-xs">
               <h3 className="text-base font-extrabold text-ink">Popular Posts</h3>
