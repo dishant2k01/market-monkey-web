@@ -8,7 +8,7 @@ import { ShopIcon } from "@/components/ui/icons";
 
 const howItWorksHeroImage = {
   src: "/images/hero/how_it_works.png",
-  alt: "Market Monkey how it works — live shopping setup with laptop, phone, and markets",
+  alt: "Market Monkey how it works — find, explore, connect, and go live",
 } as const;
 
 export function HowItWorksHero() {
@@ -59,12 +59,13 @@ export function HowItWorksHero() {
                 className="pointer-events-none absolute top-1/2 left-1/2 -z-10 size-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-soft/70 blur-xl sm:size-96"
                 aria-hidden="true"
               />
-              <div className="relative aspect-square w-full sm:aspect-[5/4]">
+              <div className="relative aspect-[3/2] w-full">
                 <Image
                   src={howItWorksHeroImage.src}
                   alt={howItWorksHeroImage.alt}
                   fill
                   priority
+                  unoptimized
                   className="object-contain drop-shadow-2xl"
                   sizes="(max-width: 768px) 100vw, 680px"
                 />

@@ -66,12 +66,13 @@ export function AboutHero() {
                 aria-hidden="true"
               />
 
-              <div className="relative aspect-[4/3] w-full">
+              <div className="relative aspect-[3/2] w-full">
                 <Image
-                  src={aboutHero.imageSrc}
+                  src="/images/hero/about.png"
                   alt={aboutHero.imageAlt}
                   fill
                   priority
+                  unoptimized
                   className="object-contain drop-shadow-2xl"
                   sizes="(max-width: 768px) 100vw, 640px"
                 />

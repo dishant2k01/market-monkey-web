@@ -22,7 +22,7 @@ export const aboutHero = {
   description:
     "Market Monkey is your all-in-one market discovery platform. From local bazaars to popular shopping hubs — we help you explore, compare and make the best choices, anytime, anywhere.",
   imageSrc: "/images/hero/about.png",
-  imageAlt: "Market Monkey app shown on two phones",
+  imageAlt: "Market Monkey — exploring markets, cities, and products worldwide",
 } as const;
 
 export const aboutPillars: AboutPillar[] = [
