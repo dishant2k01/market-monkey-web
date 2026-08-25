@@ -78,13 +78,12 @@ export const homeHero = {
   titleHighlight: "Before You Buy.",
   description:
     "Go live with verified local Monkeys, explore real markets, check products, compare prices and buy with confidence.",
-  primaryCta: { label: "Explore Markets", href: "/#markets" },
-  secondaryCta: { label: "Watch How It Works", href: "/#how-it-works" },
-  backgroundSrc: "/images/home/hero-bg.jpeg",
-  phoneAlt: "Live Market Monkey video call showing products in a real market",
-  backgroundAlt:
-    "Busy night market with live Market Monkey video shopping on a phone",
-  trustNote: "Trusted by thousands across India",
+  primaryCta: { label: "Explore Markets", href: "/markets" },
+  secondaryCta: { label: "See How It Works", href: "/how-it-works" },
+  backgroundSrc: "/images/home/hero-market-panorama.jpg",
+  phoneSrc: "/images/home/hero-live-phone.png",
+  phoneAlt: "Live Market Monkey video call with verified monkey exploring real markets",
+  backgroundAlt: "Authentic vibrant Indian evening market street with lights and shops",
 } as const;
 
 export const homeHeroFeatures: HomeHeroFeature[] = [
@@ -95,10 +94,10 @@ export const homeHeroFeatures: HomeHeroFeature[] = [
 ];
 
 export const homeTrustStats: HomeTrustStat[] = [
-  { value: "500+", label: "Markets", icon: "markets" },
-  { value: "10K+", label: "Verified Monkeys", icon: "monkeys" },
-  { value: "25K+", label: "Happy Customers", icon: "customers" },
-  { value: "4.8 ★", label: "Average Rating", icon: "rating" },
+  { value: "100% Verified", label: "Local Monkeys", icon: "monkeys" },
+  { value: "1-on-1 Live", label: "Video Calls", icon: "live" as any },
+  { value: "Direct Pricing", label: "No Hidden Fees", icon: "markets" },
+  { value: "100% Safe", label: "Secure Platform", icon: "rating" },
 ];
 
 export const homeTrustAvatars = [
