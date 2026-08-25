@@ -1,43 +1,31 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { Button } from "@/components/ui/Button";
-import {
-  ArrowRightIcon,
-  LiveClockIcon,
-  MapPinIcon,
-  PlayIcon,
-  ShopIcon,
-  StarIcon,
-  UsersIcon,
-} from "@/components/ui/icons";
 import {
   homeHero,
-  homeHeroFeatures,
-  homeTrustAvatars,
   homeTrustStats,
-  type HomeHeroFeature,
   type HomeTrustStat,
 } from "@/config/home";
 import type { ReactNode } from "react";
 
-const trustIcons: Record<HomeTrustStat["icon"], ReactNode> = {
-  markets: <ShopIcon className="size-4" />,
-  monkeys: <UsersIcon className="size-4" />,
-  customers: <UsersIcon className="size-4" />,
-  rating: <StarIcon className="size-4" />,
-};
-
-function CompareIcon({ className = "size-4" }: { className?: string }) {
+function VerifiedShieldIcon({ className = "size-5" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
       <path
-        d="M7 7h10M7 12h6M7 17h8"
+        d="M12 3L4 6.5v6c0 5.25 3.5 9.5 8 10.5 4.5-1 8-5.25 8-10.5v-6L12 3z"
         stroke="currentColor"
         strokeWidth="1.75"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        d="M17 10.5v7M14.5 15.5 17 18l2.5-2.5"
+        d="M9 12.5l2 2 4-4"
         stroke="currentColor"
         strokeWidth="1.75"
         strokeLinecap="round"
@@ -47,12 +35,46 @@ function CompareIcon({ className = "size-4" }: { className?: string }) {
   );
 }
 
-function TimeIcon({ className = "size-4" }: { className?: string }) {
+function LiveVideoCallIcon({ className = "size-5" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="8.25" stroke="currentColor" strokeWidth="1.75" />
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="5"
+        width="13"
+        height="14"
+        rx="3"
+        stroke="currentColor"
+        strokeWidth="1.75"
+      />
+      <polygon
+        points="16,10 21,7 21,17 16,14"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <circle cx="9.5" cy="12" r="2" fill="currentColor" />
+    </svg>
+  );
+}
+
+function DirectPricingIcon({ className = "size-5" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
       <path
-        d="M12 8v4.25L14.75 14"
+        d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"
         stroke="currentColor"
         strokeWidth="1.75"
         strokeLinecap="round"
@@ -62,127 +84,147 @@ function TimeIcon({ className = "size-4" }: { className?: string }) {
   );
 }
 
-const featureIcons: Record<HomeHeroFeature["icon"], ReactNode> = {
-  markets: <MapPinIcon className="size-4" />,
-  live: <LiveClockIcon className="size-4" />,
-  compare: <CompareIcon className="size-4" />,
-  time: <TimeIcon className="size-4" />,
+function SecurePlatformIcon({ className = "size-5" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect
+        x="5"
+        y="11"
+        width="14"
+        height="10"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.75"
+      />
+      <path
+        d="M8 11V7a4 4 0 018 0v4"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+      />
+      <circle cx="12" cy="16" r="1.5" fill="currentColor" />
+    </svg>
+  );
+}
+
+const trustStatIcons: Record<string, ReactNode> = {
+  monkeys: <VerifiedShieldIcon className="size-5.5 text-brand-primary" />,
+  live: <LiveVideoCallIcon className="size-5.5 text-brand-primary" />,
+  markets: <DirectPricingIcon className="size-5.5 text-brand-primary" />,
+  rating: <SecurePlatformIcon className="size-5.5 text-brand-primary" />,
 };
 
 export function Hero() {
   return (
     <section
-      className="relative overflow-hidden"
+      className="relative overflow-hidden bg-[#0A0A0B] text-white"
       aria-labelledby="hero-heading"
     >
-      <div className="absolute inset-0">
+      {/* Background Market Panorama Image */}
+      <div className="absolute inset-0 z-0">
         <Image
           src={homeHero.backgroundSrc}
-          alt=""
+          alt={homeHero.backgroundAlt}
           fill
           priority
           className="object-cover object-center"
           sizes="100vw"
         />
+
+        {/* Softer, balanced gradient overlays to let the warm market lights and sunset shine through */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-surface-inverse/80 via-surface-inverse/55 to-surface-inverse/25"
+          className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/15"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/35"
           aria-hidden="true"
         />
       </div>
 
-      <Container className="relative flex min-h-[600px] flex-col justify-between gap-8 py-10 lg:min-h-[640px] lg:py-12">
-        <div className="grid flex-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-6 xl:gap-10">
-          <div className="max-w-xl">
+      {/* Main Hero Content Container */}
+      <Container className="relative z-10 py-12 sm:py-16 lg:py-20">
+        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
+          {/* Left Column: Heading, Description, CTA Buttons & Launch Trust Badges */}
+          <div className="lg:col-span-7 xl:col-span-7">
+            {/* Main Headline */}
             <h1
               id="hero-heading"
-              className="text-4xl font-extrabold tracking-tight text-ink-inverse sm:text-5xl lg:text-[3.15rem] lg:leading-[1.12]"
+              className="text-4xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-5xl lg:text-[3.5rem] lg:leading-[1.15]"
             >
-              {homeHero.titleLine1}{" "}
+              {homeHero.titleLine1} <br />
               <span className="text-brand-primary">{homeHero.titleHighlight}</span>
             </h1>
-            <p className="mt-4 text-base leading-relaxed text-surface-inverse-muted sm:text-lg">
+
+            {/* Subtitle Description */}
+            <p className="mt-5 max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed text-white/90 drop-shadow-sm">
               {homeHero.description}
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <Button
+
+            {/* Action Buttons Row */}
+            <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
+              <Link
                 href={homeHero.primaryCta.href}
-                size="lg"
-                rightIcon={<ArrowRightIcon className="size-4" />}
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-primary px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-brand-primary/25 transition-all hover:bg-brand-primary-hover hover:shadow-brand-primary/40 active:scale-[0.98]"
               >
-                {homeHero.primaryCta.label}
-              </Button>
-              <Button
+                <span>{homeHero.primaryCta.label}</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+
+              <Link
                 href={homeHero.secondaryCta.href}
-                variant="secondary"
-                size="lg"
-                leftIcon={<PlayIcon className="size-3.5 text-brand-primary" />}
-                className="border-surface/40 bg-transparent text-ink-inverse hover:bg-surface/10"
+                className="inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/25 bg-black/40 px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-md backdrop-blur-md transition-all hover:bg-black/60 hover:border-white/40 active:scale-[0.98]"
               >
-                {homeHero.secondaryCta.label}
-              </Button>
+                <span className="flex size-5 items-center justify-center rounded-full bg-white text-black text-[10px] pl-0.5">
+                  ▶
+                </span>
+                <span>{homeHero.secondaryCta.label}</span>
+              </Link>
+            </div>
+
+            {/* Bottom Trust Badges (Honest Launch Promises) */}
+            <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 border-t border-white/20 pt-8 sm:grid-cols-4">
+              {homeTrustStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-black/30 p-2.5 sm:p-3 backdrop-blur-sm shadow-xs"
+                >
+                  <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-brand-primary/15 text-brand-primary">
+                    {trustStatIcons[stat.icon]}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs sm:text-sm font-bold text-white leading-tight">
+                      {stat.value}
+                    </p>
+                    <p className="text-[10px] sm:text-[11px] font-medium text-white/75 truncate">
+                      {stat.label}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* <div className="relative mx-auto flex w-full max-w-md items-center justify-center lg:max-w-none lg:justify-end">
-
-            <ul className="absolute top-1/2 right-0 z-20 flex w-[46%] max-w-[11.5rem] -translate-y-1/2 flex-col gap-2.5 sm:right-1 sm:max-w-[12.5rem] lg:right-0">
-              {homeHeroFeatures.map((feature) => (
-                <li
-                  key={feature.title}
-                  className="flex items-center gap-2.5 rounded-2xl border border-surface-border bg-surface px-3 py-2.5 shadow-sm"
-                >
-                  <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand-primary">
-                    {featureIcons[feature.icon]}
-                  </span>
-                  <div className="min-w-0">
-                    <p className="truncate text-xs font-bold text-ink sm:text-sm">
-                      {feature.title}
-                    </p>
-                    <p className="truncate text-[0.6875rem] text-ink-muted">
-                      {feature.subtitle}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div> */}
-        </div>
-
-        <div className="flex flex-col gap-5 rounded-2xl border border-surface-inverse-border/50 bg-surface-inverse/55 p-4 backdrop-blur-md sm:flex-row sm:items-center sm:justify-between sm:p-5">
-          <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
-            {homeTrustStats.map((stat) => (
-              <li key={stat.label} className="flex items-center gap-2.5">
-                <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-brand-primary/20 text-brand-primary">
-                  {trustIcons[stat.icon]}
-                </span>
-                <div>
-                  <p className="text-base font-extrabold text-ink-inverse sm:text-lg">
-                    {stat.value}
-                  </p>
-                  <p className="text-[0.6875rem] text-surface-inverse-muted sm:text-xs">
-                    {stat.label}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex items-center gap-3 border-t border-surface-inverse-border/60 pt-4 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-5">
-            <div className="flex -space-x-2">
-              {homeTrustAvatars.map((src) => (
+          {/* Right Column: Single Standalone Phone Mockup (Transparent PNG, No Artificial Outer Frame) */}
+          <div className="flex items-center justify-center lg:col-span-5 xl:col-span-5">
+            <div className="relative w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[380px] xl:max-w-[400px] transition-transform duration-300 hover:scale-[1.02]">
+              <div className="relative aspect-[626/1024] w-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)]">
                 <Image
-                  key={src}
-                  src={src}
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="size-8 rounded-full border-2 border-surface-inverse object-cover"
+                  src={homeHero.phoneSrc}
+                  alt={homeHero.phoneAlt}
+                  fill
+                  priority
+                  className="object-contain"
+                  sizes="(max-width: 640px) 300px, (max-width: 1024px) 340px, 400px"
                 />
-              ))}
+              </div>
             </div>
-            <p className="text-xs font-medium text-surface-inverse-muted sm:text-sm">
-              {homeHero.trustNote}
-            </p>
           </div>
         </div>
       </Container>
