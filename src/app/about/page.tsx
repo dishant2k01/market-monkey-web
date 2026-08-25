@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/about/right-image.png",
+        url: "/images/hero/about.png",
         alt: "About Market Monkey",
       },
     ],

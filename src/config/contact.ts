@@ -12,7 +12,6 @@ export type ContactMethod = {
 };
 
 export const contactHero = {
-  eyebrow: "Contact Us",
   title: "We're Here to Help You.",
   description:
     "Have questions, feedback, or need support? Reach out to us — we'd love to hear from you!",

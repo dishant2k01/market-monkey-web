@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/home/hero-bg.jpeg",
+        url: "/images/hero/market.png",
         alt: "Explore Real Markets Online with Market Monkey",
       },
     ],

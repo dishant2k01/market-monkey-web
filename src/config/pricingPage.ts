@@ -16,7 +16,6 @@ export type WhyPoint = {
 };
 
 export const pricingHero = {
-  eyebrow: "PRICING",
   titleBefore: "Simple Pricing,",
   titleAccent: "Real Value.",
   description:
@@ -26,8 +25,8 @@ export const pricingHero = {
     "Transparent Pricing",
     "No Hidden Charges",
   ],
-  imageSrc: "/images/markets/sarojini.jpg",
-  imageAlt: "Vibrant shopping market with hanging handicrafts and lights",
+  imageSrc: "/images/hero/pricing.png",
+  imageAlt: "Market Monkey pricing — simple plans with more value",
   trustedOverlay: {
     title: "Trusted by thousands of customers and verified Monkeys.",
     stat: "+12K",

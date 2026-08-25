@@ -9,6 +9,7 @@ import {
   contactHeroHighlights,
   type ContactHeroHighlight,
 } from "@/config/contact";
+import { aboutHero } from "@/config/about";
 import type { ReactNode } from "react";
 
 const highlightIcons: Record<ContactHeroHighlight["icon"], ReactNode> = {
@@ -25,12 +26,9 @@ export function ContactHero() {
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
           <div className="max-w-xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">
-              {contactHero.eyebrow}
-            </p>
             <h1
               id="contact-hero-heading"
-              className="mt-3 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
+              className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
             >
               {contactHero.title}
             </h1>
@@ -58,12 +56,12 @@ export function ContactHero() {
             </ul>
           </div>
 
-          <div className="mx-auto w-full max-w-md lg:max-w-none">
+          <div className="mx-auto w-full max-w-lg lg:max-w-xl">
             <Image
-              src="/images/contact/right-image.png"
-              alt="Market Monkey app shown on two phones"
-              width={640}
-              height={640}
+              src={aboutHero.imageSrc}
+              alt={aboutHero.imageAlt}
+              width={800}
+              height={800}
               className="h-auto w-full bg-transparent object-contain"
               priority
             />
