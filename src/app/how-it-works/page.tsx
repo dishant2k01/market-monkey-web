@@ -56,7 +56,7 @@ export default function HowItWorksPage() {
       <AudienceSection />
       <CommonFaqSection
         id="how-it-works-faq"
-        title="How It Works Questions"
+        title="Frequently Asked Questions"
         highlightText="Questions"
         subtitle="Frequently asked questions about the customer journey on Market Monkey."
         items={howItWorksFaqs}

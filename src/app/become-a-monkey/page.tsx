@@ -24,8 +24,8 @@ export default function BecomeAMonkeyPage() {
       <BecomeTestimonials />
       <CommonFaqSection
         id="become-monkey-faq"
-        title="Become a Monkey FAQs"
-        highlightText="FAQs"
+        title="Frequently Asked Questions"
+        highlightText="Questions"
         subtitle="Frequently asked questions about applying, verification, and earning as a local Monkey."
         items={becomeAMonkeyFaqs}
         idPrefix="bm-faq"
