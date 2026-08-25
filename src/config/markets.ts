@@ -16,6 +16,13 @@ export type MarketItem = {
   imageAlt: string;
 };
 
+export type MarketExplorationStep = {
+  step: string;
+  title: string;
+  description: string;
+  icon: "market" | "monkey" | "video" | "shop";
+};
+
 export const popularCities: MarketCity[] = [
   {
     id: "delhi",
@@ -55,7 +62,7 @@ export const popularCities: MarketCity[] = [
   },
 ];
 
-export const allMarketItems: MarketItem[] = [
+export const featuredMarketItems: MarketItem[] = [
   {
     id: "sarojini-nagar",
     name: "Sarojini Nagar Market",
@@ -65,16 +72,6 @@ export const allMarketItems: MarketItem[] = [
     isLive: true,
     imageSrc: "/images/markets/sarojini.jpg",
     imageAlt: "Sarojini Nagar Market fashion stalls in Delhi",
-  },
-  {
-    id: "chor-bazaar",
-    name: "Chor Bazaar",
-    city: "Mumbai",
-    categories: ["Antiques", "Collectibles"],
-    monkeysLive: 18,
-    isLive: false,
-    imageSrc: "/images/markets/chor-bajar.jpg",
-    imageAlt: "Chor Bazaar vintage and antique collections in Mumbai",
   },
   {
     id: "lajpat-nagar",
@@ -87,24 +84,14 @@ export const allMarketItems: MarketItem[] = [
     imageAlt: "Lajpat Nagar Market ethnic wear and decor in Delhi",
   },
   {
-    id: "commercial-street",
-    name: "Commercial Street",
-    city: "Bangalore",
-    categories: ["Fashion", "Footwear"],
-    monkeysLive: 15,
-    isLive: false,
-    imageSrc: "/images/markets/commercial-street.png",
-    imageAlt: "Commercial Street bustling fashion lane in Bangalore",
-  },
-  {
-    id: "zakaria-street",
-    name: "Zakaria Street",
+    id: "chor-bazaar",
+    name: "Chor Bazaar",
     city: "Mumbai",
-    categories: ["Clothing", "Accessories"],
-    monkeysLive: 12,
+    categories: ["Antiques", "Collectibles"],
+    monkeysLive: 18,
     isLive: false,
-    imageSrc: "/images/markets/sarojini.jpg",
-    imageAlt: "Zakaria Street traditional shopping stalls in Mumbai",
+    imageSrc: "/images/markets/chor-bajar.jpg",
+    imageAlt: "Chor Bazaar vintage and antique collections in Mumbai",
   },
   {
     id: "karol-bagh",
@@ -117,14 +104,14 @@ export const allMarketItems: MarketItem[] = [
     imageAlt: "Karol Bagh Market electronics and fashion hub in Delhi",
   },
   {
-    id: "bapu-bazaar",
-    name: "Bapu Bazaar",
-    city: "Jaipur",
-    categories: ["Textiles", "Jewelry"],
-    monkeysLive: 10,
+    id: "commercial-street",
+    name: "Commercial Street",
+    city: "Bangalore",
+    categories: ["Fashion", "Footwear"],
+    monkeysLive: 15,
     isLive: false,
-    imageSrc: "/images/markets/johari-bazaar.jpg",
-    imageAlt: "Bapu Bazaar authentic textiles and jewelry in Jaipur",
+    imageSrc: "/images/markets/commercial-street.png",
+    imageAlt: "Commercial Street bustling fashion lane in Bangalore",
   },
   {
     id: "colaba-causeway",
@@ -136,28 +123,29 @@ export const allMarketItems: MarketItem[] = [
     imageSrc: "/images/markets/chor-bajar.jpg",
     imageAlt: "Colaba Causeway street retail and accessories in Mumbai",
   },
+  {
+    id: "zakaria-street",
+    name: "Zakaria Street",
+    city: "Mumbai",
+    categories: ["Clothing", "Accessories"],
+    monkeysLive: 12,
+    isLive: false,
+    imageSrc: "/images/markets/sarojini.jpg",
+    imageAlt: "Zakaria Street traditional shopping stalls in Mumbai",
+  },
+  {
+    id: "bapu-bazaar",
+    name: "Bapu Bazaar",
+    city: "Jaipur",
+    categories: ["Textiles", "Jewelry"],
+    monkeysLive: 10,
+    isLive: false,
+    imageSrc: "/images/markets/johari-bazaar.jpg",
+    imageAlt: "Bapu Bazaar authentic textiles and jewelry in Jaipur",
+  },
 ];
 
-export const filterCategoryOptions = [
-  "Clothing",
-  "Footwear",
-  "Accessories",
-  "Electronics",
-  "Home Decor",
-  "Textiles",
-  "Jewelry",
-  "Antiques",
-] as const;
-
-export const filterCityOptions = [
-  "All Cities",
-  "Delhi",
-  "Mumbai",
-  "Bangalore",
-  "Jaipur",
-  "Kolkata",
-  "Chandigarh",
-] as const;
+export const allMarketItems = featuredMarketItems;
 
 export const heroMarketHighlights = [
   { label: "500+ Markets", icon: "store" },
@@ -165,6 +153,33 @@ export const heroMarketHighlights = [
   { label: "Live Video Shopping", icon: "video" },
   { label: "Compare & Save", icon: "tag" },
 ] as const;
+
+export const marketExplorationSteps: MarketExplorationStep[] = [
+  {
+    step: "01",
+    title: "Pick a Market",
+    description: "Choose any market you want to explore.",
+    icon: "market",
+  },
+  {
+    step: "02",
+    title: "Connect With a Monkey",
+    description: "See verified local Monkeys available in that market.",
+    icon: "monkey",
+  },
+  {
+    step: "03",
+    title: "Explore Live",
+    description: "Ask questions, see products and compare prices through live video.",
+    icon: "video",
+  },
+  {
+    step: "04",
+    title: "Shop With Confidence",
+    description: "Know what you're buying before you visit or purchase.",
+    icon: "shop",
+  },
+];
 
 export const whyMarketMonkeyPoints = [
   "Live exploration with verified local Monkeys",

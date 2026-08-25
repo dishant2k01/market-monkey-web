@@ -1,57 +1,23 @@
-"use client";
-
-import { useState } from "react";
 import { MarketsHero } from "@/components/markets/MarketsHero";
 import { MarketsPopularCities } from "@/components/markets/MarketsPopularCities";
-import { MarketsExplorerSection } from "@/components/markets/MarketsExplorerSection";
+import { MarketsFeatured } from "@/components/markets/MarketsFeatured";
+import { MarketsHowItWorks } from "@/components/markets/MarketsHowItWorks";
 import { MarketsCantFindCta } from "@/components/markets/MarketsCantFindCta";
-import { AppDownloadCTA } from "@/components/home/AppDownloadCTA";
+import { AppDownloadCTASection } from "@/components/common/AppDownloadCTASection";
 
 export function MarketsPageClient() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCity, setSelectedCity] = useState("All Cities");
-  const [selectedCategory, setSelectedCategory] = useState("All Categories");
-
-  const scrollToExplorer = () => {
-    const el = document.getElementById("explore-markets");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const handleCitySelect = (city: string) => {
-    setSelectedCity(city);
-    scrollToExplorer();
-  };
-
   return (
     <>
-      <MarketsHero
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        selectedCity={selectedCity}
-        onCityChange={setSelectedCity}
-        selectedCategory={selectedCategory}
-        onCategoryChange={setSelectedCategory}
-        onSearchSubmit={scrollToExplorer}
+      <MarketsHero />
+      <MarketsPopularCities />
+      <MarketsFeatured />
+      <MarketsHowItWorks />
+      {/* <MarketsCantFindCta /> */}
+      <AppDownloadCTASection
+        variant="light"
+        title="Take Market Monkey With You."
+        description="Explore local markets, connect with verified Monkeys, compare products and discover what's available — wherever you are."
       />
-
-      <MarketsPopularCities
-        selectedCity={selectedCity}
-        onSelectCity={handleCitySelect}
-      />
-
-      <MarketsExplorerSection
-        selectedCity={selectedCity}
-        onCityChange={setSelectedCity}
-        selectedCategory={selectedCategory}
-        onCategoryChange={setSelectedCategory}
-        searchQuery={searchQuery}
-      />
-
-      <MarketsCantFindCta />
-
-      <AppDownloadCTA />
     </>
   );
 }
