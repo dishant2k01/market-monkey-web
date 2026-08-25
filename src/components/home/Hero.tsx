@@ -149,26 +149,26 @@ export function Hero() {
       </div>
 
       {/* Main Hero Content Container */}
-      <Container className="relative z-10 py-12 sm:py-16 lg:py-20">
-        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
+      <Container className="relative z-10 py-10 sm:py-12 lg:py-14">
+        <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-6">
           {/* Left Column: Heading, Description, CTA Buttons & Launch Trust Badges */}
           <div className="lg:col-span-7 xl:col-span-7">
             {/* Main Headline */}
             <h1
               id="hero-heading"
-              className="text-4xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-5xl lg:text-[3.5rem] lg:leading-[1.15]"
+              className="text-4xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-5xl lg:text-[3.25rem] lg:leading-[1.15]"
             >
               {homeHero.titleLine1} <br />
               <span className="text-brand-primary">{homeHero.titleHighlight}</span>
             </h1>
 
             {/* Subtitle Description */}
-            <p className="mt-5 max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed text-white/90 drop-shadow-sm">
+            <p className="mt-4 max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed text-white/90 drop-shadow-sm">
               {homeHero.description}
             </p>
 
             {/* Action Buttons Row */}
-            <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
+            <div className="mt-7 flex flex-wrap items-center gap-3.5 sm:gap-4">
               <Link
                 href={homeHero.primaryCta.href}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-primary px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-brand-primary/25 transition-all hover:bg-brand-primary-hover hover:shadow-brand-primary/40 active:scale-[0.98]"
@@ -189,7 +189,7 @@ export function Hero() {
             </div>
 
             {/* Bottom Trust Badges (Honest Launch Promises) */}
-            <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 border-t border-white/20 pt-8 sm:grid-cols-4">
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 border-t border-white/20 pt-6 sm:grid-cols-4">
               {homeTrustStats.map((stat) => (
                 <div
                   key={stat.label}
@@ -213,7 +213,7 @@ export function Hero() {
 
           {/* Right Column: Single Standalone Phone Mockup (Transparent PNG, No Artificial Outer Frame) */}
           <div className="flex items-center justify-center lg:col-span-5 xl:col-span-5">
-            <div className="relative w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[380px] xl:max-w-[400px] transition-transform duration-300 hover:scale-[1.02]">
+            <div className="relative w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[340px] xl:max-w-[360px] transition-transform duration-300 hover:scale-[1.02]">
               <div className="relative aspect-[626/1024] w-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)]">
                 <Image
                   src={homeHero.phoneSrc}
@@ -221,7 +221,7 @@ export function Hero() {
                   fill
                   priority
                   className="object-contain"
-                  sizes="(max-width: 640px) 300px, (max-width: 1024px) 340px, 400px"
+                  sizes="(max-width: 640px) 260px, (max-width: 1024px) 300px, 360px"
                 />
               </div>
             </div>
