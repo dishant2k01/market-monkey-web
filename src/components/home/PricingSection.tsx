@@ -24,6 +24,7 @@ export function PricingSection() {
           </p>
         </div>
 
+        {/* Pricing Cards */}
         <ul className="mx-auto mt-8 grid max-w-5xl gap-5 lg:mt-10 lg:grid-cols-2">
           {pricingPlans.map((plan) => (
             <li key={plan.id}>

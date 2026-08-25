@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BlogNewsletter } from "@/components/blog/BlogNewsletter";
+import { BlogDetailContent } from "@/components/blog/BlogDetailContent";
+import { BlogDetailFAQ } from "@/components/blog/BlogDetailFAQ";
+import { BlogDetailHeader } from "@/components/blog/BlogDetailHeader";
+import { BlogDetailSidebar } from "@/components/blog/BlogDetailSidebar";
+import { BlogRelatedPosts } from "@/components/blog/BlogRelatedPosts";
+import { AppDownloadCTASection } from "@/components/common/AppDownloadCTASection";
 import { Container } from "@/components/layout/Container";
-import { Button } from "@/components/ui/Button";
-import { ArrowLeftIcon } from "@/components/ui/icons";
 import { blogPosts } from "@/config/blog";
 
 type BlogPostPageProps = {
@@ -23,11 +25,11 @@ export async function generateMetadata({
   const post = blogPosts.find((item) => item.slug === slug);
 
   if (!post) {
-    return { title: "Post Not Found" };
+    return { title: "Post Not Found - Market Monkey Blog" };
   }
 
   return {
-    title: post.title,
+    title: `${post.title} | Market Monkey Blog`,
     description: post.excerpt,
   };
 }
@@ -40,29 +42,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
-      <article className="bg-surface py-[var(--space-section-y-mobile)] lg:py-[var(--space-section-y)]">
+      {/* 1. Blog Header with Breadcrumbs, Title, Author & Meta */}
+      <BlogDetailHeader post={post} />
+
+      {/* 2. Featured Image & Main 2-Column Content Area */}
+      <section className="bg-surface py-8 sm:py-12 lg:py-16">
         <Container>
-          <Button
-            href="/blog"
-            variant="ghost"
-            size="sm"
-            leftIcon={<ArrowLeftIcon className="size-3.5" />}
-            className="mb-6 px-0 hover:bg-transparent"
-          >
-            Back to Blog
-          </Button>
-
-          <p className="text-xs font-bold tracking-[0.12em] text-brand-primary uppercase">
-            {post.category}
-          </p>
-          <h1 className="mt-3 max-w-3xl text-3xl font-extrabold tracking-tight text-ink sm:text-4xl lg:text-5xl">
-            {post.title}
-          </h1>
-          <p className="mt-4 text-sm text-ink-muted">
-            {post.dateLabel} · {post.readTime}
-          </p>
-
-          <div className="relative mt-8 aspect-[16/8] overflow-hidden rounded-2xl bg-surface-subtle">
+          {/* Featured Hero Image */}
+          <div className="relative aspect-[16/8] w-full overflow-hidden rounded-3xl bg-surface-muted shadow-lg">
             <Image
               src={post.imageSrc}
               alt={post.imageAlt}
@@ -70,42 +57,37 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               priority
               className="object-cover"
               sizes="(max-width: 1200px) 100vw, 1120px"
+              unoptimized
             />
           </div>
 
-          <div className="mx-auto mt-10 max-w-3xl space-y-5 text-base leading-relaxed text-ink-secondary">
-            <p>{post.excerpt}</p>
-            <p>
-              This is placeholder article content for the Market Monkey blog.
-              In production, replace this with your full CMS-driven post body,
-              rich media, and author details.
-            </p>
-            <p>
-              Teams use Market Monkey to explore markets live, compare options
-              faster, and make clearer decisions with help from verified local
-              Monkeys.
-            </p>
-            <p>
-              Want more insights like this?{" "}
-              <Link
-                href="/blog"
-                className="font-semibold text-brand-primary hover:underline"
-              >
-                Browse all posts
-              </Link>{" "}
-              or{" "}
-              <Link
-                href="/contact"
-                className="font-semibold text-brand-primary hover:underline"
-              >
-                talk to our team
-              </Link>
-              .
-            </p>
+          {/* 12-Column Grid: Left 8 Cols (Article + FAQ) | Right 4 Cols (Sidebar Widgets) */}
+          <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-12">
+            <main className="lg:col-span-8">
+              {/* Article Content Body & Author Bio */}
+              <BlogDetailContent post={post} />
+
+              {/* FAQ Accordion Section */}
+              <BlogDetailFAQ faqs={post.faqs} />
+            </main>
+
+            <div className="lg:col-span-4">
+              {/* Sidebar Widgets */}
+              <BlogDetailSidebar />
+            </div>
           </div>
         </Container>
-      </article>
-      <BlogNewsletter />
+      </section>
+
+      {/* 3. Related Blog Posts Cards */}
+      <BlogRelatedPosts currentSlug={post.slug} />
+
+      {/* 4. Common App Download CTA Banner */}
+      <AppDownloadCTASection
+        variant="light"
+        title="Explore Markets Live with Verified Monkeys"
+        description="Compare, ask and shop with confidence."
+      />
     </>
   );
 }

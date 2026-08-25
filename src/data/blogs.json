@@ -9,7 +9,70 @@
     "dateLabel": "May 20, 2024",
     "readTime": "8 min read",
     "imageSrc": "/images/markets/sarojini.jpg",
-    "imageAlt": "Sarojini Nagar Market crowded street with vibrant clothes and shopper stalls"
+    "imageAlt": "Sarojini Nagar Market crowded street with vibrant clothes and shopper stalls",
+    "author": {
+      "name": "Market Monkey Team",
+      "role": "Delhi Market Specialist",
+      "avatar": "/images/cta/shopper-man.jpg",
+      "bio": "Our team of verified Monkeys brings you authentic, real-time insights from traditional and wholesale markets across India."
+    },
+    "tableOfContents": [
+      { "id": "overview", "title": "Overview & Key Highlights" },
+      { "id": "top-tips", "title": "Top Shopping & Bargaining Tips" },
+      { "id": "how-market-monkey-helps", "title": "How Market Monkey Helps You Shop Live" },
+      { "id": "summary", "title": "Final Summary & Next Steps" }
+    ],
+    "contentSections": [
+      {
+        "id": "overview",
+        "heading": "Overview & Key Highlights",
+        "paragraphs": [
+          "Sarojini Nagar is renowned as Delhi's budget fashion capital. From trendy export surplus clothing and footwear to accessories and home decor, this market offers unmatched variety at fraction of retail prices.",
+          "In this 2024 guide, we share key insider tips to help you navigate Sarojini Nagar effectively or shop live remotely with a local Monkey."
+        ],
+        "bullets": [
+          "Export surplus fashion starting as low as ₹100",
+          "Best days to visit: Tuesday to Friday morning hours",
+          "Metro access: Sarojini Nagar Metro Station (Pink Line) Gate 2"
+        ]
+      },
+      {
+        "id": "top-tips",
+        "heading": "Top Shopping & Bargaining Tips",
+        "paragraphs": [
+          "Bargaining is essential in Sarojini Nagar. Vendors usually quote 30-40% higher than their actual sell price. Always inspect garments for small defects or missing buttons before finalizing payment."
+        ],
+        "quote": "Pro Tip: Always carry cash and a sturdy cloth bag, as vendors charge extra for polythene carry bags."
+      },
+      {
+        "id": "how-market-monkey-helps",
+        "heading": "How Market Monkey Helps You Shop Live",
+        "paragraphs": [
+          "Don't live in Delhi? No problem! Market Monkey lets you hire a verified local Monkey who walks through Sarojini market lanes on a live video stream, checks fabric quality, negotiates for you, and dispatches your order."
+        ]
+      },
+      {
+        "id": "summary",
+        "heading": "Final Summary & Next Steps",
+        "paragraphs": [
+          "Sarojini Nagar remains the ultimate destination for budget fashion lovers. Book a verified Monkey today to experience real-time market shopping from anywhere in India!"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is Sarojini Nagar Market open on Mondays?",
+        "answer": "Official market shops remain closed on Mondays, though a few street vendors operate near Metro Gate 2."
+      },
+      {
+        "question": "Can I shop remotely from Sarojini Nagar using Market Monkey?",
+        "answer": "Yes! Market Monkey connects you with verified local Monkeys who stream live video from the market, bargain for you, and ship your purchases."
+      },
+      {
+        "question": "What is the price range for clothes in Sarojini Nagar?",
+        "answer": "Tops and t-shirts range from ₹100 to ₹350, dresses from ₹250 to ₹600, and jackets/coats from ₹400 to ₹1200."
+      }
+    ]
   },
   "categories": [
     {
@@ -54,7 +117,66 @@
       "dateLabel": "May 15, 2024",
       "readTime": "6 min read",
       "imageSrc": "/images/markets/chor-bajar.jpg",
-      "imageAlt": "Chor Bazaar street stalls with vintage lamps and goods"
+      "imageAlt": "Chor Bazaar street stalls with vintage lamps and goods",
+      "author": {
+        "name": "Market Monkey Team",
+        "role": "Market Explorer",
+        "avatar": "/images/cta/shopper-man.jpg",
+        "bio": "Our team of verified Monkeys brings you authentic, real-time insights from traditional and wholesale markets across India."
+      },
+      "tableOfContents": [
+        { "id": "overview", "title": "Overview & Key Highlights" },
+        { "id": "top-tips", "title": "Top Shopping & Bargaining Tips" },
+        { "id": "how-market-monkey-helps", "title": "How Market Monkey Helps You Shop Live" },
+        { "id": "summary", "title": "Final Summary & Next Steps" }
+      ],
+      "contentSections": [
+        {
+          "id": "overview",
+          "heading": "Overview & Key Highlights",
+          "paragraphs": [
+            "Chor Bazaar in Old Delhi is famous for rare antiques, vintage lamps, camera accessories, leather items, and hardware goods at budget prices.",
+            "Understanding timing, entry points, and price negotiation is key to finding genuine hidden treasures in Chor Bazaar."
+          ],
+          "bullets": [
+            "Best visited early Sunday morning (6:00 AM to 10:00 AM)",
+            "Located near Red Fort & Jama Masjid Metro Station",
+            "Specialties: Vintage cameras, brassware, tools, leather goods"
+          ]
+        },
+        {
+          "id": "top-tips",
+          "heading": "Top Shopping & Bargaining Tips",
+          "paragraphs": [
+            "Always inspect electronic and mechanical goods carefully before purchasing as returns are generally not supported."
+          ],
+          "quote": "Bargaining Tip: Early morning Sunday visitors often get the best deals as vendors are eager to make early morning sales."
+        },
+        {
+          "id": "how-market-monkey-helps",
+          "heading": "How Market Monkey Helps You Shop Live",
+          "paragraphs": [
+            "Want to explore vintage items without waking up at 5:00 AM? Hire a Sunday Morning Monkey to walk through Chor Bazaar and showcase items live on camera."
+          ]
+        },
+        {
+          "id": "summary",
+          "heading": "Final Summary & Next Steps",
+          "paragraphs": [
+            "Chor Bazaar is a paradise for antique lovers and bargain hunters. Explore live with Market Monkey!"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What day is Chor Bazaar open in Delhi?",
+          "answer": "Chor Bazaar operates mainly on Sunday mornings near Red Fort and Jama Masjid."
+        },
+        {
+          "question": "Are electronic items guaranteed in Chor Bazaar?",
+          "answer": "Items are sold as-is. We recommend having your local Monkey test basic functions during live video sessions."
+        }
+      ]
     },
     {
       "slug": "lajpat-nagar-market-guide-shopping-prices-tips",
@@ -66,7 +188,66 @@
       "dateLabel": "May 10, 2024",
       "readTime": "5 min read",
       "imageSrc": "/images/markets/lajpat.jpg",
-      "imageAlt": "Lajpat Nagar market street filled with vibrant fabrics"
+      "imageAlt": "Lajpat Nagar market street filled with vibrant fabrics",
+      "author": {
+        "name": "Market Monkey Team",
+        "role": "Ethnic Wear Specialist",
+        "avatar": "/images/cta/shopper-man.jpg",
+        "bio": "Our team of verified Monkeys brings you authentic, real-time insights from traditional and wholesale markets across India."
+      },
+      "tableOfContents": [
+        { "id": "overview", "title": "Overview & Key Highlights" },
+        { "id": "top-tips", "title": "Top Shopping & Bargaining Tips" },
+        { "id": "how-market-monkey-helps", "title": "How Market Monkey Helps You Shop Live" },
+        { "id": "summary", "title": "Final Summary & Next Steps" }
+      ],
+      "contentSections": [
+        {
+          "id": "overview",
+          "heading": "Overview & Key Highlights",
+          "paragraphs": [
+            "Lajpat Nagar Central Market is one of North India's hub markets for ethnic wear, wedding fabrics, footwear, and bridal accessories.",
+            "Whether you are looking for ready-to-wear kurtis or custom fabric materials, Central Market has endless options."
+          ],
+          "bullets": [
+            "Unstitched suit sets & dupatta varieties",
+            "Bridal accessories, bangles, and footwear lanes",
+            "Famous Ram Ladoo & street food spots"
+          ]
+        },
+        {
+          "id": "top-tips",
+          "heading": "Top Shopping & Bargaining Tips",
+          "paragraphs": [
+            "Fabric shops usually sell by meter. Compare fabric prices across at least 2-3 shops before buying in bulk."
+          ],
+          "quote": "Pro Tip: Visit during afternoon hours for a comfortable shopping experience."
+        },
+        {
+          "id": "how-market-monkey-helps",
+          "heading": "How Market Monkey Helps You Shop Live",
+          "paragraphs": [
+            "Need custom ethnic wear or matching dupattas? Connect with a local Lajpat Nagar Monkey who can match colors on HD video and purchase directly for you."
+          ]
+        },
+        {
+          "id": "summary",
+          "heading": "Final Summary & Next Steps",
+          "paragraphs": [
+            "Lajpat Nagar is your one-stop market for ethnic fashion. Explore live with Market Monkey today!"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Which metro station is nearest to Lajpat Nagar Market?",
+          "answer": "Lajpat Nagar Metro Station on the Violet / Pink Line is right next to Central Market."
+        },
+        {
+          "question": "Can I match fabric colors live on video?",
+          "answer": "Yes, Market Monkey video calls are color-calibrated so you can review fabric patterns and shades clearly."
+        }
+      ]
     },
     {
       "slug": "best-wholesale-markets-mumbai-budget-shopping",
@@ -78,7 +259,61 @@
       "dateLabel": "May 5, 2024",
       "readTime": "7 min read",
       "imageSrc": "/images/markets/commercial-street.png",
-      "imageAlt": "Crowded night market street with lights in Mumbai"
+      "imageAlt": "Crowded night market street with lights in Mumbai",
+      "author": {
+        "name": "Market Monkey Team",
+        "role": "Mumbai Market Expert",
+        "avatar": "/images/cta/shopper-man.jpg",
+        "bio": "Our team of verified Monkeys brings you authentic, real-time insights from traditional and wholesale markets across India."
+      },
+      "tableOfContents": [
+        { "id": "overview", "title": "Overview & Key Highlights" },
+        { "id": "top-tips", "title": "Top Shopping & Bargaining Tips" },
+        { "id": "how-market-monkey-helps", "title": "How Market Monkey Helps You Shop Live" },
+        { "id": "summary", "title": "Final Summary & Next Steps" }
+      ],
+      "contentSections": [
+        {
+          "id": "overview",
+          "heading": "Overview & Key Highlights",
+          "paragraphs": [
+            "From Colaba Causeway and Linking Road to Mangaldas Market and Zaveri Bazaar, Mumbai offers legendary street and wholesale shopping markets.",
+            "In this guide, we break down top markets by product category and wholesale discount tiers."
+          ],
+          "bullets": [
+            "Colaba Causeway: Junk jewelry, footwear, and trendy tops",
+            "Linking Road Bandra: Footwear, denim, and trendy accessories",
+            "Mangaldas Market: Silk, cotton fabrics, and saree wholesalers"
+          ]
+        },
+        {
+          "id": "top-tips",
+          "heading": "Top Shopping & Bargaining Tips",
+          "paragraphs": [
+            "Wholesale shops require minimum order quantities for maximum discount. Connect with a local Monkey to combine orders!"
+          ]
+        },
+        {
+          "id": "how-market-monkey-helps",
+          "heading": "How Market Monkey Helps You Shop Live",
+          "paragraphs": [
+            "Explore Mumbai's street markets live with a Mumbai Monkey without getting stuck in traffic!"
+          ]
+        },
+        {
+          "id": "summary",
+          "heading": "Final Summary & Next Steps",
+          "paragraphs": [
+            "Discover Mumbai markets live with verified local Monkeys today."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the best market for footwear in Mumbai?",
+          "answer": "Linking Road in Bandra and Hill Road offer the largest selection of trendy footwear."
+        }
+      ]
     },
     {
       "slug": "from-student-to-top-monkey-amit-journey",
@@ -90,7 +325,35 @@
       "dateLabel": "May 28, 2024",
       "readTime": "6 min read",
       "imageSrc": "/images/cta/shopper-man.jpg",
-      "imageAlt": "Young man smiling while showing a market view on phone"
+      "imageAlt": "Young man smiling while showing a market view on phone",
+      "author": {
+        "name": "Amit Kumar",
+        "role": "Top Verified Monkey",
+        "avatar": "/images/cta/shopper-man.jpg",
+        "bio": "Amit is a senior market guide Monkey based in Delhi with over 500+ successful live video shopping sessions."
+      },
+      "tableOfContents": [
+        { "id": "overview", "title": "Overview & Key Highlights" },
+        { "id": "top-tips", "title": "Top Shopping & Bargaining Tips" },
+        { "id": "how-market-monkey-helps", "title": "How Market Monkey Helps You Shop Live" },
+        { "id": "summary", "title": "Final Summary & Next Steps" }
+      ],
+      "contentSections": [
+        {
+          "id": "overview",
+          "heading": "Overview & Key Highlights",
+          "paragraphs": [
+            "Amit started as a college student who loved exploring Delhi markets. Today he earns a steady income as a verified Market Monkey guide.",
+            "Read how local expertise can be transformed into a thriving business on the Market Monkey platform."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How can I become a verified Monkey?",
+          "answer": "Visit our 'Become a Monkey' page, fill out your profile, and complete our local market verification process."
+        }
+      ]
     },
     {
       "slug": "how-to-compare-prices-before-buying-smart-tips",
@@ -102,7 +365,34 @@
       "dateLabel": "Apr 22, 2024",
       "readTime": "5 min read",
       "imageSrc": "/images/cta/shopper-woman.jpg",
-      "imageAlt": "Woman holding mobile phone displaying market products"
+      "imageAlt": "Woman holding mobile phone displaying market products",
+      "author": {
+        "name": "Market Monkey Team",
+        "role": "Smart Shopping Advisor",
+        "avatar": "/images/cta/shopper-woman.jpg",
+        "bio": "Our team of verified Monkeys brings you authentic, real-time insights from traditional and wholesale markets across India."
+      },
+      "tableOfContents": [
+        { "id": "overview", "title": "Overview & Key Highlights" },
+        { "id": "top-tips", "title": "Top Shopping & Bargaining Tips" },
+        { "id": "summary", "title": "Final Summary & Next Steps" }
+      ],
+      "contentSections": [
+        {
+          "id": "overview",
+          "heading": "Overview & Key Highlights",
+          "paragraphs": [
+            "Comparing prices across traditional sellers used to mean walking through dozens of hot market lanes. Now you can do it in minutes.",
+            "Here are 4 simple steps to compare live prices, check product authenticity, and avoid overpaying."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Does price comparison cost extra on Market Monkey?",
+          "answer": "No, price comparisons during live sessions are included in standard Monkey session rates."
+        }
+      ]
     },
     {
       "slug": "karol-bagh-market-guide-what-to-buy",
@@ -114,7 +404,34 @@
       "dateLabel": "Apr 18, 2024",
       "readTime": "6 min read",
       "imageSrc": "/images/markets/mg-road.jpg",
-      "imageAlt": "Karol Bagh footwear shop display with shoes stacked high"
+      "imageAlt": "Karol Bagh footwear shop display with shoes stacked high",
+      "author": {
+        "name": "Market Monkey Team",
+        "role": "Delhi Market Specialist",
+        "avatar": "/images/cta/shopper-man.jpg",
+        "bio": "Our team of verified Monkeys brings you authentic, real-time insights from traditional and wholesale markets across India."
+      },
+      "tableOfContents": [
+        { "id": "overview", "title": "Overview & Key Highlights" },
+        { "id": "top-tips", "title": "Top Shopping & Bargaining Tips" },
+        { "id": "summary", "title": "Final Summary & Next Steps" }
+      ],
+      "contentSections": [
+        {
+          "id": "overview",
+          "heading": "Overview & Key Highlights",
+          "paragraphs": [
+            "Karol Bagh is one of Delhi's oldest commercial centers, famous for Gaffar Market electronics, Ajmal Khan Road bridal wear, and Tank Road jeans wholesale.",
+            "Learn how to navigate each specific lane for maximum savings."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Is Gaffar Market safe for mobile repairs & electronics?",
+          "answer": "Yes, but we recommend having a verified local Monkey oversee repairs and verify original parts."
+        }
+      ]
     },
     {
       "slug": "johari-bazaar-jaipur-jewelry-guide",
@@ -126,7 +443,34 @@
       "dateLabel": "Apr 10, 2024",
       "readTime": "7 min read",
       "imageSrc": "/images/markets/johari-bazaar.jpg",
-      "imageAlt": "Johari Bazaar Jaipur colorful traditional jewelry display"
+      "imageAlt": "Johari Bazaar Jaipur colorful traditional jewelry display",
+      "author": {
+        "name": "Market Monkey Team",
+        "role": "Jaipur Craft Specialist",
+        "avatar": "/images/cta/shopper-man.jpg",
+        "bio": "Our team of verified Monkeys brings you authentic, real-time insights from traditional and wholesale markets across India."
+      },
+      "tableOfContents": [
+        { "id": "overview", "title": "Overview & Key Highlights" },
+        { "id": "top-tips", "title": "Top Shopping & Bargaining Tips" },
+        { "id": "summary", "title": "Final Summary & Next Steps" }
+      ],
+      "contentSections": [
+        {
+          "id": "overview",
+          "heading": "Overview & Key Highlights",
+          "paragraphs": [
+            "Johari Bazaar is the jewel of Jaipur, world-renowned for Kundan, Meenakari, and silver jewelry crafted by traditional artisans.",
+            "Discover how to pick authentic gemstones and traditional handicrafts with expert local guidance."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How can I verify gemstone authenticity in Johari Bazaar?",
+          "answer": "Verified Jaipur Monkeys take items to certified gem lab testing centers in the market before you buy."
+        }
+      ]
     }
   ],
   "popularPosts": [

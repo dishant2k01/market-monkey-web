@@ -14,6 +14,31 @@ export type BlogCategoryItem = {
   icon: string;
 };
 
+export type BlogAuthor = {
+  name: string;
+  role: string;
+  avatar: string;
+  bio: string;
+};
+
+export type BlogTOCItem = {
+  id: string;
+  title: string;
+};
+
+export type BlogFAQItem = {
+  question: string;
+  answer: string;
+};
+
+export type BlogContentSection = {
+  id: string;
+  heading: string;
+  paragraphs: string[];
+  bullets?: string[];
+  quote?: string;
+};
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -25,6 +50,10 @@ export type BlogPost = {
   readTime: string;
   imageSrc: string;
   imageAlt: string;
+  author?: BlogAuthor;
+  tableOfContents?: BlogTOCItem[];
+  contentSections?: BlogContentSection[];
+  faqs?: BlogFAQItem[];
 };
 
 export type BlogPopularPost = {
@@ -55,7 +84,7 @@ export type BlogsData = {
   popularPosts: BlogPopularPost[];
 };
 
-export const blogsData: BlogsData = blogsDataRaw as BlogsData;
+export const blogsData: BlogsData = blogsDataRaw as unknown as BlogsData;
 
 export const blogCategories: BlogCategoryItem[] = blogsData.categories;
 export const blogPosts: BlogPost[] = blogsData.posts;
