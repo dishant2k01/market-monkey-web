@@ -65,7 +65,7 @@ export function BlogDetailHeader({ post }: BlogDetailHeaderProps) {
   };
 
   return (
-    <header className="bg-[#FFF9F4] pt-8 pb-10 sm:pt-10 sm:pb-12 border-b border-[#FFE8D6]">
+    <header className="bg-[#FFF9F4] pt-[var(--space-page-hero-y)] pb-10 sm:pb-12 lg:pt-[var(--space-page-hero-y-lg)]">
       <Container>
         {/* Breadcrumb Navigation */}
         <nav className="flex items-center gap-2 text-xs font-semibold text-ink-muted">

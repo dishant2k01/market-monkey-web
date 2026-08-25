@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/home/live-experience-phones.png",
+        url: "/images/hero/how_it_works.png",
         alt: "How Market Monkey Works Live Shopping Experience",
       },
     ],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "How Market Monkey Works — Live Market Exploration",
     description:
       "Explore local markets online in 4 simple steps with live video shopping.",
-    images: ["/images/home/live-experience-phones.png"],
+    images: ["/images/hero/how_it_works.png"],
   },
   keywords: [
     "how market monkey works",

@@ -213,6 +213,10 @@ export const theme = {
     navGap: "1.75rem",
 
     stack: "1rem",
+
+    /** Top padding below header for inner page heroes (About reference) */
+    pageHeroY: "2.5rem",
+    pageHeroYLg: "3.5rem",
   },
 
   /**
@@ -438,6 +442,8 @@ export function getThemeCssVariables(): Record<string, string> {
 
     "--space-nav-gap": spacing.navGap,
     "--space-stack": spacing.stack,
+    "--space-page-hero-y": spacing.pageHeroY,
+    "--space-page-hero-y-lg": spacing.pageHeroYLg,
 
     /* ------------------------------------------------------------
      * Radius

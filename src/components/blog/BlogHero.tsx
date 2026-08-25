@@ -1,41 +1,19 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { ArrowRightIcon } from "@/components/ui/icons";
-import { heroFeaturedPost } from "@/config/blog";
+import { aboutHero } from "@/config/about";
 
 export function BlogHero() {
   return (
     <section
-      className="relative overflow-hidden bg-[#FFF9F4] pt-10 pb-12 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-20 border-b border-[#FFE8D6]"
+      className="relative overflow-hidden bg-[#FFF9F4] pt-[var(--space-page-hero-y)] pb-12 sm:pb-16 lg:pt-[var(--space-page-hero-y-lg)] lg:pb-20"
       aria-labelledby="blog-hero-heading"
     >
-      {/* Subtle Background Dotted Flourish */}
-      <svg
-        className="pointer-events-none absolute left-1/3 top-1/2 -translate-y-1/2 w-64 h-40 text-brand-primary/15"
-        viewBox="0 0 160 100"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M10 80 Q 40 10, 80 50 T 150 20"
-          stroke="currentColor"
-          strokeWidth="3"
-          strokeDasharray="6 6"
-        />
-      </svg>
-
       <Container>
-        <div className="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-12">
-          {/* Left Column — Headline & Copy */}
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-12">
           <div className="relative z-10 lg:col-span-6">
-            <span className="inline-block text-xs font-extrabold uppercase tracking-wider text-brand-primary">
-              OUR BLOG
-            </span>
-
             <h1
               id="blog-hero-heading"
-              className="mt-2 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl lg:text-5xl lg:leading-[1.15]"
+              className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl lg:text-5xl lg:leading-[1.15]"
             >
               Market Insights,{" "}
               <span className="text-brand-primary">Tips & More</span>
@@ -47,43 +25,21 @@ export function BlogHero() {
             </p>
           </div>
 
-          {/* Right Column — Featured Post Card with Floating Overlay */}
-          <div className="relative lg:col-span-6">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-surface-muted shadow-md sm:aspect-[16/9]">
-              <Image
-                src={heroFeaturedPost.imageSrc}
-                alt={heroFeaturedPost.imageAlt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 560px"
-                priority
-                unoptimized
+          <div className="relative flex justify-center lg:col-span-6">
+            <div className="relative w-full max-w-[560px] sm:max-w-[640px]">
+              <div
+                className="pointer-events-none absolute top-1/2 left-1/2 -z-10 size-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-soft/70 blur-xl sm:size-96"
+                aria-hidden="true"
               />
-
-              {/* Dark Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-              {/* Floating White Overlay Card on bottom-right */}
-              <div className="absolute bottom-4 right-4 left-4 sm:left-auto sm:right-6 sm:bottom-6 sm:max-w-xs rounded-2xl bg-white p-4 sm:p-5 shadow-xl border border-surface-border">
-                <span className="inline-block text-[0.6875rem] font-bold uppercase tracking-wider text-brand-primary">
-                  {heroFeaturedPost.categoryBadge}
-                </span>
-
-                <h2 className="mt-1 text-base font-extrabold text-ink leading-snug sm:text-lg">
-                  {heroFeaturedPost.title}
-                </h2>
-
-                <p className="mt-1.5 text-xs text-ink-muted line-clamp-2 leading-relaxed">
-                  {heroFeaturedPost.excerpt}
-                </p>
-
-                <Link
-                  href={`/blog/${heroFeaturedPost.slug}`}
-                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-brand-primary hover:underline"
-                >
-                  Read More
-                  <ArrowRightIcon className="size-3.5" />
-                </Link>
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src={aboutHero.imageSrc}
+                  alt={aboutHero.imageAlt}
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                  sizes="(max-width: 1024px) 100vw, 640px"
+                  priority
+                />
               </div>
             </div>
           </div>

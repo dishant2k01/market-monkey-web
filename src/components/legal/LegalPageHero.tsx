@@ -15,7 +15,7 @@ export function LegalPageHero({
 }: LegalPageHeroProps) {
   return (
     <section
-      className="border-b border-surface-border bg-surface pt-8 pb-10 lg:pt-10 lg:pb-12"
+      className="border-b border-surface-border bg-surface pt-[var(--space-page-hero-y)] pb-10 lg:pt-[var(--space-page-hero-y-lg)] lg:pb-12"
       aria-labelledby="legal-page-heading"
     >
       <Container>
