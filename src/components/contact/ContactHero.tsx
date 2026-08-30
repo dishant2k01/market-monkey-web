@@ -9,7 +9,6 @@ import {
   contactHeroHighlights,
   type ContactHeroHighlight,
 } from "@/config/contact";
-import { aboutHero } from "@/config/about";
 import type { ReactNode } from "react";
 
 const highlightIcons: Record<ContactHeroHighlight["icon"], ReactNode> = {
@@ -58,11 +57,12 @@ export function ContactHero() {
 
           <div className="mx-auto w-full max-w-lg lg:max-w-xl">
             <Image
-              src={aboutHero.imageSrc}
-              alt={aboutHero.imageAlt}
-              width={800}
+              src="/images/about/right-image.png"
+              alt="Market Monkey App — Contact & Support"
+              width={1000}
               height={800}
-              className="h-auto w-full bg-transparent object-contain"
+              unoptimized
+              className="h-auto w-full bg-transparent object-contain drop-shadow-xl"
               priority
             />
           </div>
