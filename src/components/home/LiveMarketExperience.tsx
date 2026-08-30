@@ -1,11 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
-import {
-  AnimateIn,
-  FloatingElement,
-  StaggerContainer,
-  StaggerItem,
-} from "@/components/ui/AnimateIn";
+import { AnimateIn } from "@/components/ui/AnimateIn";
 import { CheckIcon, ShieldCheckIcon } from "@/components/ui/icons";
 import { homeLiveExperience } from "@/config/home";
 
@@ -90,7 +85,7 @@ export function LiveMarketExperience() {
                 {homeLiveExperience.description}
               </p>
               <ul className="mt-6 space-y-3">
-                {homeLiveExperience.benefits.map((benefit, i) => (
+                {homeLiveExperience.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-3 transition-transform duration-200 hover:translate-x-1">
                     <span className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-primary text-brand-primary-foreground shadow-2xs">
                       <CheckIcon className="size-3" />
@@ -103,7 +98,7 @@ export function LiveMarketExperience() {
               </ul>
             </AnimateIn>
 
-            <AnimateIn variant="zoom-in" delay={150} duration={750} className="relative mx-auto w-full max-w-2xl scale-[1.15] sm:scale-105 lg:max-w-none lg:scale-[1.2] lg:origin-center">
+            <div className="relative mx-auto w-full max-w-2xl scale-[1.15] sm:scale-105 lg:max-w-none lg:scale-[1.2] lg:origin-center">
               <Image
                 src="/images/home/live-experience-phones.png"
                 alt={homeLiveExperience.imageAlt}
@@ -115,41 +110,28 @@ export function LiveMarketExperience() {
               />
 
               <div className="absolute right-[2%] bottom-[12%] z-20 flex w-[min(62%,14rem)] flex-col gap-2 sm:right-[4%] sm:bottom-[14%] sm:w-[13rem]">
-                {homeLiveExperience.chatBubbles.map((bubble, idx) => (
-                  <FloatingElement
+                {homeLiveExperience.chatBubbles.map((bubble) => (
+                  <div
                     key={bubble.label}
-                    animation="float"
-                    style={{ animationDelay: `${idx * 1.2}s` }}
+                    className="flex items-start gap-2 rounded-2xl border border-surface-border bg-surface px-3 py-2 shadow-md"
                   >
-                    <div
-                      className="flex items-start gap-2 rounded-2xl border border-surface-border bg-surface px-3 py-2 shadow-md transition-transform duration-300 hover:scale-105"
-                    >
-                      <span className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-primary text-brand-primary-foreground">
-                        <ChatIcon className="size-3" />
-                      </span>
-                      <p className="min-w-0 text-[0.6875rem] leading-snug text-ink sm:text-xs">
-                        <span className="font-semibold">{bubble.label}</span>{" "}
-                        <span className="text-ink-muted">{bubble.meta}</span>
-                      </p>
-                    </div>
-                  </FloatingElement>
+                    <span className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-primary text-brand-primary-foreground">
+                      <ChatIcon className="size-3" />
+                    </span>
+                    <p className="min-w-0 text-[0.6875rem] leading-snug text-ink sm:text-xs">
+                      <span className="font-semibold">{bubble.label}</span>{" "}
+                      <span className="text-ink-muted">{bubble.meta}</span>
+                    </p>
+                  </div>
                 ))}
               </div>
-            </AnimateIn>
+            </div>
 
-            <StaggerContainer
-              baseDelay={200}
-              staggerMs={100}
-              variant="fade-left"
-              as="ul"
-              className="flex flex-row gap-3 overflow-x-auto pb-1 lg:flex-col lg:gap-3.5 lg:overflow-visible lg:pb-0"
-            >
-              {homeLiveExperience.floatingFeatures.map((feature, idx) => (
-                <StaggerItem
-                  as="li"
+            <ul className="flex flex-row gap-3 overflow-x-auto pb-1 lg:flex-col lg:gap-3.5 lg:overflow-visible lg:pb-0">
+              {homeLiveExperience.floatingFeatures.map((feature) => (
+                <li
                   key={feature.label}
-                  index={idx}
-                  className="flex min-w-[11.5rem] items-center gap-3 rounded-2xl border border-surface-border bg-surface px-4 py-3.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brand-soft-border lg:min-w-0"
+                  className="flex min-w-[11.5rem] items-center gap-3 rounded-2xl border border-surface-border bg-surface px-4 py-3.5 shadow-sm transition-all duration-200 hover:shadow-md hover:border-brand-soft-border lg:min-w-0"
                 >
                   <span className="inline-flex size-10 shrink-0 items-center justify-center text-brand-primary">
                     {featureIcons[feature.icon]}
@@ -158,9 +140,9 @@ export function LiveMarketExperience() {
                     <p className="text-sm font-bold text-ink">{feature.label}</p>
                     <p className="text-xs text-ink-muted">{feature.subtitle}</p>
                   </div>
-                </StaggerItem>
+                </li>
               ))}
-            </StaggerContainer>
+            </ul>
           </div>
         </div>
       </Container>

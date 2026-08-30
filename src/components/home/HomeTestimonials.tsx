@@ -1,13 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Container } from "@/components/layout/Container";
-import {
-  AnimateIn,
-  StaggerContainer,
-  StaggerItem,
-} from "@/components/ui/AnimateIn";
+import { AnimateIn } from "@/components/ui/AnimateIn";
 import { homeTestimonials, type HomeTestimonial } from "@/config/home";
 
 function QuoteIcon({ className = "size-8" }: { className?: string }) {
@@ -36,35 +32,41 @@ function StarIcon({ className = "size-4" }: { className?: string }) {
   );
 }
 
-function usePerPage() {
-  const [perPage, setPerPage] = useState(1);
+function ArrowLeftIcon({ className = "size-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M15 19l-7-7 7-7"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-  useEffect(() => {
-    const update = () => {
-      if (window.matchMedia("(min-width: 1024px)").matches) {
-        setPerPage(3);
-      } else if (window.matchMedia("(min-width: 640px)").matches) {
-        setPerPage(2);
-      } else {
-        setPerPage(1);
-      }
-    };
-
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
-
-  return perPage;
+function ArrowRightIcon({ className = "size-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M9 5l7 7-7 7"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 }
 
 function TestimonialCard({ testimonial }: { testimonial: HomeTestimonial }) {
   return (
-    <article className="flex h-full flex-col rounded-2xl bg-surface p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md sm:p-7">
+    <article className="flex h-full flex-col rounded-2xl bg-surface p-6 shadow-sm transition-all duration-300 hover:shadow-md sm:p-7">
       <span className="text-brand-primary">
         <QuoteIcon className="size-8" />
       </span>
-      <p className="mt-4 flex-1 text-base leading-relaxed text-ink-secondary">
+      <p className="mt-4 flex-1 text-sm sm:text-base leading-relaxed text-ink-secondary">
         “{testimonial.quote}”
       </p>
       <div className="mt-6 flex items-center justify-between gap-3 border-t border-surface-border pt-5">
@@ -99,90 +101,169 @@ function TestimonialCard({ testimonial }: { testimonial: HomeTestimonial }) {
 }
 
 export function HomeTestimonials() {
-  const perPage = usePerPage();
-  const pageCount = Math.max(1, Math.ceil(homeTestimonials.length / perPage));
-  const [page, setPage] = useState(0);
-  const activePage = Math.min(page, pageCount - 1);
+  const [itemsPerView, setItemsPerView] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
 
-  const goTo = useCallback(
-    (next: number) => {
-      setPage(((next % pageCount) + pageCount) % pageCount);
-    },
-    [pageCount],
-  );
+  const totalItems = homeTestimonials.length;
 
   useEffect(() => {
-    setPage(0);
-  }, [perPage]);
+    const update = () => {
+      if (window.matchMedia("(min-width: 1024px)").matches) {
+        setItemsPerView(3);
+      } else if (window.matchMedia("(min-width: 640px)").matches) {
+        setItemsPerView(2);
+      } else {
+        setItemsPerView(1);
+      }
+    };
 
-  const start = activePage * perPage;
-  const visible = homeTestimonials.slice(start, start + perPage);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const maxIndex = Math.max(0, totalItems - itemsPerView);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  }, [maxIndex]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  }, [maxIndex]);
+
+  // Auto-scroll slider every 3.5 seconds
+  useEffect(() => {
+    if (maxIndex === 0 || isPaused) return;
+
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 3500);
+
+    return () => clearInterval(timer);
+  }, [maxIndex, isPaused, nextSlide]);
+
+  // Touch swipe handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    setIsPaused(true);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+    touchStartX.current = null;
+    setIsPaused(false);
+  };
+
+  // Slide track translation
+  const slideWidthPercent = 100 / itemsPerView;
+  const trackTransform = `translateX(-${currentIndex * slideWidthPercent}%)`;
+
+  const totalDots = maxIndex + 1;
 
   return (
     <section
       id="reviews"
-      className="bg-brand-soft pt-[var(--space-section-y-featured-mobile)] lg:pt-[var(--space-section-y-featured)]"
+      className="bg-brand-soft pt-[var(--space-section-y-featured-mobile)] pb-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y-featured)] lg:pb-[var(--space-section-y)]"
       aria-labelledby="home-reviews-heading"
     >
       <Container>
-        <AnimateIn variant="fade-up" delay={50} duration={600} className="mx-auto max-w-2xl text-center">
-          <h2
-            id="home-reviews-heading"
-            className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
-          >
-            What <span className="text-brand-primary">People</span> Say
-          </h2>
-          <p className="mt-3 text-base text-ink-muted sm:text-lg">
-            Real experiences from real users.
-          </p>
-        </AnimateIn>
-
-        <StaggerContainer
-          key={activePage}
-          baseDelay={100}
-          staggerMs={80}
-          className="mt-8 grid grid-cols-1 gap-5 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3"
-          aria-live="polite"
-        >
-          {visible.map((testimonial, index) => (
-            <StaggerItem
-              key={`${testimonial.name}-${testimonial.city}`}
-              index={index}
-              variant="fade-up"
+        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-end">
+          <AnimateIn variant="fade-up" delay={50} duration={600} className="text-center sm:text-left">
+            <h2
+              id="home-reviews-heading"
+              className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
             >
-              <TestimonialCard testimonial={testimonial} />
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+              What <span className="text-brand-primary">People</span> Say
+            </h2>
+            <p className="mt-2 text-base text-ink-muted sm:text-lg">
+              Real experiences from real users.
+            </p>
+          </AnimateIn>
 
-        {pageCount > 1 ? (
+          {/* Navigation Arrow Buttons */}
+          <div className="hidden items-center gap-2 sm:flex">
+            <button
+              type="button"
+              onClick={prevSlide}
+              aria-label="Previous testimonial"
+              className="inline-flex size-10 items-center justify-center rounded-full border border-brand-soft-border bg-surface text-ink shadow-xs transition-all duration-200 hover:border-brand-primary hover:bg-brand-soft hover:text-brand-primary active:scale-95"
+            >
+              <ArrowLeftIcon className="size-5" />
+            </button>
+            <button
+              type="button"
+              onClick={nextSlide}
+              aria-label="Next testimonial"
+              className="inline-flex size-10 items-center justify-center rounded-full border border-brand-soft-border bg-surface text-ink shadow-xs transition-all duration-200 hover:border-brand-primary hover:bg-brand-soft hover:text-brand-primary active:scale-95"
+            >
+              <ArrowRightIcon className="size-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Carousel Slider Track */}
+        <div
+          className="relative mt-8 sm:mt-10 overflow-hidden"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <div
-            className="mt-8 flex items-center justify-center gap-2 pb-[var(--space-section-y-mobile)] lg:pb-[var(--space-section-y)]"
-            role="tablist"
-            aria-label="Review pages"
+            className="flex transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            style={{ transform: trackTransform }}
           >
-            {Array.from({ length: pageCount }, (_, index) => {
-              const active = index === activePage;
+            {homeTestimonials.map((testimonial, idx) => (
+              <div
+                key={`${testimonial.name}-${testimonial.city}-${idx}`}
+                className="w-full shrink-0 px-2.5 sm:w-1/2 sm:px-3 lg:w-1/3"
+              >
+                <TestimonialCard testimonial={testimonial} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dots Pagination */}
+        {totalDots > 1 ? (
+          <div
+            className="mt-8 flex items-center justify-center gap-2"
+            role="tablist"
+            aria-label="Testimonial slides"
+          >
+            {Array.from({ length: totalDots }, (_, index) => {
+              const active = index === currentIndex;
               return (
                 <button
                   key={index}
                   type="button"
                   role="tab"
                   aria-selected={active}
-                  aria-label={`Go to reviews page ${index + 1}`}
+                  aria-label={`Go to slide ${index + 1}`}
                   className={`size-2.5 rounded-full transition-all duration-300 ${
                     active
                       ? "w-6 bg-brand-primary"
                       : "bg-brand-soft-border hover:bg-brand-muted"
                   }`}
-                  onClick={() => goTo(index)}
+                  onClick={() => setCurrentIndex(index)}
                 />
               );
             })}
           </div>
-        ) : (
-          <div className="pb-[var(--space-section-y-mobile)] lg:pb-[var(--space-section-y)]" />
-        )}
+        ) : null}
       </Container>
     </section>
   );

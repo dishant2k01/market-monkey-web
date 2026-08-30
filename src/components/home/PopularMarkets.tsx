@@ -1,11 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import {
-  AnimateIn,
-  StaggerContainer,
-  StaggerItem,
-} from "@/components/ui/AnimateIn";
+import { AnimateIn } from "@/components/ui/AnimateIn";
 import { ArrowRightIcon } from "@/components/ui/icons";
 import { popularMarkets } from "@/config/home";
 
@@ -17,7 +13,7 @@ export function PopularMarkets() {
       aria-labelledby="popular-markets-heading"
     >
       <Container>
-        <AnimateIn variant="fade-up" delay={50} duration={600} className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <AnimateIn variant="fade-up" delay={50} duration={500} className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h2
             id="popular-markets-heading"
             className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
@@ -34,18 +30,15 @@ export function PopularMarkets() {
           </Link>
         </AnimateIn>
 
-        <StaggerContainer
-          baseDelay={150}
-          staggerMs={90}
+        <AnimateIn
+          variant="fade-up"
+          delay={120}
+          duration={600}
           as="ul"
           className="mt-8 grid grid-cols-2 gap-4 sm:gap-5 lg:mt-10 lg:grid-cols-4"
         >
-          {popularMarkets.slice(0, 4).map((market, index) => (
-            <StaggerItem
-              as="li"
-              key={market.name}
-              index={index}
-            >
+          {popularMarkets.slice(0, 4).map((market) => (
+            <li key={market.name}>
               <Link
                 href={market.href}
                 className="group block rounded-2xl outline-none transition-transform duration-300 ease-[var(--motion-ease)] hover:-translate-y-1.5 focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
@@ -82,9 +75,9 @@ export function PopularMarkets() {
                   </p>
                 </div>
               </Link>
-            </StaggerItem>
+            </li>
           ))}
-        </StaggerContainer>
+        </AnimateIn>
       </Container>
     </section>
   );

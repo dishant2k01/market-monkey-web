@@ -228,10 +228,10 @@ export function Hero() {
             </StaggerContainer>
           </div>
 
-          {/* Right Column: Standalone Phone Mockup with Gentle Floating */}
+          {/* Right Column: Standalone Phone Mockup */}
           <div className="flex items-center justify-center lg:col-span-5 xl:col-span-5">
             <AnimateIn variant="zoom-in" delay={200} duration={800} className="w-full flex justify-center">
-              <FloatingElement animation="float" className="relative w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[340px] xl:max-w-[360px] transition-transform duration-300 hover:scale-[1.03]">
+              <div className="relative w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[340px] xl:max-w-[360px] transition-transform duration-300 hover:scale-[1.03]">
                 <div className="relative aspect-[626/1024] w-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)]">
                   <Image
                     src={homeHero.phoneSrc}
@@ -242,7 +242,7 @@ export function Hero() {
                     sizes="(max-width: 640px) 260px, (max-width: 1024px) 300px, 360px"
                   />
                 </div>
-              </FloatingElement>
+              </div>
             </AnimateIn>
           </div>
         </div>
