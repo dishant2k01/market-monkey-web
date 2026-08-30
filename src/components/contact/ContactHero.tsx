@@ -5,6 +5,12 @@ import {
 } from "@/components/contact/contactIcons";
 import { Container } from "@/components/layout/Container";
 import {
+  AnimateIn,
+  FloatingElement,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/AnimateIn";
+import {
   contactHero,
   contactHeroHighlights,
   type ContactHeroHighlight,
@@ -25,23 +31,32 @@ export function ContactHero() {
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
           <div className="max-w-xl">
-            <h1
-              id="contact-hero-heading"
-              className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
-            >
-              {contactHero.title}
-            </h1>
-            <p className="mt-5 text-base leading-relaxed text-ink-muted sm:text-lg">
-              {contactHero.description}
-            </p>
+            <AnimateIn variant="fade-up" delay={50} duration={600}>
+              <h1
+                id="contact-hero-heading"
+                className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl"
+              >
+                {contactHero.title}
+              </h1>
+              <p className="mt-5 text-base leading-relaxed text-ink-muted sm:text-lg">
+                {contactHero.description}
+              </p>
+            </AnimateIn>
 
-            <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {contactHeroHighlights.map((item) => (
-                <li
+            <StaggerContainer
+              baseDelay={200}
+              staggerMs={90}
+              as="ul"
+              className="mt-8 grid gap-4 sm:grid-cols-2"
+            >
+              {contactHeroHighlights.map((item, index) => (
+                <StaggerItem
+                  as="li"
                   key={item.title}
-                  className="flex items-start gap-3 rounded-xl"
+                  index={index}
+                  className="flex items-start gap-3 rounded-xl p-2 transition-transform duration-200 hover:translate-x-1"
                 >
-                  <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand-primary">
+                  <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand-primary shadow-2xs">
                     {highlightIcons[item.icon]}
                   </span>
                   <div>
@@ -50,9 +65,9 @@ export function ContactHero() {
                       {item.description}
                     </p>
                   </div>
-                </li>
+                </StaggerItem>
               ))}
-            </ul>
+            </StaggerContainer>
           </div>
 
           <div className="mx-auto w-full max-w-lg lg:max-w-xl">

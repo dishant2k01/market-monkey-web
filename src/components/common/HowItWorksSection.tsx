@@ -7,6 +7,11 @@ import {
 } from "@/components/home/howItWorksIcons";
 import { Container } from "@/components/layout/Container";
 import {
+  AnimateIn,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/AnimateIn";
+import {
   homeHowItWorksSteps,
   type HomeHowItWorksStep,
 } from "@/config/home";
@@ -50,7 +55,7 @@ export function HowItWorksSection({
       aria-labelledby="how-it-works-heading"
     >
       <Container>
-        <div className="mx-auto max-w-3xl text-center">
+        <AnimateIn variant="fade-up" delay={50} duration={600} className="mx-auto max-w-3xl text-center">
           <h2
             id="how-it-works-heading"
             className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
@@ -69,35 +74,45 @@ export function HowItWorksSection({
               {subtitle}
             </p>
           )}
-        </div>
+        </AnimateIn>
 
-        <ol className="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-6">
+        <StaggerContainer
+          baseDelay={150}
+          staggerMs={100}
+          as="ol"
+          className="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-6"
+        >
           {homeHowItWorksSteps.map((item, index) => (
-            <li key={item.step} className="relative">
+            <StaggerItem
+              as="li"
+              key={item.step}
+              index={index}
+              className="relative"
+            >
               {index < homeHowItWorksSteps.length - 1 ? <StepConnector /> : null}
 
-              <article className="relative mx-auto flex max-w-xs flex-col items-center text-center lg:max-w-none">
+              <article className="group relative mx-auto flex max-w-xs flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1.5 lg:max-w-none">
                 <div className="relative">
-                  <span className="inline-flex size-[7.25rem] items-center justify-center rounded-full border-2 border-brand-soft-border bg-surface shadow-sm">
-                    <span className="inline-flex size-[5.5rem] items-center justify-center rounded-full bg-brand-soft text-brand-primary">
+                  <span className="inline-flex size-[7.25rem] items-center justify-center rounded-full border-2 border-brand-soft-border bg-surface shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:border-brand-primary group-hover:shadow-md">
+                    <span className="inline-flex size-[5.5rem] items-center justify-center rounded-full bg-brand-soft text-brand-primary transition-transform duration-300 group-hover:scale-105">
                       {stepIcons[item.icon]}
                     </span>
                   </span>
-                  <span className="absolute -top-1 -right-1 inline-flex size-8 items-center justify-center rounded-full bg-brand-primary text-xs font-bold text-brand-primary-foreground shadow-xs">
+                  <span className="absolute -top-1 -right-1 inline-flex size-8 items-center justify-center rounded-full bg-brand-primary text-xs font-bold text-brand-primary-foreground shadow-xs transition-transform duration-300 group-hover:scale-110">
                     {item.step}
                   </span>
                 </div>
 
-                <h3 className="mt-5 text-base font-bold text-ink sm:text-lg">
+                <h3 className="mt-5 text-base font-bold text-ink sm:text-lg transition-colors group-hover:text-brand-primary">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-muted">
                   {item.description}
                 </p>
               </article>
-            </li>
+            </StaggerItem>
           ))}
-        </ol>
+        </StaggerContainer>
       </Container>
     </section>
   );

@@ -1,5 +1,11 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
+import {
+  AnimateIn,
+  FloatingElement,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/AnimateIn";
 import { CheckIcon, ShieldCheckIcon } from "@/components/ui/icons";
 import { homeLiveExperience } from "@/config/home";
 
@@ -64,7 +70,7 @@ export function LiveMarketExperience() {
       <Container>
         <div className="overflow-hidden rounded-[2rem] bg-brand-soft/70 px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
           <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.45fr_0.65fr] lg:gap-6 xl:gap-8">
-            <div className="max-w-md">
+            <AnimateIn variant="fade-right" delay={50} duration={650} className="max-w-md">
               <p className="text-xs font-bold tracking-[0.16em] text-brand-primary uppercase">
                 {homeLiveExperience.eyebrow}
               </p>
@@ -84,9 +90,9 @@ export function LiveMarketExperience() {
                 {homeLiveExperience.description}
               </p>
               <ul className="mt-6 space-y-3">
-                {homeLiveExperience.benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-start gap-3">
-                    <span className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-primary text-brand-primary-foreground">
+                {homeLiveExperience.benefits.map((benefit, i) => (
+                  <li key={benefit} className="flex items-start gap-3 transition-transform duration-200 hover:translate-x-1">
+                    <span className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-primary text-brand-primary-foreground shadow-2xs">
                       <CheckIcon className="size-3" />
                     </span>
                     <span className="text-sm font-medium text-ink">
@@ -95,9 +101,9 @@ export function LiveMarketExperience() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </AnimateIn>
 
-            <div className="relative mx-auto w-full max-w-2xl scale-[1.15] sm:scale-105 lg:max-w-none lg:scale-[1.2] lg:origin-center">
+            <AnimateIn variant="zoom-in" delay={150} duration={750} className="relative mx-auto w-full max-w-2xl scale-[1.15] sm:scale-105 lg:max-w-none lg:scale-[1.2] lg:origin-center">
               <Image
                 src="/images/home/live-experience-phones.png"
                 alt={homeLiveExperience.imageAlt}
@@ -109,28 +115,41 @@ export function LiveMarketExperience() {
               />
 
               <div className="absolute right-[2%] bottom-[12%] z-20 flex w-[min(62%,14rem)] flex-col gap-2 sm:right-[4%] sm:bottom-[14%] sm:w-[13rem]">
-                {homeLiveExperience.chatBubbles.map((bubble) => (
-                  <div
+                {homeLiveExperience.chatBubbles.map((bubble, idx) => (
+                  <FloatingElement
                     key={bubble.label}
-                    className="flex items-start gap-2 rounded-2xl border border-surface-border bg-surface px-3 py-2 shadow-md"
+                    animation="float"
+                    style={{ animationDelay: `${idx * 1.2}s` }}
                   >
-                    <span className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-primary text-brand-primary-foreground">
-                      <ChatIcon className="size-3" />
-                    </span>
-                    <p className="min-w-0 text-[0.6875rem] leading-snug text-ink sm:text-xs">
-                      <span className="font-semibold">{bubble.label}</span>{" "}
-                      <span className="text-ink-muted">{bubble.meta}</span>
-                    </p>
-                  </div>
+                    <div
+                      className="flex items-start gap-2 rounded-2xl border border-surface-border bg-surface px-3 py-2 shadow-md transition-transform duration-300 hover:scale-105"
+                    >
+                      <span className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-primary text-brand-primary-foreground">
+                        <ChatIcon className="size-3" />
+                      </span>
+                      <p className="min-w-0 text-[0.6875rem] leading-snug text-ink sm:text-xs">
+                        <span className="font-semibold">{bubble.label}</span>{" "}
+                        <span className="text-ink-muted">{bubble.meta}</span>
+                      </p>
+                    </div>
+                  </FloatingElement>
                 ))}
               </div>
-            </div>
+            </AnimateIn>
 
-            <ul className="flex flex-row gap-3 overflow-x-auto pb-1 lg:flex-col lg:gap-3.5 lg:overflow-visible lg:pb-0">
-              {homeLiveExperience.floatingFeatures.map((feature) => (
-                <li
+            <StaggerContainer
+              baseDelay={200}
+              staggerMs={100}
+              variant="fade-left"
+              as="ul"
+              className="flex flex-row gap-3 overflow-x-auto pb-1 lg:flex-col lg:gap-3.5 lg:overflow-visible lg:pb-0"
+            >
+              {homeLiveExperience.floatingFeatures.map((feature, idx) => (
+                <StaggerItem
+                  as="li"
                   key={feature.label}
-                  className="flex min-w-[11.5rem] items-center gap-3 rounded-2xl border border-surface-border bg-surface px-4 py-3.5 shadow-sm lg:min-w-0"
+                  index={idx}
+                  className="flex min-w-[11.5rem] items-center gap-3 rounded-2xl border border-surface-border bg-surface px-4 py-3.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brand-soft-border lg:min-w-0"
                 >
                   <span className="inline-flex size-10 shrink-0 items-center justify-center text-brand-primary">
                     {featureIcons[feature.icon]}
@@ -139,9 +158,9 @@ export function LiveMarketExperience() {
                     <p className="text-sm font-bold text-ink">{feature.label}</p>
                     <p className="text-xs text-ink-muted">{feature.subtitle}</p>
                   </div>
-                </li>
+                </StaggerItem>
               ))}
-            </ul>
+            </StaggerContainer>
           </div>
         </div>
       </Container>

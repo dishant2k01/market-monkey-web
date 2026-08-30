@@ -3,6 +3,11 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { Container } from "@/components/layout/Container";
+import {
+  AnimateIn,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/AnimateIn";
 import { homeTestimonials, type HomeTestimonial } from "@/config/home";
 
 function QuoteIcon({ className = "size-8" }: { className?: string }) {
@@ -55,7 +60,7 @@ function usePerPage() {
 
 function TestimonialCard({ testimonial }: { testimonial: HomeTestimonial }) {
   return (
-    <article className="flex h-full flex-col rounded-2xl bg-surface p-6 shadow-sm sm:p-7">
+    <article className="flex h-full flex-col rounded-2xl bg-surface p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md sm:p-7">
       <span className="text-brand-primary">
         <QuoteIcon className="size-8" />
       </span>
@@ -120,7 +125,7 @@ export function HomeTestimonials() {
       aria-labelledby="home-reviews-heading"
     >
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <AnimateIn variant="fade-up" delay={50} duration={600} className="mx-auto max-w-2xl text-center">
           <h2
             id="home-reviews-heading"
             className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
@@ -130,19 +135,25 @@ export function HomeTestimonials() {
           <p className="mt-3 text-base text-ink-muted sm:text-lg">
             Real experiences from real users.
           </p>
-        </div>
+        </AnimateIn>
 
-        <div
+        <StaggerContainer
+          key={activePage}
+          baseDelay={100}
+          staggerMs={80}
           className="mt-8 grid grid-cols-1 gap-5 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3"
           aria-live="polite"
         >
-          {visible.map((testimonial) => (
-            <TestimonialCard
+          {visible.map((testimonial, index) => (
+            <StaggerItem
               key={`${testimonial.name}-${testimonial.city}`}
-              testimonial={testimonial}
-            />
+              index={index}
+              variant="fade-up"
+            >
+              <TestimonialCard testimonial={testimonial} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
         {pageCount > 1 ? (
           <div
@@ -159,9 +170,9 @@ export function HomeTestimonials() {
                   role="tab"
                   aria-selected={active}
                   aria-label={`Go to reviews page ${index + 1}`}
-                  className={`size-2.5 rounded-full transition-colors duration-200 ${
+                  className={`size-2.5 rounded-full transition-all duration-300 ${
                     active
-                      ? "bg-brand-primary"
+                      ? "w-6 bg-brand-primary"
                       : "bg-brand-soft-border hover:bg-brand-muted"
                   }`}
                   onClick={() => goTo(index)}

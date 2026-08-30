@@ -89,3 +89,210 @@
     outline-offset: 2px;
   }
 }
+
+/* ==========================================================================
+   Animation Engine & Keyframes
+   ========================================================================== */
+
+@keyframes reveal-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-fade-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-fade-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes reveal-fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes reveal-zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes reveal-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes float-soft {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes shimmer-glide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Animation utility classes */
+.animate-reveal-up {
+  animation: reveal-fade-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-reveal-down {
+  animation: reveal-fade-down 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-reveal-left {
+  animation: reveal-fade-left 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-reveal-right {
+  animation: reveal-fade-right 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-reveal-zoom {
+  animation: reveal-zoom-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-reveal-fade {
+  animation: reveal-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-float-soft {
+  animation: float-soft 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.5s ease-in-out infinite;
+}
+
+/* Animation state controllers for IntersectionObserver */
+.reveal-hidden {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.reveal-hidden[data-variant="fade-up"] {
+  transform: translateY(28px);
+}
+
+.reveal-hidden[data-variant="fade-down"] {
+  transform: translateY(-24px);
+}
+
+.reveal-hidden[data-variant="fade-left"] {
+  transform: translateX(-28px);
+}
+
+.reveal-hidden[data-variant="fade-right"] {
+  transform: translateX(28px);
+}
+
+.reveal-hidden[data-variant="zoom-in"] {
+  transform: scale(0.92);
+}
+
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) scale(1) !important;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: auto;
+}
+
+/* Stagger delay utilities */
+.delay-50 { transition-delay: 50ms; animation-delay: 50ms; }
+.delay-100 { transition-delay: 100ms; animation-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; animation-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; animation-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; animation-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; animation-delay: 300ms; }
+.delay-350 { transition-delay: 350ms; animation-delay: 350ms; }
+.delay-400 { transition-delay: 400ms; animation-delay: 400ms; }
+.delay-450 { transition-delay: 450ms; animation-delay: 450ms; }
+.delay-500 { transition-delay: 500ms; animation-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; animation-delay: 600ms; }
+.delay-700 { transition-delay: 700ms; animation-delay: 700ms; }
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

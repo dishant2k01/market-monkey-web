@@ -4,6 +4,7 @@ import {
   GooglePlayBadge,
 } from "@/components/layout/AppStoreBadges";
 import { Container } from "@/components/layout/Container";
+import { AnimateIn, FloatingElement } from "@/components/ui/AnimateIn";
 import { appStoreLinks } from "@/config/navigation";
 
 type AppDownloadCTASectionProps = {
@@ -35,15 +36,18 @@ export function AppDownloadCTASection({
     >
       <Container className="overflow-visible">
         <div className="relative overflow-visible">
-          {/* Main Card Container */}
-          <div
+          {/* Main Card Container with Entrance Animation */}
+          <AnimateIn
+            variant="zoom-in"
+            delay={50}
+            duration={700}
             className={`relative z-10 flex flex-col items-center gap-8 overflow-visible rounded-3xl px-5 py-8 sm:px-8 lg:min-h-[9.75rem] lg:flex-row lg:items-center lg:gap-8 lg:px-10 lg:py-6 shadow-xs ${
               isDark
                 ? "bg-surface-inverse lg:pl-[16.5rem] xl:gap-12 xl:pl-[18.5rem]"
                 : "bg-[#FFF9F4] border border-[#FFE8D6] lg:pl-[15rem] xl:gap-12 xl:pl-[17rem]"
             }`}
           >
-            {/* Left Image / Mascot Artwork */}
+            {/* Left Image / Mascot Artwork with Floating Animation */}
             <div
               className={
                 isDark
@@ -51,16 +55,18 @@ export function AppDownloadCTASection({
                   : "pointer-events-none relative z-20 mx-auto mb-2 aspect-square w-[140px] sm:w-[160px] lg:absolute lg:bottom-0 lg:left-3 lg:mx-0 lg:mb-0 lg:h-[12.5rem] lg:w-[200px] xl:left-4 xl:h-[13.5rem] xl:w-[220px]"
               }
             >
-              <Image
-                src={imageSrc}
-                alt={imageAlt}
-                fill
-                className={`object-contain object-bottom ${
-                  isDark ? "drop-shadow-xl" : "drop-shadow-md"
-                }`}
-                sizes={isDark ? "320px" : "240px"}
-                unoptimized
-              />
+              <FloatingElement animation="float" className="relative size-full">
+                <Image
+                  src={imageSrc}
+                  alt={imageAlt}
+                  fill
+                  className={`object-contain object-bottom ${
+                    isDark ? "drop-shadow-xl" : "drop-shadow-md"
+                  }`}
+                  sizes={isDark ? "320px" : "240px"}
+                  unoptimized
+                />
+              </FloatingElement>
             </div>
 
             {/* Heading & Description */}
@@ -86,7 +92,7 @@ export function AppDownloadCTASection({
             <div className="flex shrink-0 flex-col items-center gap-4 sm:flex-row sm:items-center sm:gap-5">
               {/* QR Code Box */}
               <div
-                className={`flex size-[7rem] items-center justify-center rounded-xl p-2.5 shadow-xs sm:size-[7.5rem] ${
+                className={`flex size-[7rem] items-center justify-center rounded-xl p-2.5 shadow-xs transition-transform duration-300 hover:scale-105 sm:size-[7.5rem] ${
                   isDark
                     ? "bg-surface"
                     : "bg-white border border-[#FFE3D1]"
@@ -114,22 +120,24 @@ export function AppDownloadCTASection({
               <div className="flex w-full max-w-[180px] flex-col gap-2.5">
                 {appStoreLinks.map((item) =>
                   item.store === "google" ? (
-                    <GooglePlayBadge
-                      key={item.store}
-                      href={item.href}
-                      label={item.label}
-                    />
+                    <div key={item.store} className="transition-transform duration-200 hover:-translate-y-0.5">
+                      <GooglePlayBadge
+                        href={item.href}
+                        label={item.label}
+                      />
+                    </div>
                   ) : (
-                    <AppStoreBadge
-                      key={item.store}
-                      href={item.href}
-                      label={item.label}
-                    />
+                    <div key={item.store} className="transition-transform duration-200 hover:-translate-y-0.5">
+                      <AppStoreBadge
+                        href={item.href}
+                        label={item.label}
+                      />
+                    </div>
                   ),
                 )}
               </div>
             </div>
-          </div>
+          </AnimateIn>
         </div>
       </Container>
     </section>
