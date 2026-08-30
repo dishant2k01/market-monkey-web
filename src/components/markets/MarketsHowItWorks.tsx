@@ -1,5 +1,10 @@
 import { Container } from "@/components/layout/Container";
 import {
+  AnimateIn,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/AnimateIn";
+import {
   LiveVideoStepIllustration,
   MonkeyHeadsetIllustration,
   PickMarketIllustration,
@@ -26,20 +31,28 @@ export function MarketsHowItWorks() {
     >
       <Container>
         {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        <AnimateIn variant="fade-up" delay={50} duration={600} className="mx-auto max-w-2xl text-center">
           <h2
             id="how-exploration-works-heading"
             className="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink"
           >
             How Market Exploration Works
           </h2>
-        </div>
+        </AnimateIn>
 
         {/* 4 Step Cards with Connecting Arrows */}
         <div className="relative mt-10 sm:mt-12">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <StaggerContainer
+            baseDelay={120}
+            staggerMs={90}
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6"
+          >
             {marketExplorationSteps.map((stepItem, index) => (
-              <div key={stepItem.step} className="relative flex">
+              <StaggerItem
+                key={stepItem.step}
+                index={index}
+                className="relative flex"
+              >
                 {/* Dashed Arrow Connector (Desktop only) */}
                 {index < marketExplorationSteps.length - 1 && (
                   <div
@@ -52,19 +65,19 @@ export function MarketsHowItWorks() {
                 )}
 
                 {/* Step Card */}
-                <div className="relative flex w-full flex-col items-center rounded-2xl border border-surface-border/80 bg-surface p-6 pt-10 text-center shadow-xs transition-all duration-200 hover:shadow-sm hover:border-brand-soft-border">
+                <div className="group relative flex w-full flex-col items-center rounded-2xl border border-surface-border/80 bg-surface p-6 pt-10 text-center shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-brand-soft-border">
                   {/* Step Number Badge */}
-                  <span className="absolute top-4 left-4 flex items-center justify-center rounded-md bg-[#FF800C] px-2 py-0.5 text-[11px] font-extrabold text-white shadow-2xs">
+                  <span className="absolute top-4 left-4 flex items-center justify-center rounded-md bg-[#FF800C] px-2 py-0.5 text-[11px] font-extrabold text-white shadow-2xs transition-transform duration-300 group-hover:scale-110">
                     {stepItem.step}
                   </span>
 
                   {/* Illustration */}
-                  <div className="mt-1 mb-3 flex size-20 items-center justify-center">
+                  <div className="mt-1 mb-3 flex size-20 items-center justify-center transition-transform duration-300 group-hover:scale-110">
                     {stepIllustrations[stepItem.icon]}
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-base font-bold text-ink">
+                  <h3 className="text-base font-bold text-ink transition-colors duration-300 group-hover:text-brand-primary">
                     {stepItem.title}
                   </h3>
 
@@ -73,9 +86,9 @@ export function MarketsHowItWorks() {
                     {stepItem.description}
                   </p>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </Container>
     </section>

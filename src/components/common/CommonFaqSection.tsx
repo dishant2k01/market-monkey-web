@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Container } from "@/components/layout/Container";
+import { AnimateIn } from "@/components/ui/AnimateIn";
 import {
   FaqAccordionList,
   type FaqAccordionItem,
@@ -31,7 +32,7 @@ export function CommonFaqSection({
       aria-labelledby={`${id}-heading`}
     >
       <Container>
-        <div className="mx-auto max-w-3xl text-center">
+        <AnimateIn variant="fade-up" delay={50} duration={600} className="mx-auto max-w-3xl text-center">
           <h2
             id={`${id}-heading`}
             className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
@@ -57,11 +58,11 @@ export function CommonFaqSection({
               {subtitle}
             </p>
           )}
-        </div>
+        </AnimateIn>
 
-        <div className="mx-auto mt-8 max-w-4xl lg:mt-10">
+        <AnimateIn variant="fade-up" delay={150} duration={650} className="mx-auto mt-8 max-w-4xl lg:mt-10">
           <FaqAccordionList items={items} idPrefix={idPrefix} />
-        </div>
+        </AnimateIn>
       </Container>
     </section>
   );

@@ -1,4 +1,9 @@
 import { Container } from "@/components/layout/Container";
+import {
+  AnimateIn,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/AnimateIn";
 import { verificationSteps, type VerificationStep } from "@/config/home";
 import type { ReactNode } from "react";
 
@@ -11,12 +16,14 @@ function RegisterIcon({ className = "size-6" }: { className?: string }) {
         stroke="currentColor"
         strokeWidth="1.75"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M16.5 5.5h3.5M18.25 3.75v3.5"
         stroke="currentColor"
         strokeWidth="1.75"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -40,6 +47,7 @@ function IdCardIcon({ className = "size-6" }: { className?: string }) {
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -58,6 +66,7 @@ function ReviewIcon({ className = "size-6" }: { className?: string }) {
         stroke="currentColor"
         strokeWidth="1.75"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -87,6 +96,7 @@ function ConnectIcon({ className = "size-6" }: { className?: string }) {
         stroke="currentColor"
         strokeWidth="1.75"
         strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -120,7 +130,7 @@ export function VerificationSection() {
       aria-labelledby="verification-heading"
     >
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <AnimateIn variant="fade-up" delay={50} duration={600} className="mx-auto max-w-2xl text-center">
           <h2
             id="verification-heading"
             className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
@@ -130,33 +140,43 @@ export function VerificationSection() {
           <p className="mt-3 text-base text-ink-muted sm:text-lg">
             Every Monkey goes through a strict verification process.
           </p>
-        </div>
+        </AnimateIn>
 
-        <ol className="mx-auto mt-10 grid max-w-6xl grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:mt-12 lg:grid-cols-5 lg:gap-4 xl:gap-6">
+        <StaggerContainer
+          baseDelay={150}
+          staggerMs={90}
+          as="ol"
+          className="mx-auto mt-10 grid max-w-6xl grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:mt-12 lg:grid-cols-5 lg:gap-4 xl:gap-6"
+        >
           {verificationSteps.map((item, index) => (
-            <li key={item.step} className="relative">
+            <StaggerItem
+              as="li"
+              key={item.step}
+              index={index}
+              className="relative"
+            >
               {index < verificationSteps.length - 1 ? <StepArrow /> : null}
 
-              <article className="flex h-full flex-col items-center rounded-2xl border border-surface-border bg-surface px-3.5 py-6 text-center shadow-sm sm:px-4 sm:py-7">
+              <article className="group flex h-full flex-col items-center rounded-2xl border border-surface-border bg-surface px-3.5 py-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-primary/40 hover:shadow-md sm:px-4 sm:py-7">
                 <span
-                  className={`inline-flex size-10 items-center justify-center ${
+                  className={`inline-flex size-10 items-center justify-center transition-transform duration-300 group-hover:scale-110 ${
                     item.icon === "approved"
                       ? "text-feedback-success"
-                      : "text-ink-secondary"
+                      : "text-ink-secondary group-hover:text-brand-primary"
                   }`}
                 >
                   {stepIcons[item.icon]}
                 </span>
-                <h3 className="mt-3.5 text-sm font-bold text-ink">
+                <h3 className="mt-3.5 text-sm font-bold text-ink transition-colors group-hover:text-brand-primary">
                   {item.step}. {item.title}
                 </h3>
                 <p className="mt-2 text-xs leading-relaxed text-ink-muted">
                   {item.description}
                 </p>
               </article>
-            </li>
+            </StaggerItem>
           ))}
-        </ol>
+        </StaggerContainer>
       </Container>
     </section>
   );

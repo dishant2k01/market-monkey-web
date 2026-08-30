@@ -2,6 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import {
+  AnimateIn,
+  FloatingElement,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/AnimateIn";
+import {
   homeHero,
   homeTrustStats,
   type HomeTrustStat,
@@ -154,46 +160,57 @@ export function Hero() {
           {/* Left Column: Heading, Description, CTA Buttons & Launch Trust Badges */}
           <div className="lg:col-span-7 xl:col-span-7">
             {/* Main Headline */}
-            <h1
-              id="hero-heading"
-              className="text-4xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-5xl lg:text-[3.25rem] lg:leading-[1.15]"
-            >
-              {homeHero.titleLine1} <br />
-              <span className="text-brand-primary">{homeHero.titleHighlight}</span>
-            </h1>
+            <AnimateIn variant="fade-up" delay={50} duration={600}>
+              <h1
+                id="hero-heading"
+                className="text-4xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-5xl lg:text-[3.25rem] lg:leading-[1.15]"
+              >
+                {homeHero.titleLine1} <br />
+                <span className="text-brand-primary">{homeHero.titleHighlight}</span>
+              </h1>
+            </AnimateIn>
 
             {/* Subtitle Description */}
-            <p className="mt-4 max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed text-white/90 drop-shadow-sm">
-              {homeHero.description}
-            </p>
+            <AnimateIn variant="fade-up" delay={150} duration={600}>
+              <p className="mt-4 max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed text-white/90 drop-shadow-sm">
+                {homeHero.description}
+              </p>
+            </AnimateIn>
 
             {/* Action Buttons Row */}
-            <div className="mt-7 flex flex-wrap items-center gap-3.5 sm:gap-4">
-              <Link
-                href={homeHero.primaryCta.href}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-primary px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-brand-primary/25 transition-all hover:bg-brand-primary-hover hover:shadow-brand-primary/40 active:scale-[0.98]"
-              >
-                <span>{homeHero.primaryCta.label}</span>
-                <span aria-hidden="true">→</span>
-              </Link>
+            <AnimateIn variant="fade-up" delay={250} duration={600}>
+              <div className="mt-7 flex flex-wrap items-center gap-3.5 sm:gap-4">
+                <Link
+                  href={homeHero.primaryCta.href}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-primary px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-brand-primary/25 transition-all duration-200 hover:bg-brand-primary-hover hover:shadow-brand-primary/40 hover:-translate-y-0.5 active:scale-[0.98]"
+                >
+                  <span>{homeHero.primaryCta.label}</span>
+                  <span aria-hidden="true">→</span>
+                </Link>
 
-              <Link
-                href={homeHero.secondaryCta.href}
-                className="inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/25 bg-black/40 px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-md backdrop-blur-md transition-all hover:bg-black/60 hover:border-white/40 active:scale-[0.98]"
-              >
-                <span className="flex size-5 items-center justify-center rounded-full bg-white text-black text-[10px] pl-0.5">
-                  ▶
-                </span>
-                <span>{homeHero.secondaryCta.label}</span>
-              </Link>
-            </div>
+                <Link
+                  href={homeHero.secondaryCta.href}
+                  className="inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/25 bg-black/40 px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-md backdrop-blur-md transition-all duration-200 hover:bg-black/60 hover:border-white/40 hover:-translate-y-0.5 active:scale-[0.98]"
+                >
+                  <span className="flex size-5 items-center justify-center rounded-full bg-white text-black text-[10px] pl-0.5">
+                    ▶
+                  </span>
+                  <span>{homeHero.secondaryCta.label}</span>
+                </Link>
+              </div>
+            </AnimateIn>
 
             {/* Bottom Trust Badges (Honest Launch Promises) */}
-            <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 border-t border-white/20 pt-6 sm:grid-cols-4">
-              {homeTrustStats.map((stat) => (
-                <div
+            <StaggerContainer
+              baseDelay={350}
+              staggerMs={80}
+              className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 border-t border-white/20 pt-6 sm:grid-cols-4"
+            >
+              {homeTrustStats.map((stat, index) => (
+                <StaggerItem
                   key={stat.label}
-                  className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-black/30 p-2.5 sm:p-3 backdrop-blur-sm shadow-xs"
+                  index={index}
+                  className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-black/30 p-2.5 sm:p-3 backdrop-blur-sm shadow-xs transition-all duration-300 hover:border-white/25 hover:bg-black/40"
                 >
                   <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-brand-primary/15 text-brand-primary">
                     {trustStatIcons[stat.icon]}
@@ -206,25 +223,27 @@ export function Hero() {
                       {stat.label}
                     </p>
                   </div>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
 
-          {/* Right Column: Single Standalone Phone Mockup (Transparent PNG, No Artificial Outer Frame) */}
+          {/* Right Column: Standalone Phone Mockup with Gentle Floating */}
           <div className="flex items-center justify-center lg:col-span-5 xl:col-span-5">
-            <div className="relative w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[340px] xl:max-w-[360px] transition-transform duration-300 hover:scale-[1.02]">
-              <div className="relative aspect-[626/1024] w-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)]">
-                <Image
-                  src={homeHero.phoneSrc}
-                  alt={homeHero.phoneAlt}
-                  fill
-                  priority
-                  className="object-contain"
-                  sizes="(max-width: 640px) 260px, (max-width: 1024px) 300px, 360px"
-                />
-              </div>
-            </div>
+            <AnimateIn variant="zoom-in" delay={200} duration={800} className="w-full flex justify-center">
+              <FloatingElement animation="float" className="relative w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[340px] xl:max-w-[360px] transition-transform duration-300 hover:scale-[1.03]">
+                <div className="relative aspect-[626/1024] w-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)]">
+                  <Image
+                    src={homeHero.phoneSrc}
+                    alt={homeHero.phoneAlt}
+                    fill
+                    priority
+                    className="object-contain"
+                    sizes="(max-width: 640px) 260px, (max-width: 1024px) 300px, 360px"
+                  />
+                </div>
+              </FloatingElement>
+            </AnimateIn>
           </div>
         </div>
       </Container>
