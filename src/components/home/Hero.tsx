@@ -1,248 +1,138 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import {
-  AnimateIn,
-  FloatingElement,
-  StaggerContainer,
-  StaggerItem,
-} from "@/components/ui/AnimateIn";
-import {
-  homeHero,
-  homeTrustStats,
-  type HomeTrustStat,
-} from "@/config/home";
-import type { ReactNode } from "react";
-
-function VerifiedShieldIcon({ className = "size-5" }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M12 3L4 6.5v6c0 5.25 3.5 9.5 8 10.5 4.5-1 8-5.25 8-10.5v-6L12 3z"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M9 12.5l2 2 4-4"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function LiveVideoCallIcon({ className = "size-5" }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <rect
-        x="3"
-        y="5"
-        width="13"
-        height="14"
-        rx="3"
-        stroke="currentColor"
-        strokeWidth="1.75"
-      />
-      <polygon
-        points="16,10 21,7 21,17 16,14"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinejoin="round"
-      />
-      <circle cx="9.5" cy="12" r="2" fill="currentColor" />
-    </svg>
-  );
-}
-
-function DirectPricingIcon({ className = "size-5" }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function SecurePlatformIcon({ className = "size-5" }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <rect
-        x="5"
-        y="11"
-        width="14"
-        height="10"
-        rx="2"
-        stroke="currentColor"
-        strokeWidth="1.75"
-      />
-      <path
-        d="M8 11V7a4 4 0 018 0v4"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-      />
-      <circle cx="12" cy="16" r="1.5" fill="currentColor" />
-    </svg>
-  );
-}
-
-const trustStatIcons: Record<string, ReactNode> = {
-  monkeys: <VerifiedShieldIcon className="size-5.5 text-brand-primary" />,
-  live: <LiveVideoCallIcon className="size-5.5 text-brand-primary" />,
-  markets: <DirectPricingIcon className="size-5.5 text-brand-primary" />,
-  rating: <SecurePlatformIcon className="size-5.5 text-brand-primary" />,
-};
+import { AnimateIn } from "@/components/ui/AnimateIn";
+import { homeHero } from "@/config/home";
 
 export function Hero() {
   return (
     <section
-      className="relative overflow-hidden bg-[#0A0A0B] text-white"
+      className="relative min-h-[720px] sm:min-h-[780px] lg:min-h-[820px] xl:min-h-[860px] w-full overflow-hidden bg-stone-950 text-white flex items-center"
       aria-labelledby="hero-heading"
     >
-      {/* Background Market Panorama Image */}
-      <div className="absolute inset-0 z-0">
+      {/* Full-Bleed Realistic Market Photography Background */}
+      <div className="absolute inset-0 z-0 select-none">
         <Image
           src={homeHero.backgroundSrc}
           alt={homeHero.backgroundAlt}
           fill
           priority
-          className="object-cover object-center"
+          unoptimized
+          className="object-cover object-center sm:object-[65%_center] lg:object-center"
           sizes="100vw"
         />
 
-        {/* Softer, balanced gradient overlays to let the warm market lights and sunset shine through */}
+        {/* Sophisticated gradient overlay for AAA text contrast on the left while keeping photographic richness on the right */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/15"
+          className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-black/30 md:from-black/90 md:via-black/65 md:to-transparent"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/35"
+          className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"
           aria-hidden="true"
         />
       </div>
 
       {/* Main Hero Content Container */}
-      <Container className="relative z-10 py-10 sm:py-12 lg:py-14">
-        <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-6">
-          {/* Left Column: Heading, Description, CTA Buttons & Launch Trust Badges */}
-          <div className="lg:col-span-7 xl:col-span-7">
+      <Container className="relative z-20 w-full pt-28 pb-16 lg:pt-36 lg:pb-24">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+          {/* Left Column: Headline, Supporting Copy, Action Buttons & Subtle Trust Proof */}
+          <div className="max-w-2xl lg:col-span-7 xl:col-span-7">
             {/* Main Headline */}
             <AnimateIn variant="fade-up" delay={50} duration={600}>
               <h1
                 id="hero-heading"
-                className="text-4xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-5xl lg:text-[3.25rem] lg:leading-[1.15]"
+                className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[4.25rem] leading-[1.06]"
               >
-                {homeHero.titleLine1} <br />
-                <span className="text-brand-primary">{homeHero.titleHighlight}</span>
+                <span className="block text-white">{homeHero.titleLine1}</span>
+                <span className="block mt-1">
+                  <span className="text-[#FF800C]">{homeHero.titleHighlight}</span>
+                </span>
+                <span className="block mt-1 text-white">{homeHero.titleLine3}</span>
               </h1>
             </AnimateIn>
 
-            {/* Subtitle Description */}
+            {/* Supporting Description */}
             <AnimateIn variant="fade-up" delay={150} duration={600}>
-              <p className="mt-4 max-w-xl text-sm sm:text-base lg:text-lg leading-relaxed text-white/90 drop-shadow-sm">
+              <p className="mt-6 max-w-xl text-base sm:text-lg lg:text-xl font-normal leading-relaxed text-white/90 drop-shadow-xs">
                 {homeHero.description}
               </p>
             </AnimateIn>
 
-            {/* Action Buttons Row */}
+            {/* Primary & Secondary Action Buttons */}
             <AnimateIn variant="fade-up" delay={250} duration={600}>
-              <div className="mt-7 flex flex-wrap items-center gap-3.5 sm:gap-4">
+              <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
                   href={homeHero.primaryCta.href}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-primary px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-lg shadow-brand-primary/25 transition-all duration-200 hover:bg-brand-primary-hover hover:shadow-brand-primary/40 hover:-translate-y-0.5 active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#FF800C] px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-[#FF800C]/25 transition-all duration-200 hover:bg-[#e0700a] hover:shadow-[#FF800C]/40 hover:-translate-y-0.5 active:scale-[0.98]"
                 >
                   <span>{homeHero.primaryCta.label}</span>
-                  <span aria-hidden="true">→</span>
                 </Link>
 
                 <Link
                   href={homeHero.secondaryCta.href}
-                  className="inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/25 bg-black/40 px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-md backdrop-blur-md transition-all duration-200 hover:bg-black/60 hover:border-white/40 hover:-translate-y-0.5 active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2.5 rounded-xl border border-white/30 bg-black/40 px-6 py-3.5 text-base font-semibold text-white shadow-md backdrop-blur-md transition-all duration-200 hover:bg-black/60 hover:border-white/50 hover:-translate-y-0.5 active:scale-[0.98]"
                 >
-                  <span className="flex size-5 items-center justify-center rounded-full bg-white text-black text-[10px] pl-0.5">
-                    ▶
-                  </span>
                   <span>{homeHero.secondaryCta.label}</span>
                 </Link>
               </div>
             </AnimateIn>
 
-            {/* Bottom Trust Badges (Honest Launch Promises) */}
-            <StaggerContainer
-              baseDelay={350}
-              staggerMs={80}
-              className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 border-t border-white/20 pt-6 sm:grid-cols-4"
-            >
-              {homeTrustStats.map((stat, index) => (
-                <StaggerItem
-                  key={stat.label}
-                  index={index}
-                  className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-black/30 p-2.5 sm:p-3 backdrop-blur-sm shadow-xs transition-all duration-300 hover:border-white/25 hover:bg-black/40"
-                >
-                  <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-brand-primary/15 text-brand-primary">
-                    {trustStatIcons[stat.icon]}
+            {/* Subtle Minimal Trust Proof */}
+            <AnimateIn variant="fade-up" delay={350} duration={600}>
+              <div className="mt-10 flex items-center gap-3 pt-2">
+                <div className="flex -space-x-2 overflow-hidden">
+                  <Image
+                    src="/images/testimonials/priya.jpg"
+                    alt="Shopper avatar"
+                    width={36}
+                    height={36}
+                    className="inline-block size-9 rounded-full ring-2 ring-black object-cover"
+                  />
+                  <Image
+                    src="/images/testimonials/rahul.jpg"
+                    alt="Shopper avatar"
+                    width={36}
+                    height={36}
+                    className="inline-block size-9 rounded-full ring-2 ring-black object-cover"
+                  />
+                  <Image
+                    src="/images/testimonials/neha.jpg"
+                    alt="Shopper avatar"
+                    width={36}
+                    height={36}
+                    className="inline-block size-9 rounded-full ring-2 ring-black object-cover"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-1.5 text-amber-400 text-xs font-bold">
+                    <span>★ ★ ★ ★ ★</span>
+                    <span className="text-white font-semibold">4.9</span>
                   </div>
-                  <div className="min-w-0">
-                    <p className="text-xs sm:text-sm font-bold text-white leading-tight">
-                      {stat.value}
-                    </p>
-                    <p className="text-[10px] sm:text-[11px] font-medium text-white/75 truncate">
-                      {stat.label}
-                    </p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
+                  <span className="text-xs font-medium text-white/80">
+                    {homeHero.trustText}
+                  </span>
+                </div>
+              </div>
+            </AnimateIn>
           </div>
 
-          {/* Right Column: Standalone Phone Mockup with Gentle Floating */}
+          {/* Right Column: Single Premium Phone Mockup Integrated Naturally into Photography */}
           <div className="flex items-center justify-center lg:col-span-5 xl:col-span-5">
             <AnimateIn variant="zoom-in" delay={200} duration={800} className="w-full flex justify-center">
-              <FloatingElement animation="float" className="relative w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[340px] xl:max-w-[360px] transition-transform duration-300 hover:scale-[1.03]">
-                <div className="relative aspect-[626/1024] w-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)]">
+              <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[370px] xl:max-w-[400px] transition-transform duration-300 hover:scale-[1.02]">
+                <div className="relative aspect-[626/1024] w-full drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)]">
                   <Image
                     src={homeHero.phoneSrc}
                     alt={homeHero.phoneAlt}
                     fill
                     priority
+                    unoptimized
                     className="object-contain"
-                    sizes="(max-width: 640px) 260px, (max-width: 1024px) 300px, 360px"
+                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 340px, 400px"
                   />
                 </div>
-              </FloatingElement>
+              </div>
             </AnimateIn>
           </div>
         </div>

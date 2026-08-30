@@ -15,8 +15,12 @@ export function Header() {
   const menuId = useId();
   const pathname = usePathname();
 
+  const isHomePage = pathname === "/";
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -40,17 +44,22 @@ export function Header() {
 
   const closeMobile = () => setMobileOpen(false);
 
+  // Transparent header mode applies to home page when at top of page
+  const isTransparent = isHomePage && !scrolled;
+
   return (
     <header
-      className={`sticky top-0 z-[var(--z-header)] border-b bg-surface/95 backdrop-blur-md transition-shadow duration-200 ${
-        scrolled
-          ? "border-surface-border shadow-header"
-          : "border-transparent shadow-none"
+      className={`fixed top-0 inset-x-0 z-[var(--z-header)] transition-all duration-300 ease-in-out ${
+        isTransparent
+          ? "bg-transparent border-b border-transparent shadow-none"
+          : "bg-white/95 backdrop-blur-md border-b border-surface-border shadow-xs text-ink"
       }`}
     >
       <Container className="flex h-[var(--layout-header-height)] items-center justify-between gap-4">
-        <Logo variant="light" />
+        {/* Logo switches variant based on header transparency */}
+        <Logo variant={isTransparent ? "dark" : "light"} />
 
+        {/* Desktop Navbar Links */}
         <div className="hidden items-center gap-8 xl:flex xl:gap-10">
           <nav
             className="flex items-center gap-[var(--space-nav-gap)]"
@@ -62,10 +71,12 @@ export function Header() {
                 <Link
                   key={item.href + item.label}
                   href={item.href}
-                  className={`relative text-sm transition-colors hover:text-brand-primary focus-visible:text-brand-primary ${
+                  className={`relative text-sm transition-colors duration-200 focus-visible:text-brand-primary ${
                     isActive
                       ? "font-semibold text-brand-primary after:absolute after:bottom-[-20px] after:left-0 after:right-0 after:h-[2px] after:rounded-full after:bg-brand-primary"
-                      : "font-medium text-ink-secondary"
+                      : isTransparent
+                      ? "font-medium text-white/90 hover:text-white"
+                      : "font-medium text-ink-secondary hover:text-brand-primary"
                   }`}
                 >
                   {item.label}
@@ -79,13 +90,18 @@ export function Header() {
           </Button>
         </div>
 
+        {/* Mobile Header Controls */}
         <div className="flex items-center gap-2 xl:hidden">
           <Button href="/#get-the-app" size="sm" className="hidden sm:inline-flex">
             Get the App
           </Button>
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-md text-ink transition-colors hover:bg-surface-subtle"
+            className={`inline-flex size-10 items-center justify-center rounded-md transition-colors ${
+              isTransparent
+                ? "text-white hover:bg-white/10"
+                : "text-ink hover:bg-surface-subtle"
+            }`}
             aria-expanded={mobileOpen}
             aria-controls={menuId}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -96,9 +112,10 @@ export function Header() {
         </div>
       </Container>
 
+      {/* Mobile Drawer Dropdown */}
       <div
         id={menuId}
-        className={`border-t border-surface-border bg-surface xl:hidden ${
+        className={`border-t border-surface-border bg-white text-ink xl:hidden ${
           mobileOpen ? "block" : "hidden"
         }`}
       >

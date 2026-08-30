@@ -74,16 +74,18 @@ export type HomeTestimonial = {
 };
 
 export const homeHero = {
-  titleLine1: "See the Reality",
-  titleHighlight: "Before You Buy.",
+  titleLine1: "Real Markets.",
+  titleHighlight: "Real People.",
+  titleLine3: "Real Shopping.",
   description:
-    "Go live with verified local Monkeys, explore real markets, check products, compare prices and buy with confidence.",
-  primaryCta: { label: "Explore Markets", href: "/markets" },
+    "Connect with verified local Monkeys, explore real markets, compare prices and shop with confidence.",
+  primaryCta: { label: "Explore Markets →", href: "/markets" },
   secondaryCta: { label: "See How It Works", href: "/how-it-works" },
-  backgroundSrc: "/images/home/hero-market-panorama.jpg",
+  backgroundSrc: "/images/hero/home.png",
   phoneSrc: "/images/home/hero-live-phone.png",
-  phoneAlt: "Live Market Monkey video call with verified monkey exploring real markets",
-  backgroundAlt: "Authentic vibrant Indian evening market street with lights and shops",
+  phoneAlt: "Live Market Monkey video call exploring authentic local markets",
+  backgroundAlt: "Authentic Indian market street with textile and clothing shops",
+  trustText: "Trusted by shoppers exploring real markets",
 } as const;
 
 export const homeHeroFeatures: HomeHeroFeature[] = [

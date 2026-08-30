@@ -17,15 +17,12 @@ export type AboutStat = {
 };
 
 export const aboutHero = {
-  kicker: "ABOUT US",
-  titleLine1: "Making Market",
-  titleAccent: "Discovery",
-  titleLine2: "Better.",
+  titleBefore: "Making Markets Accessible for",
+  titleAccent: "Everyone.",
   description:
-    "Market Monkey is on a mission to make market discovery simple, transparent, and accessible for everyone.",
-  imageSrc: "/images/about/hero-design.png",
-  cleanBgSrc: "/images/about/hero-market-bg.png",
-  imageAlt: "Market Monkey — Making Market Discovery Better",
+    "Market Monkey is your all-in-one market discovery platform. From local bazaars to popular shopping hubs — we help you explore, compare and make the best choices, anytime, anywhere.",
+  imageSrc: "/images/hero/about.png",
+  imageAlt: "Market Monkey — exploring markets, cities, and products worldwide",
 } as const;
 
 export const aboutPillars: AboutPillar[] = [

@@ -2,67 +2,83 @@
 
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
+import { Button } from "@/components/ui/Button";
+import { ShopIcon } from "@/components/ui/icons";
 import { aboutHero } from "@/config/about";
 
 export function AboutHero() {
   return (
     <section
-      className="relative min-h-[580px] w-full overflow-hidden bg-stone-900 pt-28 pb-20 sm:pt-36 sm:pb-28 lg:min-h-[680px] lg:pt-44 lg:pb-36 flex items-center"
+      className="relative overflow-hidden bg-[#FFFDF9] pt-[var(--space-page-hero-y)] pb-16 lg:pt-[var(--space-page-hero-y-lg)] lg:pb-24"
       aria-labelledby="about-hero-heading"
     >
-      {/* Background Market Image */}
-      <div className="absolute inset-0 z-0 select-none">
-        <Image
-          src="/images/about/hero-market-bg.png"
-          alt="Market Monkey background"
-          fill
-          priority
-          unoptimized
-          className="object-cover object-center sm:object-[75%_center] lg:object-center"
-          sizes="100vw"
-        />
-        {/* Dark Scrim Overlays for AAA Contrast and Legibility */}
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-black/35 md:from-black/90 md:via-black/60 md:to-transparent"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/40 md:hidden"
-          aria-hidden="true"
-        />
-      </div>
+      <div
+        className="pointer-events-none absolute -top-24 right-0 size-[500px] rounded-full bg-brand-primary/5 blur-3xl"
+        aria-hidden="true"
+      />
 
-      <Container className="relative z-20 w-full">
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
-          {/* Left Column: Typography */}
-          <div className="max-w-2xl lg:col-span-8 xl:col-span-7">
-            {/* Tagline / Category */}
-            <div className="mb-3 sm:mb-4">
-              <span className="inline-block text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-[#FF6500]">
-                {aboutHero.kicker}
-              </span>
-            </div>
-
-            {/* Main Headline */}
+      <Container className="relative z-10">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-8">
+          {/* Left Column - Hero Copy & Action Buttons */}
+          <div className="lg:col-span-6 xl:col-span-6">
             <h1
               id="about-hero-heading"
-              className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem] leading-[1.08]"
+              className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] lg:leading-[1.15]"
             >
-              <span className="block text-white">{aboutHero.titleLine1}</span>
-              <span className="block mt-1 sm:mt-2">
-                <span className="text-[#FF6500]">{aboutHero.titleAccent}</span>{" "}
-                <span className="text-white">{aboutHero.titleLine2}</span>
-              </span>
+              {aboutHero.titleBefore}{" "}
+              <span className="text-brand-primary">{aboutHero.titleAccent}</span>
             </h1>
 
-            {/* Subtitle Description */}
-            <p className="mt-6 max-w-xl text-base sm:text-lg lg:text-xl font-normal leading-relaxed text-slate-200/95 drop-shadow-xs">
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg">
               {aboutHero.description}
             </p>
+
+            <div className="mt-8 flex flex-nowrap items-center gap-3 sm:gap-4">
+              <Button
+                href="/#markets"
+                size="lg"
+                leftIcon={<ShopIcon className="size-4" />}
+                className="shrink-0 whitespace-nowrap font-semibold"
+              >
+                Explore Markets
+              </Button>
+
+              <button
+                type="button"
+                className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-surface-border bg-surface px-5 py-3 text-sm font-semibold text-ink shadow-xs transition-colors hover:bg-surface-subtle focus-visible:outline-2 focus-visible:outline-brand-primary"
+                onClick={() => {
+                  const storyEl = document.getElementById("our-story");
+                  if (storyEl) {
+                    storyEl.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                Read Our Story
+              </button>
+            </div>
           </div>
 
-          {/* Right Column: Space reserved for background hanging signboard */}
-          <div className="hidden lg:col-span-4 lg:block" aria-hidden="true" />
+          {/* Right Column - Hero Phone Mockups */}
+          <div className="relative flex justify-center lg:col-span-6 xl:col-span-6">
+            <div className="relative w-full max-w-[560px] sm:max-w-[640px]">
+              <div
+                className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-80 sm:size-96 rounded-full bg-brand-soft/70 -z-10 blur-xl"
+                aria-hidden="true"
+              />
+
+              <div className="relative aspect-[3/2] w-full">
+                <Image
+                  src="/images/hero/about.png"
+                  alt={aboutHero.imageAlt}
+                  fill
+                  priority
+                  unoptimized
+                  className="object-contain drop-shadow-2xl"
+                  sizes="(max-width: 768px) 100vw, 640px"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
     </section>
