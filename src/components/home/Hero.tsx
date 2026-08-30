@@ -35,14 +35,14 @@ export function Hero() {
 
       {/* Main Hero Content Container */}
       <Container className="relative z-20 w-full pt-28 pb-16 lg:pt-36 lg:pb-24">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-6">
           {/* Left Column: Headline, Supporting Copy, Action Buttons & Subtle Trust Proof */}
-          <div className="max-w-2xl lg:col-span-7 xl:col-span-7">
+          <div className="max-w-3xl lg:col-span-7 xl:col-span-8">
             {/* Main Headline */}
             <AnimateIn variant="fade-up" delay={50} duration={600}>
               <h1
                 id="hero-heading"
-                className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[4.25rem] leading-[1.06]"
+                className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[4.5rem] leading-[1.05]"
               >
                 <span className="block text-white">{homeHero.titleLine1}</span>
                 <span className="block mt-1">
@@ -54,7 +54,7 @@ export function Hero() {
 
             {/* Supporting Description */}
             <AnimateIn variant="fade-up" delay={150} duration={600}>
-              <p className="mt-6 max-w-xl text-base sm:text-lg lg:text-xl font-normal leading-relaxed text-white/90 drop-shadow-xs">
+              <p className="mt-6 max-w-2xl text-base sm:text-lg lg:text-xl font-normal leading-relaxed text-white/90 drop-shadow-xs">
                 {homeHero.description}
               </p>
             </AnimateIn>
@@ -117,10 +117,10 @@ export function Hero() {
             </AnimateIn>
           </div>
 
-          {/* Right Column: Single Premium Phone Mockup Integrated Naturally into Photography */}
-          <div className="flex items-center justify-center lg:col-span-5 xl:col-span-5">
-            <AnimateIn variant="zoom-in" delay={200} duration={800} className="w-full flex justify-center">
-              <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[370px] xl:max-w-[400px] transition-transform duration-300 hover:scale-[1.02]">
+          {/* Right Column: Phone Mockup shifted completely to far right */}
+          <div className="flex items-center justify-center lg:col-span-5 xl:col-span-4 lg:justify-end xl:justify-end">
+            <AnimateIn variant="zoom-in" delay={200} duration={800} className="w-full flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] xl:max-w-[400px] transition-transform duration-300 hover:scale-[1.02]">
                 <div className="relative aspect-[626/1024] w-full drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)]">
                   <Image
                     src={homeHero.phoneSrc}
