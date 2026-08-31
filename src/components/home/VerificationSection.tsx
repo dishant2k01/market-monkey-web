@@ -74,16 +74,19 @@ function ReviewIcon({ className = "size-6" }: { className?: string }) {
 
 function ApprovedIcon({ className = "size-6" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="8.25" fill="currentColor" />
-      <path
-        d="m8.75 12.1 2.2 2.2 4.4-4.5"
-        stroke="white"
-        strokeWidth="1.85"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <div className="relative flex items-center justify-center">
+      <span className="absolute size-7 rounded-full bg-emerald-400/30 animate-ping" />
+      <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.25" fill="currentColor" />
+        <path
+          d="m8.75 12.1 2.2 2.2 4.4-4.5"
+          stroke="white"
+          strokeWidth="1.85"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
   );
 }
 
@@ -116,7 +119,9 @@ function StepArrow() {
       className="pointer-events-none absolute top-1/2 -right-[0.7rem] z-20 hidden -translate-y-1/2 items-center xl:flex xl:-right-4"
       aria-hidden="true"
     >
-      <span className="h-0 w-3.5 border-t-2 border-dashed border-brand-primary xl:w-5" />
+      <span className="relative h-[2px] w-3.5 bg-brand-soft-border xl:w-5 overflow-hidden">
+        <span className="absolute inset-y-0 w-full bg-gradient-to-r from-transparent via-brand-primary to-transparent animate-shimmer-sweep" />
+      </span>
       <span className="ml-[-2px] size-0 border-y-[4px] border-y-transparent border-l-[6px] border-l-brand-primary" />
     </span>
   );
@@ -131,6 +136,10 @@ export function VerificationSection() {
     >
       <Container>
         <AnimateIn variant="fade-up" delay={50} duration={600} className="mx-auto max-w-2xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold tracking-wider text-emerald-600 uppercase mb-3">
+            <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+            100% Verified & Secure
+          </div>
           <h2
             id="verification-heading"
             className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
@@ -138,7 +147,7 @@ export function VerificationSection() {
             Verified. Trusted. Safe.
           </h2>
           <p className="mt-3 text-base text-ink-muted sm:text-lg">
-            Every Monkey goes through a strict verification process.
+            Every Monkey goes through a strict verification process before going live.
           </p>
         </AnimateIn>
 
@@ -157,12 +166,12 @@ export function VerificationSection() {
             >
               {index < verificationSteps.length - 1 ? <StepArrow /> : null}
 
-              <article className="group flex h-full flex-col items-center rounded-2xl border border-surface-border bg-surface px-3.5 py-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-primary/40 hover:shadow-md sm:px-4 sm:py-7">
+              <article className="group flex h-full flex-col items-center rounded-2xl border border-surface-border bg-surface px-3.5 py-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-brand-primary/40 hover:shadow-lg sm:px-4 sm:py-7">
                 <span
-                  className={`inline-flex size-10 items-center justify-center transition-transform duration-300 group-hover:scale-110 ${
+                  className={`inline-flex size-11 items-center justify-center rounded-xl bg-surface-subtle transition-transform duration-300 group-hover:scale-110 ${
                     item.icon === "approved"
-                      ? "text-feedback-success"
-                      : "text-ink-secondary group-hover:text-brand-primary"
+                      ? "text-feedback-success bg-emerald-50"
+                      : "text-ink-secondary group-hover:text-brand-primary group-hover:bg-brand-soft"
                   }`}
                 >
                   {stepIcons[item.icon]}

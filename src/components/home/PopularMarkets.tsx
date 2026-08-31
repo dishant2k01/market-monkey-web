@@ -14,15 +14,24 @@ export function PopularMarkets() {
     >
       <Container>
         <AnimateIn variant="fade-up" delay={50} duration={500} className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <h2
-            id="popular-markets-heading"
-            className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
-          >
-            Popular <span className="text-brand-primary">Markets</span> to
-            Explore
-          </h2>
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-3 py-1 text-xs font-bold tracking-wider text-brand-primary uppercase mb-2">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand-primary opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-brand-primary" />
+              </span>
+              Real Time Activity
+            </div>
+            <h2
+              id="popular-markets-heading"
+              className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
+            >
+              Popular <span className="text-brand-primary">Markets</span> to
+              Explore
+            </h2>
+          </div>
           <Link
-            href="/#markets"
+            href="/markets"
             className="group inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary transition-colors hover:text-brand-primary-hover"
           >
             <span>View All Markets</span>
@@ -41,9 +50,9 @@ export function PopularMarkets() {
             <li key={market.name}>
               <Link
                 href={market.href}
-                className="group block rounded-2xl outline-none transition-transform duration-300 ease-[var(--motion-ease)] hover:-translate-y-1.5 focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                className="group block rounded-2xl outline-none transition-transform duration-300 ease-[var(--motion-ease)] hover:-translate-y-2 focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
               >
-                <div className="relative aspect-[16/11] overflow-hidden rounded-2xl bg-surface-subtle shadow-xs transition-[box-shadow] duration-300 ease-[var(--motion-ease)] group-hover:shadow-md">
+                <div className="relative aspect-[16/11] overflow-hidden rounded-2xl bg-surface-subtle shadow-xs transition-all duration-300 ease-[var(--motion-ease)] group-hover:shadow-xl group-hover:shadow-brand-primary/10">
                   <Image
                     src={market.imageSrc}
                     alt={market.imageAlt}
@@ -52,6 +61,14 @@ export function PopularMarkets() {
                     className="object-cover transition-transform duration-500 ease-[var(--motion-ease)] group-hover:scale-110"
                     sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 260px"
                   />
+
+                  {/* Top Live Monkeys Badge */}
+                  <div className="absolute top-2.5 left-2.5 z-10">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-black/65 px-2.5 py-1 text-[0.6875rem] font-bold text-white backdrop-blur-md transition-transform duration-200 group-hover:scale-105">
+                      <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      {market.monkeys} Live
+                    </span>
+                  </div>
 
                   <div
                     className="absolute inset-0 bg-gradient-to-t from-surface-inverse/70 via-surface-inverse/10 to-transparent opacity-0 transition-opacity duration-300 ease-[var(--motion-ease)] group-hover:opacity-100"

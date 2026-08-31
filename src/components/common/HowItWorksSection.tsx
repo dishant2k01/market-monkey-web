@@ -25,13 +25,16 @@ const stepIcons: Record<HomeHowItWorksStep["icon"], ReactNode> = {
 
 function StepConnector() {
   return (
-    <span
+    <div
       className="pointer-events-none absolute top-14 left-[calc(50%+3.5rem)] hidden w-[calc(100%-7rem)] items-center lg:flex"
       aria-hidden="true"
     >
-      <span className="h-0 w-full border-t-2 border-dashed border-brand-primary" />
+      <div className="relative h-[2.5px] w-full bg-brand-soft-border overflow-hidden rounded-full">
+        {/* Continuous moving beam pulse */}
+        <div className="absolute inset-y-0 w-2/3 rounded-full bg-gradient-to-r from-transparent via-brand-primary to-transparent animate-shimmer-sweep" />
+      </div>
       <span className="ml-[-2px] size-0 border-y-[5px] border-y-transparent border-l-[8px] border-l-brand-primary" />
-    </span>
+    </div>
   );
 }
 
@@ -91,14 +94,14 @@ export function HowItWorksSection({
             >
               {index < homeHowItWorksSteps.length - 1 ? <StepConnector /> : null}
 
-              <article className="group relative mx-auto flex max-w-xs flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1.5 lg:max-w-none">
+              <article className="group relative mx-auto flex max-w-xs flex-col items-center text-center transition-transform duration-300 hover:-translate-y-2 lg:max-w-none">
                 <div className="relative">
-                  <span className="inline-flex size-[7.25rem] items-center justify-center rounded-full border-2 border-brand-soft-border bg-surface shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:border-brand-primary group-hover:shadow-md">
-                    <span className="inline-flex size-[5.5rem] items-center justify-center rounded-full bg-brand-soft text-brand-primary transition-transform duration-300 group-hover:scale-105">
+                  <span className="inline-flex size-[7.25rem] items-center justify-center rounded-full border-2 border-brand-soft-border bg-surface shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:border-brand-primary group-hover:shadow-lg">
+                    <span className="inline-flex size-[5.5rem] items-center justify-center rounded-full bg-brand-soft text-brand-primary transition-transform duration-300 group-hover:scale-110">
                       {stepIcons[item.icon]}
                     </span>
                   </span>
-                  <span className="absolute -top-1 -right-1 inline-flex size-8 items-center justify-center rounded-full bg-brand-primary text-xs font-bold text-brand-primary-foreground shadow-xs transition-transform duration-300 group-hover:scale-110">
+                  <span className="absolute -top-1 -right-1 inline-flex size-8 items-center justify-center rounded-full bg-brand-primary text-xs font-bold text-brand-primary-foreground shadow-xs transition-transform duration-300 group-hover:scale-110 group-hover:shadow-brand-primary/40">
                     {item.step}
                   </span>
                 </div>
