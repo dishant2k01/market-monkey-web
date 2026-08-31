@@ -214,9 +214,9 @@ export const theme = {
 
     stack: "1rem",
 
-    /** Top padding below header for inner page heroes (About reference) */
-    pageHeroY: "2.5rem",
-    pageHeroYLg: "3.5rem",
+    /** Top padding below header for inner page heroes (accommodates 5.25rem fixed header) */
+    pageHeroY: "7.5rem",
+    pageHeroYLg: "8.75rem",
   },
 
   /**

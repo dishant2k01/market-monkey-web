@@ -109,7 +109,7 @@ export function LiveMarketExperience() {
             </AnimateIn>
 
             {/* Middle: Phone Display with Floating Reactions & Live Equalizer */}
-            <div className="relative mx-auto w-full max-w-2xl scale-[1.15] sm:scale-105 lg:max-w-none lg:scale-[1.2] lg:origin-center">
+            <div className="relative mx-auto w-full max-w-2xl scale-100 sm:scale-105 lg:max-w-none lg:scale-[1.2] lg:origin-center">
               {/* Floating Live Reaction Stream */}
               <div className="pointer-events-none absolute right-[18%] top-[15%] z-30 flex flex-col items-center">
                 <span className="animate-reaction-1 text-xl select-none">❤️</span>

@@ -44,8 +44,8 @@ export function Header() {
 
   const closeMobile = () => setMobileOpen(false);
 
-  // Transparent header mode applies to home page when at top of page
-  const isTransparent = isHomePage && !scrolled;
+  // Transparent header mode applies to home page when at top of page AND mobile menu is closed
+  const isTransparent = isHomePage && !scrolled && !mobileOpen;
 
   return (
     <header

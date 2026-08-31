@@ -13,7 +13,7 @@ export function Container({
 }: ContainerProps) {
   return (
     <Tag
-      className={`mx-auto w-full max-w-site px-[var(--space-gutter)] lg:px-[var(--space-gutter-lg)] ${className}`}
+      className={`mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8 ${className}`}
     >
       {children}
     </Tag>

@@ -25,7 +25,7 @@ const highlightIcons: Record<ContactHeroHighlight["icon"], ReactNode> = {
 export function ContactHero() {
   return (
     <section
-      className="bg-surface pt-8 pb-8 lg:pt-10 lg:pb-10"
+      className="bg-surface pt-[var(--space-page-hero-y)] pb-12 lg:pt-[var(--space-page-hero-y-lg)] lg:pb-16"
       aria-labelledby="contact-hero-heading"
     >
       <Container>

@@ -37,15 +37,21 @@ export function BecomeHero() {
       aria-labelledby="become-hero-heading"
     >
       <Container className="relative z-10">
-        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-6 xl:col-span-6">
             <AnimateIn variant="fade-up" delay={50} duration={600}>
+              <div className="inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-3.5 py-1 text-xs font-bold tracking-wider text-brand-primary uppercase mb-4">
+                <span className="size-1.5 rounded-full bg-brand-primary animate-pulse" />
+                Join the Community
+              </div>
               <h1
                 id="become-hero-heading"
-                className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] lg:leading-[1.15]"
+                className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] lg:leading-[1.12]"
               >
-                Become a <br />
-                <span className="text-brand-primary">Market Monkey</span>
+                Become a{" "}
+                <span className="block mt-1 text-brand-primary">
+                  Market Monkey
+                </span>
               </h1>
             </AnimateIn>
 
