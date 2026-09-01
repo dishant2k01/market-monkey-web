@@ -6,7 +6,6 @@ import {
 import { Container } from "@/components/layout/Container";
 import {
   AnimateIn,
-  FloatingElement,
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/AnimateIn";

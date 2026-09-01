@@ -4,7 +4,7 @@ import {
   GooglePlayBadge,
 } from "@/components/layout/AppStoreBadges";
 import { Container } from "@/components/layout/Container";
-import { AnimateIn, FloatingElement } from "@/components/ui/AnimateIn";
+import { AnimateIn } from "@/components/ui/AnimateIn";
 import { appStoreLinks } from "@/config/navigation";
 
 type AppDownloadCTASectionProps = {
@@ -47,7 +47,7 @@ export function AppDownloadCTASection({
                 : "bg-[#FFF9F4] border border-[#FFE8D6] lg:pl-[15rem] xl:gap-12 xl:pl-[17rem]"
             }`}
           >
-            {/* Left Image / Mascot Artwork with Floating Animation */}
+            {/* Left Image / Mascot Artwork (Static - No floating motion) */}
             <div
               className={
                 isDark
@@ -55,7 +55,7 @@ export function AppDownloadCTASection({
                   : "pointer-events-none relative z-20 mx-auto mb-2 aspect-square w-[140px] sm:w-[160px] lg:absolute lg:bottom-0 lg:left-3 lg:mx-0 lg:mb-0 lg:h-[12.5rem] lg:w-[200px] xl:left-4 xl:h-[13.5rem] xl:w-[220px]"
               }
             >
-              <FloatingElement animation="float" className="relative size-full">
+              <div className="relative size-full">
                 <Image
                   src={imageSrc}
                   alt={imageAlt}
@@ -66,7 +66,7 @@ export function AppDownloadCTASection({
                   sizes={isDark ? "320px" : "240px"}
                   unoptimized
                 />
-              </FloatingElement>
+              </div>
             </div>
 
             {/* Heading & Description */}

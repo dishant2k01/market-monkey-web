@@ -136,10 +136,6 @@ export function VerificationSection() {
     >
       <Container>
         <AnimateIn variant="fade-up" delay={50} duration={600} className="mx-auto max-w-2xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold tracking-wider text-emerald-600 uppercase mb-3">
-            <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-            100% Verified & Secure
-          </div>
           <h2
             id="verification-heading"
             className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"

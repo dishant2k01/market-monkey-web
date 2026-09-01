@@ -18,17 +18,17 @@ export function Hero() {
           fill
           priority
           unoptimized
-          className="object-cover object-center sm:object-[65%_center] lg:object-center scale-105 transition-transform duration-1000 ease-out"
+          className="object-cover object-center sm:object-[65%_center] lg:object-center"
           sizes="100vw"
         />
 
-        {/* Dynamic moving ambient light orbs */}
+        {/* Static ambient light orbs */}
         <div
-          className="pointer-events-none absolute -top-24 left-1/10 size-[20rem] sm:size-[30rem] rounded-full bg-[#FF800C]/20 blur-[90px] sm:blur-[110px] animate-ambient-1"
+          className="pointer-events-none absolute -top-24 left-1/10 size-[20rem] sm:size-[30rem] rounded-full bg-[#FF800C]/20 blur-[90px] sm:blur-[110px]"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute bottom-0 right-1/12 size-[18rem] sm:size-[26rem] rounded-full bg-amber-500/15 blur-[80px] sm:blur-[100px] animate-ambient-2"
+          className="pointer-events-none absolute bottom-0 right-1/12 size-[18rem] sm:size-[26rem] rounded-full bg-amber-500/15 blur-[80px] sm:blur-[100px]"
           aria-hidden="true"
         />
 
@@ -48,23 +48,6 @@ export function Hero() {
         <div className="grid grid-cols-1 items-center gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-6">
           {/* Left Column: Headline, Supporting Copy, Action Buttons & Trust Proof */}
           <div className="max-w-3xl lg:col-span-7 xl:col-span-8">
-            {/* Live Radar Moving Pill */}
-            <AnimateIn variant="fade-down" delay={0} duration={600}>
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-black/60 px-3.5 py-1.5 backdrop-blur-md shadow-lg shadow-black/40 mb-5 sm:mb-6">
-                <span className="relative flex size-2.5 items-center justify-center">
-                  <span className="absolute inline-flex size-full animate-radar-ripple rounded-full bg-[#FF800C]" />
-                  <span className="relative inline-flex size-2 rounded-full bg-[#FF800C]" />
-                </span>
-                <span className="text-[0.6875rem] sm:text-xs font-bold tracking-wide uppercase text-white/90">
-                  Live Market Radar
-                </span>
-                <span className="size-1 rounded-full bg-white/30" />
-                <span className="text-[0.6875rem] sm:text-xs font-medium text-amber-300">
-                  Verified Monkeys Active
-                </span>
-              </div>
-            </AnimateIn>
-
             {/* Main Headline */}
             <AnimateIn variant="fade-up" delay={80} duration={650}>
               <h1
@@ -151,68 +134,11 @@ export function Hero() {
             </AnimateIn>
           </div>
 
-          {/* Right Column: Phone Mockup with Floating Moving Badges & Live Reactions */}
+          {/* Right Column: Phone Mockup */}
           <div className="relative flex items-center justify-center lg:col-span-5 xl:col-span-4 lg:justify-end">
-            {/* Top-Left Floating Moving Card */}
-            <div className="absolute -top-4 -left-6 sm:-top-6 sm:-left-10 z-30 animate-float-slow hidden sm:flex">
-              <div className="flex items-center gap-2.5 rounded-2xl border border-white/20 bg-black/75 px-3.5 py-2.5 shadow-2xl backdrop-blur-md">
-                <span className="relative flex size-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-[#FF800C] text-sm text-black font-bold shadow-sm">
-                  🛍️
-                </span>
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-[0.6875rem] font-bold text-white uppercase tracking-wider">
-                      Live Bargaining
-                    </span>
-                    <span className="rounded bg-emerald-500/20 px-1 text-[0.625rem] font-bold text-emerald-400">
-                      -40%
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs">
-                    <span className="font-extrabold text-[#FF800C]">₹350</span>
-                    <span className="text-[0.6875rem] line-through text-white/50">₹600</span>
-                    <span className="flex items-end gap-0.5 h-3">
-                      <span className="w-0.5 bg-emerald-400 rounded-full animate-soundwave-1" />
-                      <span className="w-0.5 bg-emerald-400 rounded-full animate-soundwave-2" />
-                      <span className="w-0.5 bg-emerald-400 rounded-full animate-soundwave-3" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom-Right Floating Moving Card */}
-            <div className="absolute -bottom-6 -right-2 sm:-bottom-8 sm:-right-6 z-30 animate-float-reverse hidden sm:flex">
-              <div className="flex items-center gap-2.5 rounded-2xl border border-white/20 bg-black/80 px-3.5 py-2.5 shadow-2xl backdrop-blur-md">
-                <div className="relative size-8 shrink-0 overflow-hidden rounded-xl ring-1 ring-emerald-500/60">
-                  <Image
-                    src="/images/testimonials/rahul.jpg"
-                    alt="Verified Monkey Rahul"
-                    fill
-                    className="object-cover"
-                  />
-                  <span className="absolute bottom-0 right-0 size-2 rounded-full bg-emerald-400 ring-1 ring-black" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-white">Rahul S. (Monkey)</p>
-                  <p className="flex items-center gap-1 text-[0.6875rem] text-emerald-400 font-medium">
-                    <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Live @ Sarojini Nagar
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Live Reaction Stream Emojis */}
-            <div className="pointer-events-none absolute right-4 top-1/3 z-30 flex flex-col items-center">
-              <span className="animate-reaction-1 text-2xl drop-shadow-md select-none">❤️</span>
-              <span className="animate-reaction-2 text-2xl drop-shadow-md select-none">🔥</span>
-              <span className="animate-reaction-3 text-2xl drop-shadow-md select-none">🛍️</span>
-            </div>
-
             {/* Main Phone Mockup */}
             <AnimateIn variant="zoom-in" delay={150} duration={800} className="w-full flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[240px] xs:max-w-[270px] sm:max-w-[310px] lg:max-w-[350px] xl:max-w-[380px] transition-transform duration-300 hover:scale-[1.02]">
+              <div className="relative w-full max-w-[240px] xs:max-w-[270px] sm:max-w-[310px] lg:max-w-[350px] xl:max-w-[380px]">
                 <div className="relative aspect-[626/1024] w-full drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)]">
                   <Image
                     src={homeHero.phoneSrc}

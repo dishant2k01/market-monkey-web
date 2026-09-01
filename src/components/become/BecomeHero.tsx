@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import {
   AnimateIn,
-  FloatingElement,
   StaggerContainer,
   StaggerItem,
 } from "@/components/ui/AnimateIn";
@@ -40,10 +39,6 @@ export function BecomeHero() {
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-6 xl:col-span-6">
             <AnimateIn variant="fade-up" delay={50} duration={600}>
-              <div className="inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-3.5 py-1 text-xs font-bold tracking-wider text-brand-primary uppercase mb-4">
-                <span className="size-1.5 rounded-full bg-brand-primary animate-pulse" />
-                Join the Community
-              </div>
               <h1
                 id="become-hero-heading"
                 className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] lg:leading-[1.12]"
@@ -90,18 +85,16 @@ export function BecomeHero() {
                 className="pointer-events-none absolute top-1/2 left-1/2 -z-10 size-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-soft/70 blur-xl sm:size-96"
                 aria-hidden="true"
               />
-              <FloatingElement animation="float">
-                <div className="relative aspect-square w-full sm:aspect-[5/4]">
-                  <Image
-                    src={becomeHeroImage.src}
-                    alt={becomeHeroImage.alt}
-                    fill
-                    priority
-                    className="object-contain drop-shadow-2xl"
-                    sizes="(max-width: 1024px) 100vw, 680px"
-                  />
-                </div>
-              </FloatingElement>
+              <div className="relative aspect-square w-full sm:aspect-[5/4]">
+                <Image
+                  src={becomeHeroImage.src}
+                  alt={becomeHeroImage.alt}
+                  fill
+                  priority
+                  className="object-contain drop-shadow-2xl"
+                  sizes="(max-width: 1024px) 100vw, 680px"
+                />
+              </div>
             </AnimateIn>
           </div>
         </div>

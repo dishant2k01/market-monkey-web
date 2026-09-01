@@ -1,29 +1,8 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
-import { AnimateIn, FloatingElement } from "@/components/ui/AnimateIn";
+import { AnimateIn } from "@/components/ui/AnimateIn";
 import { CheckIcon } from "@/components/ui/icons";
 import { homeAudiencePanels } from "@/config/home";
-
-function TrendUpIcon({ className = "size-3.5" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <path
-        d="M2.5 11.5 6.5 7.5l2.5 2.5 4.5-5"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M10 5h3.5V8.5"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 export function AudienceSection() {
   return (
@@ -70,7 +49,7 @@ export function AudienceSection() {
 
                 <div className="relative min-h-[200px] sm:min-h-full overflow-hidden">
                   <div
-                    className="absolute inset-0 overflow-hidden transition-transform duration-500 ease-out group-hover:scale-105 sm:[clip-path:polygon(16%_0,100%_0,100%_100%,0_100%)]"
+                    className="absolute inset-0 overflow-hidden sm:[clip-path:polygon(16%_0,100%_0,100%_100%,0_100%)]"
                     aria-hidden={false}
                   >
                     <Image
@@ -82,25 +61,6 @@ export function AudienceSection() {
                       unoptimized
                     />
                   </div>
-
-                  {panel.earningsLabel && panel.earningsAmount ? (
-                    <FloatingElement
-                      animation="pulse"
-                      className="absolute right-4 bottom-4 z-10"
-                    >
-                      <div className="rounded-xl bg-surface/95 backdrop-blur-sm border border-surface-border/80 px-3.5 py-2.5 shadow-md">
-                        <p className="text-[0.6875rem] font-medium text-ink-muted">
-                          {panel.earningsLabel}
-                        </p>
-                        <p className="mt-0.5 flex items-center gap-1.5 text-lg font-extrabold text-ink">
-                          {panel.earningsAmount}
-                          <span className="inline-flex text-feedback-success">
-                            <TrendUpIcon />
-                          </span>
-                        </p>
-                      </div>
-                    </FloatingElement>
-                  ) : null}
                 </div>
               </div>
             </AnimateIn>

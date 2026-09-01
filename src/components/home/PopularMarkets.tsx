@@ -15,13 +15,6 @@ export function PopularMarkets() {
       <Container>
         <AnimateIn variant="fade-up" delay={50} duration={500} className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-brand-primary/10 px-3 py-1 text-xs font-bold tracking-wider text-brand-primary uppercase mb-2">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand-primary opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-brand-primary" />
-              </span>
-              Real Time Activity
-            </div>
             <h2
               id="popular-markets-heading"
               className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"

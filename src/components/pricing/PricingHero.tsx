@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
-import { AnimateIn, FloatingElement } from "@/components/ui/AnimateIn";
+import { AnimateIn } from "@/components/ui/AnimateIn";
 import { CheckIcon } from "@/components/ui/icons";
 import { pricingHero } from "@/config/pricingPage";
 
@@ -59,18 +59,16 @@ export function PricingHero() {
                 className="pointer-events-none absolute top-1/2 left-1/2 -z-10 size-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-soft/70 blur-xl sm:size-96"
                 aria-hidden="true"
               />
-              <FloatingElement animation="float">
-                <div className="relative aspect-square w-full sm:aspect-[5/4]">
-                  <Image
-                    src={pricingHeroImage.src}
-                    alt={pricingHeroImage.alt}
-                    fill
-                    priority
-                    className="object-contain drop-shadow-2xl"
-                    sizes="(max-width: 768px) 100vw, 640px"
-                  />
-                </div>
-              </FloatingElement>
+              <div className="relative aspect-square w-full sm:aspect-[5/4]">
+                <Image
+                  src={pricingHeroImage.src}
+                  alt={pricingHeroImage.alt}
+                  fill
+                  priority
+                  className="object-contain drop-shadow-2xl"
+                  sizes="(max-width: 768px) 100vw, 640px"
+                />
+              </div>
             </AnimateIn>
           </div>
         </div>
