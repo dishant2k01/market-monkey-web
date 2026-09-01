@@ -32,34 +32,6 @@ function StarIcon({ className = "size-4" }: { className?: string }) {
   );
 }
 
-function ArrowLeftIcon({ className = "size-5" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M15 19l-7-7 7-7"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ArrowRightIcon({ className = "size-5" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M9 5l7 7-7 7"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 function TestimonialCard({ testimonial }: { testimonial: HomeTestimonial }) {
   return (
     <article className="flex h-full flex-col rounded-2xl bg-surface p-6 shadow-sm transition-all duration-300 hover:shadow-md sm:p-7">
@@ -180,8 +152,8 @@ export function HomeTestimonials() {
       aria-labelledby="home-reviews-heading"
     >
       <Container>
-        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-end">
-          <AnimateIn variant="fade-up" delay={50} duration={600} className="text-center sm:text-left">
+        <div className="mx-auto max-w-2xl text-center">
+          <AnimateIn variant="fade-up" delay={50} duration={600} className="text-center">
             <h2
               id="home-reviews-heading"
               className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
@@ -192,26 +164,6 @@ export function HomeTestimonials() {
               Real experiences from real users.
             </p>
           </AnimateIn>
-
-          {/* Navigation Arrow Buttons */}
-          <div className="hidden items-center gap-2 sm:flex">
-            <button
-              type="button"
-              onClick={prevSlide}
-              aria-label="Previous testimonial"
-              className="inline-flex size-10 items-center justify-center rounded-full border border-brand-soft-border bg-surface text-ink shadow-xs transition-all duration-200 hover:border-brand-primary hover:bg-brand-soft hover:text-brand-primary active:scale-95"
-            >
-              <ArrowLeftIcon className="size-5" />
-            </button>
-            <button
-              type="button"
-              onClick={nextSlide}
-              aria-label="Next testimonial"
-              className="inline-flex size-10 items-center justify-center rounded-full border border-brand-soft-border bg-surface text-ink shadow-xs transition-all duration-200 hover:border-brand-primary hover:bg-brand-soft hover:text-brand-primary active:scale-95"
-            >
-              <ArrowRightIcon className="size-5" />
-            </button>
-          </div>
         </div>
 
         {/* Carousel Slider Track */}
@@ -253,11 +205,10 @@ export function HomeTestimonials() {
                   role="tab"
                   aria-selected={active}
                   aria-label={`Go to slide ${index + 1}`}
-                  className={`size-2.5 rounded-full transition-all duration-300 ${
-                    active
-                      ? "w-6 bg-brand-primary"
-                      : "bg-brand-soft-border hover:bg-brand-muted"
-                  }`}
+                  className={`size-2.5 rounded-full transition-all duration-300 ${active
+                    ? "w-6 bg-brand-primary"
+                    : "bg-brand-soft-border hover:bg-brand-muted"
+                    }`}
                   onClick={() => setCurrentIndex(index)}
                 />
               );

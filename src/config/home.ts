@@ -157,7 +157,7 @@ export const homeLiveExperience = {
   ],
   floatingFeatures: [
     { label: "HD Video", subtitle: "High Quality", icon: "video" as const },
-    { label: "Real Time Chat", subtitle: "Instant Replies", icon: "chat" as const },
+    // { label: "Real Time Chat", subtitle: "Instant Replies", icon: "chat" as const },
     { label: "Secure Calls", subtitle: "100% Safe", icon: "secure" as const },
   ],
 } as const;
