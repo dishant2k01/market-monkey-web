@@ -50,11 +50,11 @@ export function Hero() {
                 id="hero-heading"
                 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-extrabold tracking-tight text-white leading-[1.12] sm:leading-[1.08]"
               >
-                {homeHero.titleLine1}{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF800C] via-amber-400 to-[#FF800C]">
+                <span className="block">{homeHero.titleLine1}</span>
+                <span className="block mt-0.5 sm:mt-1 text-transparent bg-clip-text bg-gradient-to-r from-[#FF800C] via-amber-400 to-[#FF800C]">
                   {homeHero.titleHighlight}
-                </span>{" "}
-                {homeHero.titleLine3}
+                </span>
+                <span className="block mt-0.5 sm:mt-1">{homeHero.titleLine3}</span>
               </h1>
             </AnimateIn>
 
@@ -85,7 +85,7 @@ export function Hero() {
             </AnimateIn>
 
             {/* Lightweight Inline Trust Row */}
-            <AnimateIn variant="fade-up" delay={340} duration={600}>
+            {/* <AnimateIn variant="fade-up" delay={340} duration={600}>
               <div className="mt-5 sm:mt-8 flex items-center gap-3">
                 <div className="flex -space-x-1.5 overflow-hidden">
                   <Image
@@ -110,15 +110,8 @@ export function Hero() {
                     className="inline-block size-7 sm:size-8 rounded-full ring-2 ring-stone-900 object-cover"
                   />
                 </div>
-                <div className="flex items-center gap-1.5 text-xs text-white/90">
-                  <span className="text-amber-400 font-bold">★ 4.9</span>
-                  <span className="text-white/40">·</span>
-                  <span className="text-white/75 font-medium text-[11px] sm:text-xs">
-                    {homeHero.trustText}
-                  </span>
-                </div>
               </div>
-            </AnimateIn>
+            </AnimateIn> */}
           </div>
 
           {/* Right Column: Phone Mockup */}
