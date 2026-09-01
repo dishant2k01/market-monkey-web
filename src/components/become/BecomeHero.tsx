@@ -60,18 +60,18 @@ export function BecomeHero() {
             <StaggerContainer
               baseDelay={220}
               staggerMs={80}
-              className="mt-8 grid max-w-lg grid-cols-1 gap-3.5 sm:grid-cols-2"
+              className="mt-6 sm:mt-8 grid max-w-lg grid-cols-2 gap-2.5 sm:gap-3.5"
             >
               {becomeHeroHighlights.map((item, index) => (
                 <StaggerItem
                   key={item.title}
                   index={index}
-                  className="flex items-center gap-3 rounded-xl border border-surface-border/80 bg-surface px-3.5 py-2.5 shadow-xs transition-all duration-200 hover:shadow-sm hover:border-brand-soft-border hover:-translate-y-0.5"
+                  className="flex items-center gap-2 sm:gap-3 rounded-xl border border-surface-border/80 bg-surface px-2.5 py-2 sm:px-3.5 sm:py-2.5 shadow-xs transition-all duration-200 hover:shadow-sm hover:border-brand-soft-border hover:-translate-y-0.5"
                 >
-                  <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand-primary">
+                  <span className="inline-flex size-6 sm:size-7 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand-primary">
                     {highlightIcons[item.icon]}
                   </span>
-                  <span className="text-xs font-bold text-ink">
+                  <span className="text-[11px] sm:text-xs font-bold text-ink leading-tight">
                     {item.title}
                   </span>
                 </StaggerItem>

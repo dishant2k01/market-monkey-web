@@ -83,35 +83,6 @@ export function Hero() {
                 </Link>
               </div>
             </AnimateIn>
-
-            {/* Lightweight Inline Trust Row */}
-            {/* <AnimateIn variant="fade-up" delay={340} duration={600}>
-              <div className="mt-5 sm:mt-8 flex items-center gap-3">
-                <div className="flex -space-x-1.5 overflow-hidden">
-                  <Image
-                    src="/images/testimonials/priya.jpg"
-                    alt="Shopper avatar"
-                    width={32}
-                    height={32}
-                    className="inline-block size-7 sm:size-8 rounded-full ring-2 ring-stone-900 object-cover"
-                  />
-                  <Image
-                    src="/images/testimonials/rahul.jpg"
-                    alt="Shopper avatar"
-                    width={32}
-                    height={32}
-                    className="inline-block size-7 sm:size-8 rounded-full ring-2 ring-stone-900 object-cover"
-                  />
-                  <Image
-                    src="/images/testimonials/neha.jpg"
-                    alt="Shopper avatar"
-                    width={32}
-                    height={32}
-                    className="inline-block size-7 sm:size-8 rounded-full ring-2 ring-stone-900 object-cover"
-                  />
-                </div>
-              </div>
-            </AnimateIn> */}
           </div>
 
           {/* Right Column: Phone Mockup */}

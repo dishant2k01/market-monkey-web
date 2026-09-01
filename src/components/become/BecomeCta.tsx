@@ -65,20 +65,22 @@ export function BecomeCta() {
                 </div>
               </div>
 
-              <div className="flex w-full max-w-[180px] flex-col gap-2.5">
+              <div className="flex w-full flex-row sm:flex-col sm:w-auto sm:max-w-[180px] gap-2.5 justify-center">
                 {appStoreLinks.map((item) =>
                   item.store === "google" ? (
-                    <GooglePlayBadge
-                      key={item.store}
-                      href={item.href}
-                      label={item.label}
-                    />
+                    <div key={item.store} className="flex-1 sm:flex-none transition-transform duration-200 hover:-translate-y-0.5">
+                      <GooglePlayBadge
+                        href={item.href}
+                        label={item.label}
+                      />
+                    </div>
                   ) : (
-                    <AppStoreBadge
-                      key={item.store}
-                      href={item.href}
-                      label={item.label}
-                    />
+                    <div key={item.store} className="flex-1 sm:flex-none transition-transform duration-200 hover:-translate-y-0.5">
+                      <AppStoreBadge
+                        href={item.href}
+                        label={item.label}
+                      />
+                    </div>
                   ),
                 )}
               </div>

@@ -193,8 +193,8 @@ export function HomeTestimonials() {
             </p>
           </AnimateIn>
 
-          {/* Navigation Arrow Buttons */}
-          <div className="mt-5 sm:mt-0 sm:absolute sm:right-0 sm:bottom-0 flex items-center gap-2">
+          {/* Navigation Arrow Buttons (Right-aligned on mobile and desktop) */}
+          <div className="mt-4 sm:mt-0 w-full sm:w-auto flex justify-end sm:absolute sm:right-0 sm:bottom-0 items-center gap-2">
             <button
               type="button"
               onClick={prevSlide}

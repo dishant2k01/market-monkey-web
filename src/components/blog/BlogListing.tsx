@@ -95,9 +95,9 @@ export function BlogListing({
   return (
     <section className="bg-surface pt-10 pb-[var(--space-section-y-mobile)] lg:pt-14 lg:pb-[var(--space-section-y)]">
       <Container>
-        {/* Category Tabs Filter Bar */}
+        {/* Category Tabs Filter Bar (Single line horizontal scroll on mobile, centered on desktop) */}
         <div
-          className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 pb-8 border-b border-surface-border/60"
+          className="flex flex-nowrap items-center justify-start sm:justify-center gap-4 sm:gap-6 lg:gap-8 pb-6 sm:pb-8 border-b border-surface-border/60 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-1 sm:px-0"
           role="tablist"
           aria-label="Blog categories"
         >
@@ -113,11 +113,11 @@ export function BlogListing({
                   setActiveCategory(cat.name);
                   setDisplayCount(6);
                 }}
-                className="group flex flex-col items-center gap-1.5 cursor-pointer transition-all focus:outline-none"
+                className="group flex flex-col items-center gap-1.5 shrink-0 min-w-[70px] sm:min-w-0 cursor-pointer transition-all focus:outline-none"
               >
                 {/* Circular Icon Container */}
                 <div
-                  className={`flex size-12 items-center justify-center rounded-full transition-all duration-200 ${
+                  className={`flex size-11 sm:size-12 items-center justify-center rounded-full transition-all duration-200 ${
                     isActive
                       ? "bg-brand-primary text-brand-primary-foreground shadow-md scale-105"
                       : "bg-[#FFF9F4] text-ink-secondary border border-[#FFE8D6] group-hover:border-brand-primary/40 group-hover:text-brand-primary"
@@ -128,7 +128,7 @@ export function BlogListing({
 
                 {/* Category Label */}
                 <span
-                  className={`text-xs font-bold transition-colors ${
+                  className={`text-[11px] sm:text-xs font-bold whitespace-nowrap text-center transition-colors ${
                     isActive ? "text-ink" : "text-ink-secondary group-hover:text-ink"
                   }`}
                 >
@@ -136,7 +136,7 @@ export function BlogListing({
                 </span>
 
                 {/* Post Count Label */}
-                <span className="text-[0.6875rem] font-medium text-ink-subtle">
+                <span className="text-[0.625rem] sm:text-[0.6875rem] font-medium text-ink-subtle whitespace-nowrap">
                   {cat.count} Posts
                 </span>
               </button>
@@ -145,9 +145,34 @@ export function BlogListing({
         </div>
 
         {/* Main Content Grid: 8-col Left (Articles) & 4-col Right (Sidebar Widgets) */}
-        <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:gap-10">
+        <div className="mt-8 sm:mt-10 grid gap-8 lg:grid-cols-12 lg:gap-10">
           {/* Left Main Column: Blog Posts Grid */}
           <div className="lg:col-span-8">
+            {/* Mobile Search Bar (Top of page on mobile before listing) */}
+            <div className="mb-6 block lg:hidden">
+              <div className="rounded-2xl border border-[#FFE8D6] bg-[#FFF9F4]/70 p-3.5 shadow-xs">
+                <div className="flex items-center rounded-xl bg-white p-1.5 border border-[#FFE3D1] focus-within:ring-2 focus-within:ring-brand-primary">
+                  <div className="flex flex-1 items-center gap-2 px-2.5">
+                    <SearchIcon className="size-4 shrink-0 text-ink-subtle" />
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => onSearchChange?.(e.target.value)}
+                      placeholder="Search blogs..."
+                      className="w-full bg-transparent text-xs text-ink outline-none placeholder:text-ink-subtle"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    aria-label="Search"
+                    className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand-primary text-brand-primary-foreground shadow-xs transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+                  >
+                    <SearchIcon className="size-3.5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
             <h2 className="text-2xl font-extrabold text-ink tracking-tight">
               {activeCategory === "All Posts" ? "All Blog Posts" : activeCategory}
             </h2>
@@ -184,8 +209,8 @@ export function BlogListing({
 
           {/* Right Sidebar Column */}
           <aside className="space-y-6 lg:col-span-4">
-            {/* Widget 0: Search Input Bar */}
-            <div className="rounded-2xl border border-[#FFE8D6] bg-[#FFF9F4]/70 p-4 shadow-xs">
+            {/* Widget 0: Search Input Bar (Desktop only) */}
+            <div className="hidden lg:block rounded-2xl border border-[#FFE8D6] bg-[#FFF9F4]/70 p-4 shadow-xs">
               <div className="flex items-center rounded-xl bg-white p-1.5 border border-[#FFE3D1] focus-within:ring-2 focus-within:ring-brand-primary">
                 <div className="flex flex-1 items-center gap-2 px-2.5">
                   <SearchIcon className="size-4 shrink-0 text-ink-subtle" />

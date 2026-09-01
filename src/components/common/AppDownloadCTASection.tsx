@@ -116,18 +116,18 @@ export function AppDownloadCTASection({
                 </div>
               </div>
 
-              {/* Store Badges */}
-              <div className="flex w-full max-w-[180px] flex-col gap-2.5">
+              {/* Store Badges (Side-by-side single line on mobile, stacked on desktop) */}
+              <div className="flex w-full flex-row sm:flex-col sm:w-auto sm:max-w-[180px] gap-2.5 justify-center">
                 {appStoreLinks.map((item) =>
                   item.store === "google" ? (
-                    <div key={item.store} className="transition-transform duration-200 hover:-translate-y-0.5">
+                    <div key={item.store} className="flex-1 sm:flex-none transition-transform duration-200 hover:-translate-y-0.5">
                       <GooglePlayBadge
                         href={item.href}
                         label={item.label}
                       />
                     </div>
                   ) : (
-                    <div key={item.store} className="transition-transform duration-200 hover:-translate-y-0.5">
+                    <div key={item.store} className="flex-1 sm:flex-none transition-transform duration-200 hover:-translate-y-0.5">
                       <AppStoreBadge
                         href={item.href}
                         label={item.label}

@@ -176,12 +176,12 @@ export function BecomeTestimonials() {
   return (
     <section
       id="testimonials"
-      className="bg-surface py-14 lg:py-20"
+      className="bg-brand-soft pt-[var(--space-section-y-featured-mobile)] pb-[var(--space-section-y-mobile)] lg:pt-[var(--space-section-y-featured)] lg:pb-[var(--space-section-y)]"
       aria-labelledby="become-testimonials-heading"
     >
       <Container>
-        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-end">
-          <AnimateIn variant="fade-up" delay={50} duration={500} className="text-center sm:text-left">
+        <div className="relative flex flex-col items-center justify-center text-center">
+          <AnimateIn variant="fade-up" delay={50} duration={600} className="mx-auto max-w-2xl text-center">
             <h2
               id="become-testimonials-heading"
               className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
@@ -193,23 +193,23 @@ export function BecomeTestimonials() {
             </p>
           </AnimateIn>
 
-          {/* Navigation Arrow Buttons */}
-          <div className="hidden items-center gap-2 sm:flex">
+          {/* Navigation Arrow Buttons (Right-aligned on mobile and desktop) */}
+          <div className="mt-4 sm:mt-0 w-full sm:w-auto flex justify-end sm:absolute sm:right-0 sm:bottom-0 items-center gap-2">
             <button
               type="button"
               onClick={prevSlide}
               aria-label="Previous testimonial"
-              className="inline-flex size-10 items-center justify-center rounded-full border border-surface-border bg-surface text-ink shadow-xs transition-all duration-200 hover:border-brand-primary hover:bg-brand-soft hover:text-brand-primary active:scale-95"
+              className="inline-flex size-9 sm:size-10 items-center justify-center rounded-full border border-brand-soft-border bg-surface text-ink shadow-xs transition-all duration-200 hover:border-brand-primary hover:bg-brand-soft hover:text-brand-primary active:scale-95"
             >
-              <ArrowLeftIcon className="size-5" />
+              <ArrowLeftIcon className="size-4 sm:size-5" />
             </button>
             <button
               type="button"
               onClick={nextSlide}
               aria-label="Next testimonial"
-              className="inline-flex size-10 items-center justify-center rounded-full border border-surface-border bg-surface text-ink shadow-xs transition-all duration-200 hover:border-brand-primary hover:bg-brand-soft hover:text-brand-primary active:scale-95"
+              className="inline-flex size-9 sm:size-10 items-center justify-center rounded-full border border-brand-soft-border bg-surface text-ink shadow-xs transition-all duration-200 hover:border-brand-primary hover:bg-brand-soft hover:text-brand-primary active:scale-95"
             >
-              <ArrowRightIcon className="size-5" />
+              <ArrowRightIcon className="size-4 sm:size-5" />
             </button>
           </div>
         </div>

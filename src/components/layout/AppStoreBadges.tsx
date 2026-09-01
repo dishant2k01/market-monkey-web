@@ -51,14 +51,14 @@ export function GooglePlayBadge({ href, label }: StoreBadgeProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="inline-flex w-full max-w-[180px] items-center gap-3 rounded-lg border border-surface-inverse-border bg-surface-inverse-elevated px-3.5 py-2.5 transition-colors hover:border-brand-muted"
+      className="inline-flex w-full max-w-[160px] sm:max-w-[180px] items-center gap-2 sm:gap-3 rounded-lg border border-surface-inverse-border bg-surface-inverse-elevated px-2.5 py-2 sm:px-3.5 sm:py-2.5 transition-colors hover:border-brand-muted"
     >
-      <GooglePlayGlyph className="size-7 shrink-0" />
+      <GooglePlayGlyph className="size-5 sm:size-7 shrink-0" />
       <span className="flex min-w-0 flex-col leading-tight">
-        <span className="text-[0.625rem] font-medium tracking-wide text-surface-inverse-muted uppercase">
+        <span className="text-[0.5625rem] sm:text-[0.625rem] font-medium tracking-wide text-surface-inverse-muted uppercase">
           Get it on
         </span>
-        <span className="text-sm font-semibold text-ink-inverse">Google Play</span>
+        <span className="text-xs sm:text-sm font-semibold text-ink-inverse whitespace-nowrap">Google Play</span>
       </span>
     </a>
   );
@@ -71,14 +71,14 @@ export function AppStoreBadge({ href, label }: StoreBadgeProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="inline-flex w-full max-w-[180px] items-center gap-3 rounded-lg border border-surface-inverse-border bg-surface-inverse-elevated px-3.5 py-2.5 text-ink-inverse transition-colors hover:border-brand-muted"
+      className="inline-flex w-full max-w-[160px] sm:max-w-[180px] items-center gap-2 sm:gap-3 rounded-lg border border-surface-inverse-border bg-surface-inverse-elevated px-2.5 py-2 sm:px-3.5 sm:py-2.5 text-ink-inverse transition-colors hover:border-brand-muted"
     >
-      <AppleGlyph className="size-7 shrink-0" />
+      <AppleGlyph className="size-5 sm:size-7 shrink-0" />
       <span className="flex min-w-0 flex-col leading-tight">
-        <span className="text-[0.625rem] font-medium tracking-wide text-surface-inverse-muted">
+        <span className="text-[0.5625rem] sm:text-[0.625rem] font-medium tracking-wide text-surface-inverse-muted whitespace-nowrap">
           Download on the
         </span>
-        <span className="text-sm font-semibold">App Store</span>
+        <span className="text-xs sm:text-sm font-semibold whitespace-nowrap">App Store</span>
       </span>
     </a>
   );

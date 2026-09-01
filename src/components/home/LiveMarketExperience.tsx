@@ -114,8 +114,8 @@ export function LiveMarketExperience() {
               />
             </div>
 
-            {/* Right: Floating Feature Cards with Hover Depth */}
-            <ul className="flex flex-row gap-3 overflow-x-auto pb-1 lg:flex-col lg:gap-3.5 lg:overflow-visible lg:pb-0">
+            {/* Right: Feature Cards (Desktop only, hidden on mobile) */}
+            <ul className="hidden lg:flex lg:flex-col lg:gap-3.5 lg:overflow-visible lg:pb-0">
               {homeLiveExperience.floatingFeatures.map((feature, idx) => (
                 <li
                   key={feature.label}
